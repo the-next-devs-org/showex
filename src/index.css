@@ -1,0 +1,37 @@
+body{
+  background-color: rgb(23 23 23) !important;
+}
+
+.mainSiteColor{
+  color: #03e8cc !important;
+}
+
+/* LandingPage.css - custom styles for the landing page */
+
+/* Example: You can add more styles as needed */
+.bg-black {
+  background-color: #000 !important;
+}
+
+.rounded-4 {
+  border-radius: 1.5rem !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3) !important;
+}
+
+.custom-input {
+  background-color: #2d2d2d;
+  border: 1px solid #404040;
+  color: white !important; /* normal text */
+  padding-left: 40px;
+}
+
+.custom-input::placeholder {
+  color: white !important; /* placeholder ka text */
+  opacity: 0.7; /* halka white effect, chahe to remove kar do */
+}
+
+
+/* Add more custom styles below if needed */
