@@ -2,7 +2,6 @@ import LandingHero from './LandingHero';
 import LandingCharts from './LandingCharts';
 import LandingCarousel from './LandingCarousel';
 import LandingTransactedNFTS from './LandingTransactedNFTS';
-import LandingBlockchain from './LandingBlockchain';
 
 function LandingPage() {
   return (
@@ -20,8 +19,6 @@ function LandingPage() {
         {/* Most Transacted NFTs & Tokens Section */}
         <LandingTransactedNFTS />
 
-       {/* Most LandingBlockchain*/}
-        <LandingBlockchain />
       </div>
     </div>
   );

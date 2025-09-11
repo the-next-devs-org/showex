@@ -16,6 +16,8 @@ import IndicatorsPage from "../pages/indicators/IndicatorsPage";
 import AnalyticsPage from "../pages/analytics/AnalyticsPage";
 import SettingsPage from "../pages/settings/SettingsPage";
 import ProfilePage from "../pages/profile/ProfilePage";
+import BlocksPage from "../pages/blocks/BlocksPage";
+import TransactionsPage from "../pages/transactions/TransactionsPage";
 
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
@@ -26,7 +28,8 @@ function AppRoutes() {
       {/* Existing routes */}
       <Route path="/" element={<LandingPage />} />
       <Route path="/markets" element={<MarketsPage />} />
-      <Route path="/business" element={<BusinessPage />} />
+      <Route path="/transactions" element={<TransactionsPage  />} />
+      <Route path="/blocks" element={<BlocksPage />} />
       <Route path="/technology" element={<TechnologyPage />} />
       <Route path="/contact" element={<ContactPage />} />
 

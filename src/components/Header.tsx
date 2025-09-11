@@ -8,8 +8,8 @@ function Header() {
   // Navbar ke liye items jo AppRoutes ke sath match karte hain
   const navItems = [
     { label: "Home", to: "/" },
-    { label: "Markets", to: "/markets" },
-    { label: "Business", to: "/business" },
+    { label: "Blocks", to: "/blocks" },
+    { label: "Transactions", to: "/transactions" },
     { label: "Technology", to: "/technology" },
     { label: "News", to: "/news" },
     { label: "Calendar", to: "/calendar" },
