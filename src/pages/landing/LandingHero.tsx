@@ -1,7 +1,10 @@
+import ThreeBackground from "../../components/ThreeBackground";
+
 function LandingHero() {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ position: "relative" }}>
         <div className="bg-black rounded-4 p-4 pb-5 position-relative overflow-hidden" style={{boxShadow: '0 0 0 2px #222', minHeight: 520, padding: '36px 36px 0 36px'}}>
+        <ThreeBackground />
           <h1 className="fw-bold" style={{color: '#fff', fontSize: 36, marginBottom: 28, letterSpacing: '-0.5px', lineHeight: 1.15}}>MultiversX Blockchain Explorer</h1>
           <div className="mb-4" style={{maxWidth: 600, marginBottom: 36}}>
             <div style={{position: 'relative'}}>
@@ -12,7 +15,7 @@ function LandingHero() {
             </div>
           </div>
           {/* SVG Grid BG */}
-          <div style={{position: 'absolute', left: 0, top: 110, width: '100%', height: 340, zIndex: 0, pointerEvents: 'none', opacity: 0.7}}>
+          {/* <div style={{position: 'absolute', left: 0, top: 110, width: '100%', height: 340, zIndex: 0, pointerEvents: 'none', opacity: 0.7}}>
             <svg width="100%" height="100%" viewBox="0 0 1100 320" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g>
                 {[...Array(20)].map((_, row) => (
@@ -22,7 +25,7 @@ function LandingHero() {
                 ))}
               </g>
             </svg>
-          </div>
+          </div> */}
           {/* Stats Cards */}
           <div className="w-100 d-flex flex-row flex-wrap gap-4 position-relative" style={{zIndex: 1, marginTop: 70}}>
             <div style={{background: '#23262F', borderRadius: 20, padding: '28px 32px', minWidth: 260, minHeight: 120, boxShadow: '0 2px 12px #0008', marginBottom: 16, display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
