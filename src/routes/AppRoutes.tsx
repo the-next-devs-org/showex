@@ -20,6 +20,7 @@ import AccountPage from "../pages/accounts/AccountPage";
 import AppsPage from "../pages/apps/AppsPage";
 import TokensPage from "../pages/tokens/TokensPage";
 import Nftspage from "../pages/nfts/NftsPage";
+import AnalyticsPage from "../pages/analytics/AnalyticsPage";
 
 function AppRoutes() {
   return (
@@ -31,6 +32,7 @@ function AppRoutes() {
       <Route path="/blocks" element={<BlocksPage />} />
       <Route path="/accounts" element={<AccountPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/analytics" element={<AnalyticsPage />} />
 
       {/* New routes */}
       <Route path="/apps" element={<AppsPage />} />

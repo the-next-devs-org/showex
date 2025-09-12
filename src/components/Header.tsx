@@ -16,7 +16,7 @@ function Header() {
     { label: "Tokens", to: "/tokens" },
     { label: "NFTs", to: "/nfts" },
     { label: "Validators", to: "/validators" },
-    { label: "Contact", to: "/contact" },
+    { label: "Analytics", to: "/analytics" },
   ];
 
   return (

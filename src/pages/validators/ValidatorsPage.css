@@ -1,3 +1,183 @@
+/* --- Validators Table Section (pixel-perfect, matches screenshot) --- */
+.validators-table-section {
+	margin-top: 32px;
+	width: 100%;
+	background: #181818;
+	border-radius: 18px;
+	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+	padding: 0 0 24px 0;
+	overflow: hidden;
+	border: 1px solid #232323;
+}
+.validators-table-tabs {
+	display: flex;
+	gap: 8px;
+	padding: 22px 32px 0 32px;
+	flex-wrap: wrap;
+}
+.validators-table-tab {
+	background: #232323;
+	color: #bdbdbd;
+	border: none;
+	border-radius: 8px;
+	padding: 7px 22px;
+	font-size: 15px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background 0.15s, color 0.15s;
+	outline: none;
+}
+.validators-table-tab.active {
+	background: #00e8cc;
+	color: #181818;
+	font-weight: 700;
+	box-shadow: 0 0 0 2px #00e8cc33;
+}
+.validators-table-scroll {
+	overflow-x: auto;
+	width: 100%;
+}
+.validators-table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	color: #fff;
+	font-size: 15px;
+	min-width: 1100px;
+	background: #181818;
+	margin-top: 8px;
+}
+.validators-table thead tr {
+	background: #202020;
+}
+.validators-table th {
+	font-weight: 600;
+	color: #bdbdbd;
+	padding: 12px 10px 12px 10px;
+	text-align: left;
+	font-size: 14px;
+	letter-spacing: 0.01em;
+	border-bottom: 1px solid #232323;
+	background: #202020;
+	height: 40px;
+}
+.validators-table tbody tr {
+	background: #181818;
+	border-bottom: 1px solid #232323;
+	transition: background 0.18s;
+	height: 54px;
+}
+.validators-table tbody tr:hover {
+	background: #232323;
+}
+.validators-table td {
+	padding: 12px 10px;
+	color: #e0e0e0;
+	font-size: 15px;
+	border-bottom: 1px solid #232323;
+	vertical-align: middle;
+	max-width: 240px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 54px;
+}
+.validators-table td:last-child, .validators-table th:last-child {
+	border-right: none;
+}
+.validators-table tr:last-child td {
+	border-bottom: none;
+}
+.validators-table-name {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	min-width: 220px;
+}
+.validators-table-logo {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	object-fit: cover;
+	background: #232323;
+	border: 2px solid #232323;
+	margin-top: 0;
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,0.10);
+	display: block;
+}
+.validators-table-name-text {
+	color: #fff;
+	font-size: 15px;
+	font-weight: 700;
+	margin-bottom: 1px;
+	letter-spacing: 0.1px;
+}
+.validators-table-progress-bar-bg {
+	width: 120px;
+	height: 10px;
+	background: #232323;
+	border-radius: 8px;
+	overflow: hidden;
+	display: inline-block;
+	margin-right: 8px;
+	vertical-align: middle;
+}
+.validators-table-progress-bar {
+	height: 100%;
+	background: linear-gradient(90deg, #03e8cc 60%, #00b3a4 100%);
+	border-radius: 8px;
+	transition: width 0.3s;
+}
+.validators-table-progress-label {
+	color: #bdbdbd;
+	font-size: 13px;
+	margin-left: 2px;
+	font-weight: 500;
+}
+@media (max-width: 1200px) {
+	.validators-table-section {
+		border-radius: 12px;
+	}
+	.validators-table {
+		min-width: 700px;
+		font-size: 12px;
+	}
+	.validators-table th, .validators-table td {
+		padding: 6px 4px;
+		font-size: 12px;
+	}
+	.validators-table-logo {
+		width: 28px;
+		height: 28px;
+	}
+	.validators-table-name-text {
+		font-size: 13px;
+	}
+}
+@media (max-width: 700px) {
+	.validators-table-section {
+		border-radius: 6px;
+	}
+	.validators-table {
+		min-width: 500px;
+		font-size: 10px;
+	}
+	.validators-table th, .validators-table td {
+		padding: 4px 2px;
+		font-size: 10px;
+	}
+	.validators-table-logo {
+		width: 20px;
+		height: 20px;
+	}
+	.validators-table-name-text {
+		font-size: 10px;
+	}
+	.validators-table-progress-bar-bg {
+		width: 60px;
+		height: 6px;
+	}
+}
 .validators-dashboard-card-range-wrap {
 	position: relative;
 	display: flex;

@@ -3,6 +3,7 @@ import LandingHero from "./LandingHero";
 import LandingCharts from "./LandingCharts";
 import LandingCarousel from "./LandingCarousel";
 import LandingTransactedNFTS from "./LandingTransactedNFTS";
+import BlockchainSlider from "./landingSlider";
 
 interface NewsItem {
   title: string;
@@ -70,6 +71,8 @@ function LandingPage() {
 
         {/* Most Transacted NFTs & Tokens Section */}
         <LandingTransactedNFTS />
+
+        <BlockchainSlider />
 
       </div>
     </div>
