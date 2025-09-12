@@ -1,4 +1,5 @@
 import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
+
 import { Link, useLocation } from "react-router-dom";
 import { FiGrid } from "react-icons/fi";
 
@@ -10,16 +11,16 @@ function Header() {
     { label: "Home", to: "/" },
     { label: "Blocks", to: "/blocks" },
     { label: "Transactions", to: "/transactions" },
-    { label: "Technology", to: "/technology" },
-    { label: "News", to: "/news" },
-    { label: "Calendar", to: "/calendar" },
-    { label: "Indicators", to: "/indicators" },
-    { label: "Analytics", to: "/analytics" },
+    { label: "Accounts", to: "/accounts" },
+    { label: "Apps", to: "/apps" },
+    { label: "Tokens", to: "/tokens" },
+    { label: "NFTs", to: "/nfts" },
+    { label: "Validators", to: "/validators" },
     { label: "Contact", to: "/contact" },
   ];
 
   return (
-    <Navbar expand="lg" className="py-2" style={{ background: "rgb(23 23 23)", position: 'sticky', top: 0, zIndex: 1050,}}>
+  <Navbar expand="lg" className="py-2 header-navbar">
       <Container className="px-4 d-flex align-items-center" style={{ maxWidth: "1200px"}}>
         {/* Logo */}
         <Navbar.Brand as={Link} to="/" className="fw-bold fs-5 d-flex align-items-center">

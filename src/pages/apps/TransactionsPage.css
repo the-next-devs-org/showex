@@ -1,0 +1,344 @@
+/* Browse all deployed apps table styles */
+.apps-browse-table-section {
+	background: #111;
+	border-radius: 18px;
+	box-shadow: 0 2px 12px #0008;
+	padding: 24px 24px 18px 24px;
+	margin-bottom: 32px;
+	width: 100%;
+	max-width: 100%;
+	overflow: visible;
+}
+.apps-browse-table-header-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 18px;
+}
+.apps-browse-table-title {
+	color: #fff;
+	font-size: 22px;
+	font-weight: 800;
+}
+.apps-browse-table-search {
+	background: #18191b;
+	border: 1px solid #232325;
+	border-radius: 10px;
+	color: #fff;
+	font-size: 15px;
+	padding: 8px 18px;
+	width: 260px;
+	outline: none;
+	transition: border 0.18s;
+}
+.apps-browse-table-search:focus {
+	border: 1.5px solid #03e8cc;
+}
+.apps-browse-table-wrapper {
+	background: #18191b;
+	border-radius: 16px;
+	box-shadow: 0 2px 8px #0002;
+	overflow: hidden;
+}
+.apps-browse-table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	color: #fff;
+	font-size: 15px;
+	background: #18191b;
+}
+.apps-browse-table thead tr {
+	background: #202020;
+}
+.apps-browse-table th {
+	font-weight: 700;
+	color: #bdbdbd;
+	padding: 12px 10px 12px 10px;
+	text-align: left;
+	font-size: 14px;
+	letter-spacing: 0.01em;
+	border-bottom: 1px solid #232325;
+	background: #202020;
+}
+.apps-browse-table tbody tr {
+	background: #18191b;
+	border-bottom: 1px solid #232325;
+	transition: background 0.18s;
+	height: 48px;
+}
+.apps-browse-table tbody tr:hover {
+	background: #232325;
+}
+.apps-browse-table td {
+	padding: 10px 10px;
+	color: #e0e0e0;
+	font-size: 15px;
+	border-bottom: 1px solid #232325;
+	vertical-align: middle;
+	max-width: 220px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 48px;
+}
+.apps-browse-table td.apps-browse-table-txns {
+	color: #03e8cc;
+	font-weight: 700;
+}
+.apps-browse-table-icon-wrap {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: transparent;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+.apps-browse-table-footer {
+	background: #18191b;
+	border-top: 1px solid #232325;
+	padding: 16px 0 0 0;
+	display: flex;
+	justify-content: flex-end;
+}
+.apps-browse-table-pagination {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 15px;
+}
+.apps-browse-table-pagination-btn {
+	color: #03e8cc;
+	background: transparent;
+	border-radius: 6px;
+	padding: 2px 12px;
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: 600;
+	transition: background 0.15s;
+	user-select: none;
+	border: none;
+}
+.apps-browse-table-pagination-btn.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+.apps-browse-table-pagination-page {
+	color: #bdbdbd;
+	font-weight: 500;
+	padding: 2px 10px;
+	font-size: 15px;
+	border-radius: 6px;
+	background: transparent;
+}
+.apps-browse-table-pagination-page.active {
+	color: #fff;
+	background: #232323;
+	font-weight: 700;
+}
+/* AppsPage styles: copy of TransactionsPage.css for now */
+@import "../transactions/TransactionsPage.css";
+
+/* Most Used Applications (daily) section styles */
+.apps-most-used-section {
+	background: #111;
+	border-radius: 18px;
+	box-shadow: 0 2px 12px #0008;
+	padding: 18px 18px 18px 18px;
+	margin-bottom: 32px;
+	width: 100%;
+	max-width: 100%;
+	overflow: visible;
+}
+.apps-most-used-title-row {
+	margin-bottom: 18px;
+	display: flex;
+	align-items: center;
+}
+.apps-most-used-title {
+	color: #fff;
+	font-size: 22px;
+	font-weight: 800;
+	letter-spacing: 0.01em;
+}
+.apps-most-used-title-sub {
+	color: #8e8e8e;
+	font-size: 15px;
+	font-weight: 500;
+	margin-left: 8px;
+}
+.apps-most-used-swiper {
+	width: 100%;
+	padding-bottom: 12px;
+}
+.apps-most-used-card {
+	background: #18191b;
+	border-radius: 16px;
+	box-shadow: 0 2px 8px #0004;
+	border: 2px solid #232325;
+	padding: 18px 12px 28px 12px;
+	width: 190px;
+	height: 210px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	margin: 0;
+	transition: box-shadow 0.18s, transform 0.18s, border 0.18s;
+	overflow: hidden;
+}
+.apps-most-used-card:hover {
+	box-shadow: 0 6px 24px #00fff033, 0 2px 8px #0002;
+	border: 2px solid #03e8cc;
+	box-shadow: 0 0 0 2px #03e8cc, 0 6px 24px #00fff033, 0 2px 8px #0002;
+	transform: translateY(-3px) scale(1.035);
+}
+.apps-most-used-rank {
+	color: #fff;
+	font-size: 30px;
+	font-weight: 900;
+	margin-bottom: 2px;
+	margin-left: 2px;
+	text-shadow: 0 2px 8px #000a;
+}
+.apps-most-used-txns {
+	color: #03e8cc;
+	font-size: 16px;
+	font-weight: 700;
+	margin-bottom: 10px;
+	margin-left: 2px;
+}
+.apps-most-used-txns-label {
+	color: #8e8e8e;
+	font-size: 13px;
+	font-weight: 500;
+	margin-left: 2px;
+}
+.apps-most-used-icon-wrap {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background: #1a2323;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 18px;
+	margin-top: 18px;
+	position: relative;
+	overflow: visible;
+}
+.apps-most-used-icon-glow {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	filter: blur(16px);
+	pointer-events: none;
+}
+.apps-most-used-icon {
+	width: 44px;
+	height: 44px;
+	object-fit: contain;
+	z-index: 2;
+	position: relative;
+	display: block;
+	margin: 0 auto;
+}
+.apps-most-used-name {
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	text-shadow: 0 2px 8px #000a;
+	white-space: pre-line;
+	text-align: center;
+	line-height: 1.3;
+	max-width: 100%;
+	min-height: 38px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	word-break: break-word;
+	overflow-wrap: break-word;
+	padding: 0 10px 8px 10px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.swiper-wrapper {
+        padding: 16px 13px 15px 24px !important;
+}
+/* Swiper navigation arrows */
+.apps-most-used-section .swiper-button-next,
+.apps-most-used-section .swiper-button-prev {
+	color: #03e8cc;
+	background: #18191b;
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	box-shadow: 0 2px 8px #0002;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: background 0.18s, color 0.18s;
+}
+.apps-most-used-section .swiper-button-next:hover,
+.apps-most-used-section .swiper-button-prev:hover {
+	background: #03e8cc;
+	color: #18191b;
+}
+.apps-most-used-section .swiper-button-next:after,
+.apps-most-used-section .swiper-button-prev:after {
+	font-size: 22px;
+	font-weight: 900;
+}
+@media (max-width: 1200px) {
+	.apps-most-used-swiper {
+		padding-bottom: 0;
+	}
+	.apps-most-used-card {
+		min-width: 160px;
+		max-width: 180px;
+		padding: 14px 8px 14px 8px;
+	}
+}
+@media (max-width: 900px) {
+	.apps-most-used-section {
+		padding: 12px 4px 12px 4px;
+	}
+	.apps-most-used-card {
+		min-width: 140px;
+		max-width: 160px;
+		padding: 10px 4px 10px 4px;
+	}
+}
+@media (max-width: 600px) {
+	.apps-most-used-title {
+		font-size: 16px;
+	}
+	.apps-most-used-card {
+		min-width: 120px;
+		max-width: 140px;
+		padding: 8px 2px 8px 2px;
+	}
+	.apps-most-used-icon-wrap {
+		width: 44px;
+		height: 44px;
+	}
+	.apps-most-used-icon-glow {
+		width: 44px;
+		height: 44px;
+	}
+	.apps-most-used-icon {
+		width: 28px;
+		height: 28px;
+	}
+}

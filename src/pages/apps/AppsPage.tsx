@@ -1,5 +1,10 @@
+
 import React from "react";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import "./TransactionsPage.css";
 
 type TagProps = {
@@ -10,7 +15,20 @@ function Tag({ children, color = '#03e8cc' }: TagProps) {
   return <span style={{ background: color + '22', color, borderRadius: 6, padding: '2px 8px', fontSize: 13, fontWeight: 500, marginLeft: 4 }}>{children}</span>;
 }
 
-function TransactionsPage() {
+function AppsPage() {
+  // Demo data for most used applications
+  const mostUsedApps = [
+    { rank: 1, name: "xPortal: Social Module 2", txns: 7520, iconType: "xportal" },
+    { rank: 2, name: "xPortal: Boost Module 2", txns: 5810, iconType: "xportal" },
+    { rank: 3, name: "xPortal: Social Module 3", txns: 3902, iconType: "xportal" },
+    { rank: 4, name: "xPortal: Social Module 1", txns: 3805, iconType: "xportal" },
+    { rank: 5, name: "AshSwap: Aggregator v2", txns: 3428, iconType: "ashswap" },
+    { rank: 6, name: "xPortal: Social Module 4", txns: 3200, iconType: "xportal" },
+    { rank: 7, name: "xPortal: Social Module 5", txns: 3100, iconType: "xportal" },
+    { rank: 8, name: "xPortal: Social Module 6", txns: 2950, iconType: "xportal" },
+    { rank: 9, name: "xPortal: Social Module 7", txns: 2800, iconType: "xportal" },
+    { rank: 10, name: "AshSwap: Aggregator v1", txns: 2500, iconType: "ashswap" },
+  ];
   // Demo chart data
   // Demo chart data for different ranges
   // Generate more realistic, dense demo data
@@ -59,7 +77,8 @@ function TransactionsPage() {
   ];
   return (
     <div className="blocks-container">
-      {/* Top Stats Row - pixel-perfect as screenshot */}
+   
+  {/* ...existing code... */}
       <div className="blocks-top-row-flex">
         <div className="blocks-search-bar blocks-search-bar-right">
           <input
@@ -118,7 +137,7 @@ function TransactionsPage() {
           {/* Stats Left */}
           <div style={{ width: 260, background: 'transparent', padding: '32px 0 32px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div style={{ marginBottom: 18 }}>
-              <div style={{ color: '#8e8e8e', fontSize: 15, fontWeight: 500, marginBottom: 2 }}>Total Transactions</div>
+              <div style={{ color: '#8e8e8e', fontSize: 15, fontWeight: 500, marginBottom: 2 }}>Applications</div>
               <div style={{ color: '#23f7dd', fontSize: 32, fontWeight: 700, lineHeight: 1.1, letterSpacing: 1 }}>{last.total.toLocaleString()}</div>
             </div>
             <div style={{ marginBottom: 18 }}>
@@ -193,57 +212,123 @@ function TransactionsPage() {
           </div>
         </div>
       </div>
-      <div style={{ width: "100%" }}>
-        {/* Live Transactions Table */}
-        <div style={{ color: '#fff', fontWeight: 600, fontSize: 20, margin: '24px 0 8px 0', display: 'flex', alignItems: 'center' }}>
-          Live Transactions <span style={{ color: '#03e8cc', fontSize: 12, marginLeft: 8, marginRight: 8, verticalAlign: 'middle' }}>•</span>
-          <Tag color="#232325">Transaction Pool</Tag>
+
+         {/* Most Used Applications (daily) - pixel-perfect carousel */}
+      <div className="apps-most-used-section">
+        <div className="apps-most-used-title-row">
+          <span className="apps-most-used-title">Most Used Applications <span className="apps-most-used-title-sub">(daily)</span></span>
         </div>
-        <div style={{ background: '#18191b', borderRadius: 16, overflow: 'hidden', marginTop: 8, boxShadow: '0 2px 8px #0002' }}>
-          <table className="blocks-table" style={{ minWidth: '100%', fontSize: 15 }}>
+        <Swiper
+          modules={[Navigation]}
+          navigation
+          spaceBetween={20}
+          slidesPerView={5}
+          className="apps-most-used-swiper"
+          allowTouchMove={true}
+          breakpoints={{
+            1200: { slidesPerView: 5 },
+            900: { slidesPerView: 3 },
+            600: { slidesPerView: 2 },
+            0: { slidesPerView: 1 },
+          }}
+        >
+          {mostUsedApps.map((app) => (
+            <SwiperSlide key={app.rank}>
+              <div className="apps-most-used-card">
+                <div className="apps-most-used-rank">{app.rank}</div>
+                <div className="apps-most-used-txns">
+                  {app.txns.toLocaleString()} <span className="apps-most-used-txns-label">Txn</span>
+                </div>
+                <div className="apps-most-used-icon-wrap">
+                  <div className="apps-most-used-icon-glow" style={{boxShadow: app.iconType === 'xportal' ? '0 0 32px 0 #00fff066' : '0 0 32px 0 #ff4d8b66'}}></div>
+                  {app.iconType === 'xportal' ? (
+                    <svg className="apps-most-used-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="32" cy="32" r="32" fill="#18191b" />
+                      <path d="M16 20L32 44L48 20" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M16 44L32 20L48 44" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  ) : (
+                    <img src="https://ashswap.io/favicon-192.png" alt={app.name} className="apps-most-used-icon" />
+                  )}
+                </div>
+                <div className="apps-most-used-name">{app.name}</div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>          
+
+      {/* Browse all deployed apps table - pixel-perfect as screenshot */}
+      <div className="apps-browse-table-section">
+        <div className="apps-browse-table-header-row">
+          <span className="apps-browse-table-title">Browse all deployed apps</span>
+          <input className="apps-browse-table-search" placeholder="Search 11,714 Apps" />
+        </div>
+        <div className="apps-browse-table-wrapper">
+          <table className="apps-browse-table">
             <thead>
-              <tr style={{ background: '#18191b', color: '#8e8e8e', fontWeight: 500 }}>
-                <th>Txn Hash</th>
-                <th>Age</th>
-                <th>Shard</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Method</th>
-                <th>Value</th>
+              <tr>
+                <th>Name/Address</th>
+                <th>Owner</th>
+                <th>Balance</th>
+                <th>Transactions / 24h</th>
+                <th>Deployed</th>
               </tr>
             </thead>
             <tbody>
-              {txRows.map((row, i) => (
-                <tr key={i} className="blocks-table-row-animate">
-                  <td style={{ color: '#ffb300', fontWeight: 600, fontFamily: 'monospace', fontSize: 15 }}>{row.hash}</td>
-                  <td style={{ color: '#8e8e8e', fontWeight: 500 }}>{row.age}</td>
-                  <td style={{ color: '#8e8e8e', fontWeight: 500 }}>{row.shard}</td>
-                  <td style={{ color: '#03e8cc', fontFamily: 'monospace', fontSize: 15 }}>{row.from}</td>
-                  <td style={{ color: '#03e8cc', fontFamily: 'monospace', fontSize: 15 }}>{row.to}</td>
-                  <td>{row.method}</td>
-                  <td style={{ color: '#fff', fontWeight: 600 }}>{row.value}</td>
-                </tr>
-              ))}
+              {/* Demo rows, replace with real data as needed */}
+              <tr>
+                <td><span className="apps-browse-table-icon-wrap"><svg width="32" height="32" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#18191b" /><path d="M16 20L32 44L48 20" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/><path d="M16 44L32 20L48 44" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/></svg></span> xPortal: Social Module 2</td>
+                <td>erd1kj7l40r ... 25dl3s85klfd</td>
+                <td>× 0 EGLD</td>
+                <td className="apps-browse-table-txns">7,520</td>
+                <td>480 days ago</td>
+              </tr>
+              <tr>
+                <td><span className="apps-browse-table-icon-wrap"><svg width="32" height="32" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#18191b" /><path d="M16 20L32 44L48 20" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/><path d="M16 44L32 20L48 44" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/></svg></span> xPortal: Boost Module 2</td>
+                <td>erd135dehdl ... f7y9sz9y2qf</td>
+                <td>× 0 EGLD</td>
+                <td className="apps-browse-table-txns">5,810</td>
+                <td>74 days ago</td>
+              </tr>
+              <tr>
+                <td><span className="apps-browse-table-icon-wrap"><svg width="32" height="32" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#18191b" /><path d="M16 20L32 44L48 20" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/><path d="M16 44L32 20L48 44" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/></svg></span> xPortal: Social Module 3</td>
+                <td>erd12afks7 ... a6mq82wl6k</td>
+                <td>× 0 EGLD</td>
+                <td className="apps-browse-table-txns">3,902</td>
+                <td>480 days ago</td>
+              </tr>
+              <tr>
+                <td><span className="apps-browse-table-icon-wrap"><svg width="32" height="32" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#18191b" /><path d="M16 20L32 44L48 20" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/><path d="M16 44L32 20L48 44" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/></svg></span> xPortal: Social Module 1</td>
+                <td>erd1lj5cu2p ... s38juqktl8fg</td>
+                <td>× 0 EGLD</td>
+                <td className="apps-browse-table-txns">3,805</td>
+                <td>480 days ago</td>
+              </tr>
+              <tr>
+                <td><span className="apps-browse-table-icon-wrap"><svg width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#232325" /></svg></span> erd1qqqqqqqqqqqqqq ... sp89eeyaeqpsn5xqg</td>
+                <td>erd10acgqk0 ... repqsp35dpt</td>
+                <td>× 0 EGLD</td>
+                <td className="apps-browse-table-txns">3,737</td>
+                <td>46 days ago</td>
+              </tr>
+              <tr>
+                <td><span className="apps-browse-table-icon-wrap"><svg width="32" height="32" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#18191b" /><path d="M16 20L32 44L48 20" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/><path d="M16 44L32 20L48 44" stroke="#00fff0" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/></svg></span> xPortal: Social Module 5</td>
+                <td>erd1xyz...abcd</td>
+                <td>× 0 EGLD</td>
+                <td className="apps-browse-table-txns">3,100</td>
+                <td>100 days ago</td>
+              </tr>
             </tbody>
           </table>
-          {/* Table footer: records selector and pagination */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#18191b', padding: '12px 24px', borderTop: '1px solid #232325' }}>
-            <div style={{ color: '#8e8e8e', fontSize: 14 }}>
-              Show
-              <select style={{ margin: '0 8px', background: '#232325', color: '#fff', border: 'none', borderRadius: 6, padding: '2px 8px' }}>
-                <option>25</option>
-                <option>50</option>
-                <option>100</option>
-              </select>
-              records
-            </div>
-            <div>
-              <span className="pagination-btn disabled">&#60;</span>
-              <span className="pagination-page active">1</span>
-              <span className="pagination-page">2</span>
-              <span className="pagination-page">...</span>
-              <span className="pagination-page">400</span>
-              <span className="pagination-btn">Next &#62;</span>
+          <div className="apps-browse-table-footer">
+            <div className="apps-browse-table-pagination">
+              <span className="apps-browse-table-pagination-btn disabled">&#60; Prev</span>
+              <span className="apps-browse-table-pagination-page active">1</span>
+              <span className="apps-browse-table-pagination-page">2</span>
+              <span className="apps-browse-table-pagination-page">...</span>
+              <span className="apps-browse-table-pagination-page">358</span>
+              <span className="apps-browse-table-pagination-btn">Next &#62;</span>
             </div>
           </div>
         </div>
@@ -257,4 +342,4 @@ function TransactionsPage() {
   );
 }
 
-export default TransactionsPage;
+export default AppsPage;
