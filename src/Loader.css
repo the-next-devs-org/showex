@@ -62,3 +62,44 @@
     opacity: 0;
   }
 }
+
+
+/* Mini Loader (same animation but smaller) */
+.mini-loading-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.mini-loader {
+  display: grid;
+  place-items: center;
+  width: 80px; 
+  height: 80px; 
+  position: relative;
+}
+
+.mini-circle {
+  --number: 16;
+  --angle: calc(360deg / var(--number));
+  --hue: 160;
+  --thickness: 6px;
+  --length: calc(var(--thickness) * 6); 
+  --distance: calc(var(--thickness) * -2);
+  --duration: 2s;
+
+  grid-area: 1/1;
+  width: var(--length);
+  height: var(--thickness);
+  border-radius: calc(var(--thickness) / 2);
+  background: hsl(160, 100%, 51%);
+  transform: rotate(calc(var(--index) * var(--angle)))
+    translateY(var(--distance));
+  animation: changeColor calc(var(--duration) * 1) linear infinite,
+    changeOpacity var(--duration) linear infinite;
+  animation-delay: calc((var(--duration) / var(--number)) * var(--index) * 0.1),
+    calc((var(--duration) / var(--number)) * var(--index) * 0.5);
+  mix-blend-mode: plus-lighter;
+}
+

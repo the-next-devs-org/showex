@@ -44,26 +44,6 @@ function LandingPage() {
         {/* Hero Section */}
         <LandingHero />
 
-
-        {/* <div className="bg-white rounded-2xl p-4 shadow-md mb-6">
-          <h2 className="text-lg font-bold mb-4">Latest Forex News</h2>
-          <ul className="space-y-2">
-            {news.map((item, index) => (
-              <li key={index} className="border-b pb-2">
-                <a
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  {item.title}
-                </a>
-                <p className="text-xs text-gray-500">{item.date}</p>
-              </li>
-            ))}
-          </ul>
-        </div> */}
-
         {/* Stats & Charts Section */}
         <LandingCharts />
 

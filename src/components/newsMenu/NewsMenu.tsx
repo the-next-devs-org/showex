@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import MiniLoader from "../MiniLoader";
 
 const NewsMenu = () => {
   const [news, setNews] = useState<any[]>([]);
@@ -21,7 +22,9 @@ const NewsMenu = () => {
   return (
     <div style={{ maxHeight: "300px", overflowY: "auto" }}>
       {loading ? (
-        <p>Loading news...</p>
+        <div className="news-page-loading">
+          <MiniLoader />
+        </div>
       ) : news.length > 0 ? (
         news.slice(0, 6).map((item, i) => (
           <div key={i} className="mb-3">

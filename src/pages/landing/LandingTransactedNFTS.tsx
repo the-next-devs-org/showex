@@ -1,58 +1,88 @@
+import { useEffect, useState } from "react";
 import TransactedTable from '../../components/TransactedTable';
+
 function LandingTransactedNFTS() {
+  const [tableData, setTableData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchStats() {
+      setLoading(true);
+      try {
+        const res = await fetch(
+          "https://forexnewsapi.com/api/v1/stat?currencypair=EUR-USD&date=last30days&page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen"
+        );
+        const data = await res.json();
+        // Convert data.data object to array for table
+        const arr = Object.entries(data.data || {})
+          .map(([date, val]: any, idx) => ({
+            rank: idx + 1,
+            date,
+            positive: val["EUR-USD"].Positive,
+            negative: val["EUR-USD"].Negative,
+            neutral: val["EUR-USD"].Neutral,
+            sentiment: val["EUR-USD"].sentiment_score,
+          }))
+          .sort((a, b) => (a.date < b.date ? 1 : -1)); 
+        setTableData(arr);
+      } catch (err) {
+        setTableData([]);
+      }
+      setLoading(false);
+    }
+    fetchStats();
+  }, []);
+
   return (
     <div className="container-fluid">
-      <div style={{ maxWidth: 1200, margin: '36px auto 36px auto', display: 'flex', gap: 32, flexWrap: 'wrap', alignItems: 'stretch' }}>
+      <div
+        style={{
+          margin: "36px auto 36px auto",
+          display: "flex",
+          gap: 32,
+          flexWrap: "wrap",
+          alignItems: "stretch",
+        }}
+      >
         <TransactedTable
-          title="Most Transacted NFTs"
-          subtitle="Daily"
+          title="EUR-USD Daily Sentiment"
+          subtitle="Last 30 Days"
           buttonLabel="View Dashboard"
           minHeight={480}
           columns={[
-            { label: 'Rank', key: 'rank', width: 60 },
-            { label: 'Token', key: 'token', width: 180 },
-            { label: 'Items', key: 'items', width: 90, align: 'right' },
-            { label: 'Holders', key: 'holders', width: 90, align: 'right' },
-            { label: 'Total Txn', key: 'total', width: 90, align: 'right' },
+            { label: "Rank", key: "rank", width: 60 },
+            { label: "Date", key: "date", width: 120 },
+            { label: "Positive", key: "positive", width: 90, align: "right" },
+            { label: "Negative", key: "negative", width: 90, align: "right" },
+            { label: "Neutral", key: "neutral", width: 90, align: "right" },
+            { label: "Sentiment", key: "sentiment", width: 100, align: "right" },
           ]}
-          data={[
-            { rank: 1, token: <span><span style={{ fontSize: 20 }}>🟤</span> Catheanelnts <span style={{ color: '#ffe066', fontSize: 16, marginLeft: 4 }}>✔️</span></span>, items: '265,531', holders: '8,005', total: 475 },
-            { rank: 2, token: <span><span style={{ fontSize: 20 }}>🔵</span> XPAgeOfIntelligence <span style={{ color: '#ffe066', fontSize: 16, marginLeft: 4 }}>✔️</span></span>, items: '29', holders: '24,816', total: 452 },
-            { rank: 3, token: <span><span style={{ fontSize: 20 }}>🟣</span> xMEX</span>, items: '3', holders: '198', total: 198 },
-            { rank: 4, token: <span><span style={{ fontSize: 20 }}>🦍</span> ELRONDAPESCLUB</span>, items: '10,000', holders: '1,171', total: 87 },
-            { rank: 5, token: <span><span style={{ fontSize: 20 }}>🟢</span> xPortalAchievements <span style={{ color: '#ffe066', fontSize: 16, marginLeft: 4 }}>✔️</span></span>, items: '15', holders: '172,298', total: 54 },
-            { rank: 6, token: <span><span style={{ fontSize: 20 }}>❓</span> MYSTERYBOX</span>, items: '5', holders: '8,112', total: 26 },
-            { rank: 7, token: <span><span style={{ fontSize: 20 }}>🟩</span> xLendAccount</span>, items: '481', holders: '261', total: 23 },
-            { rank: 8, token: <span><span style={{ fontSize: 20 }}>🌀</span> PortalsOfInfinity</span>, items: '19', holders: '40,917', total: 19 },
-            { rank: 9, token: <span><span style={{ fontSize: 20 }}>🏰</span> xCastle</span>, items: '67', holders: '408', total: 17 },
-            { rank: 10, token: <span><span style={{ fontSize: 20 }}>🟡</span> BHAGENTS</span>, items: '8,893', holders: '2,278', total: 13 },
-          ]}
-        />
-        <TransactedTable
-          title="Most Transacted Tokens"
-          subtitle="Daily"
-          buttonLabel="Dashboard"
-          minHeight={480}
-          columns={[
-            { label: 'Rank', key: 'rank', width: 60 },
-            { label: 'Token', key: 'token', width: 220 },
-            { label: 'Total Txn', key: 'total', width: 90, align: 'right' },
-          ]}
-          data={[
-            { rank: 1, token: <span><span style={{ fontSize: 20 }}>🟡</span> WrappedEGLD (WEGLD)</span>, total: '8,402' },
-            { rank: 2, token: <span><span style={{ fontSize: 20 }}>🔵</span> Emorya (EMR)</span>, total: '3,153' },
-            { rank: 3, token: <span><span style={{ fontSize: 20 }}>⚪</span> WrappedUSDC (USDC)</span>, total: '3,150' },
-            { rank: 4, token: <span><span style={{ fontSize: 20 }}>🟢</span> BOBER (BOBER)</span>, total: '1,709' },
-            { rank: 5, token: <span><span style={{ fontSize: 20 }}>🟣</span> HatomUSD (USH)</span>, total: '1,217' },
-            { rank: 6, token: <span><span style={{ fontSize: 20 }}>🔵</span> WrappedEmorya (WEMR)</span>, total: '955' },
-            { rank: 7, token: <span><span style={{ fontSize: 20 }}>🟢</span> EmoryaSportsX (EMRS)</span>, total: '907' },
-            { rank: 8, token: <span><span style={{ fontSize: 20 }}>🟡</span> CatheaneGold (GOG)</span>, total: '835' },
-            { rank: 9, token: <span><span style={{ fontSize: 20 }}>🟣</span> Hatom (HTM)</span>, total: '789' },
-            { rank: 10, token: <span><span style={{ fontSize: 20 }}>🦊</span> Foxsy (FOXSY)</span>, total: '674' },
-          ]}
+          data={
+            loading
+              ? []
+              : tableData.map((row) => ({
+                  ...row,
+                  sentiment: (
+                    <span
+                      style={{
+                        color:
+                          row.sentiment > 0.2
+                            ? "#2e7d32"
+                            : row.sentiment < -0.2
+                            ? "#c62828"
+                            : "#aaa",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {row.sentiment}
+                    </span>
+                  ),
+                }))
+          }
         />
       </div>
     </div>
   );
 }
+
 export default LandingTransactedNFTS;

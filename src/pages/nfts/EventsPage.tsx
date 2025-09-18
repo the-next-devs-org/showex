@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ import navigate
+import { useNavigate } from "react-router-dom";
+import MiniLoader from "../../components/MiniLoader";
 
 function Nftspage() {
   const [news, setNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); // ✅ hook use
+  const [visibleCount, setVisibleCount] = useState(15); // 👈 default 15
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchNews() {
@@ -26,30 +28,30 @@ function Nftspage() {
   return (
     <div
       style={{
-        background: "#000", // 🔥 Black background
         minHeight: "100vh",
         padding: "20px",
-        color: "#fff", // default text white
+        color: "#fff",
       }}
     >
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-        {/* 📢 News Section */}
         <h2
           style={{
             marginTop: "40px",
             fontSize: "22px",
             fontWeight: "bold",
-            color: "#00e8cc", // 🔥 heading color
+            color: "#00e8cc",
           }}
         >
           Events News
         </h2>
 
         {loading ? (
-          <div style={{ textAlign: "center", padding: "20px" }}>Loading...</div>
+          <div style={{ textAlign: "center", padding: "20px" }}>
+            <MiniLoader />
+          </div>
         ) : (
           <div style={{ marginTop: "20px" }}>
-            {news.map((item) => {
+            {news.slice(0, visibleCount).map((item) => {
               const dateObj = new Date(item.date);
               const formattedDate = dateObj.toLocaleDateString("en-US", {
                 month: "short",
@@ -68,7 +70,6 @@ function Nftspage() {
                     alignItems: "flex-start",
                   }}
                 >
-                  {/* Date */}
                   <div
                     style={{
                       width: "120px",
@@ -80,7 +81,6 @@ function Nftspage() {
                     {formattedDate}
                   </div>
 
-                  {/* Title + Description */}
                   <div style={{ flex: 1, padding: "0 20px" }}>
                     <h3
                       style={{
@@ -104,7 +104,6 @@ function Nftspage() {
                     </p>
                   </div>
 
-                  {/* Arrow Button → Redirect to /single-events */}
                   <div
                     style={{
                       display: "flex",
@@ -113,7 +112,7 @@ function Nftspage() {
                       cursor: "pointer",
                       color: "#00e8cc",
                     }}
-                    onClick={() => navigate(`/event/${item.event_id}`)} // ✅ id pass kiya
+                    onClick={() => navigate(`/event/${item.event_id}`)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -133,6 +132,17 @@ function Nftspage() {
                 </div>
               );
             })}
+
+            {news.length > visibleCount && (
+              <div style={{ textAlign: "center", marginTop: "20px" }}>
+                <button
+                  onClick={() => setVisibleCount((prev) => prev + 15)}
+                  className="load-more-btn"
+                >
+                  Load More
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>

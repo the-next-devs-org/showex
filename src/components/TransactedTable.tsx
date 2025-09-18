@@ -22,21 +22,10 @@ const TransactedTable: React.FC<TransactedTableProps> = ({
   buttonLabel,
   columns,
   data,
-  minHeight = 480,
 }) => (
-  <div style={{
-    flex: 1,
-    minWidth: 420,
-    background: '#181A20',
-    borderRadius: 20,
-    boxShadow: '0 2px 12px #0008',
-    padding: 0,
-    overflow: 'hidden',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    minHeight,
-  }}>
+  <div 
+    className='LandingPageTableContent'
+   >
     <div style={{
       display: 'flex',
       justifyContent: 'space-between',

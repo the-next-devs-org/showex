@@ -11,12 +11,10 @@ const ThreeBackground: React.FC = () => {
       particles: THREE.Points,
       material: THREE.PointsMaterial;
 
-    // Fixed values (same as HTML code)
     let waveSpeed = 0.5;
     let waveAmplitude = 100;
     let dotSize = 6;
 
-    // Grid params
     const SEPARATION = 25;
     const AMOUNTX = 120;
     const AMOUNTY = 80;
@@ -55,21 +53,10 @@ const ThreeBackground: React.FC = () => {
           positions[i + 1] = 0;
           positions[i + 2] = z;
 
-          const centerX = AMOUNTX / 2;
-          const centerY = AMOUNTY / 2;
-          const distanceFromCenter = Math.sqrt(
-            Math.pow(ix - centerX, 2) + Math.pow(iy - centerY, 2)
-          );
-          const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
-          const normalizedDistance = Math.min(
-            1,
-            distanceFromCenter / maxDistance
-          );
-
-          const brightness = Math.max(0.15, 1 - normalizedDistance * 0.8);
-          colors[j] = brightness * 0.7;
-          colors[j + 1] = brightness * 0.9;
-          colors[j + 2] = brightness;
+          // Set all dots to #00e8cc
+          colors[j] = 0 / 255; // R
+          colors[j + 1] = 232 / 255; // G
+          colors[j + 2] = 204 / 255; // B
 
           i += 3;
           j += 3;
@@ -136,32 +123,10 @@ const ThreeBackground: React.FC = () => {
             const finalHeight = wave1 + wave2 + wave3;
             positions[i + 1] = finalHeight;
 
-            const heightFactor =
-              (finalHeight + waveAmplitude * 2) / (waveAmplitude * 4);
-
-            const centerX = AMOUNTX / 2;
-            const centerY = AMOUNTY / 2;
-            const distanceFromCenter = Math.sqrt(
-              Math.pow(ix - centerX, 2) + Math.pow(iy - centerY, 2)
-            );
-            const maxDistance = Math.sqrt(
-              centerX * centerX + centerY * centerY
-            );
-            const normalizedDistance = Math.min(
-              1,
-              distanceFromCenter / maxDistance
-            );
-
-            const baseBrightness = Math.max(
-              0.1,
-              1 - normalizedDistance * 0.7
-            );
-            const heightBrightness = Math.max(0.4, heightFactor);
-            const finalBrightness = baseBrightness * heightBrightness;
-
-            colors[j] = finalBrightness * 0.8;
-            colors[j + 1] = finalBrightness * 0.95;
-            colors[j + 2] = finalBrightness * 1.1;
+            // Keep all dots #00e8cc
+            colors[j] = 0 / 255; // R
+            colors[j + 1] = 232 / 255; // G
+            colors[j + 2] = 204 / 255; // B
 
             i += 3;
             j += 3;

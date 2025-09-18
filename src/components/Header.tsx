@@ -13,11 +13,11 @@ function Header() {
     { label: "Home", to: "/" },
     { label: "News", to: "/news" },
     { label: "Markets", to: "/markets" },
-    { label: "Analysis", to: "/analysis" },
-    { label: "Tools", to: "/tools" },
-    { label: "Education", to: "/education" },
+    // { label: "Analysis", to: "/analysis" },
+    // { label: "Tools", to: "/tools" },
+    // { label: "Education", to: "/education" },
     { label: "Events", to: "/events" },
-    { label: "Validators", to: "/validators" },
+    // { label: "Validators", to: "/validators" },
     { label: "Analytics", to: "/analytics" },
   ];
 
@@ -98,7 +98,7 @@ function Header() {
                   <div
                     key={item.to}
                     onMouseEnter={() => {
-                      if (item.label !== "Home") {
+                        if (item.label !== "Home" && item.label !== "Events" && item.label !== "Markets") {
                         setHoverItem(item.label);
                         setActiveSubTab(
                           menuContent[item.label]?.leftLinks?.[0] || null

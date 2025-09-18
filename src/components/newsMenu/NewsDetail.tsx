@@ -1,11 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./NewsDetail.css";
+import MiniLoader from "../MiniLoader";
 
 function NewsDetail() {
   const { id } = useParams(); // id from route
   const [news, setNews] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [allNews, setAllNews] = useState<any[]>([]);
 
   useEffect(() => {
     async function fetchNews() {
@@ -15,8 +17,7 @@ function NewsDetail() {
           "https://forexnewsapi.com/api/v1/trending-headlines?&page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen"
         );
         const data = await res.json();
-
-        // find by id (convert id from params to number because API returns number)
+        setAllNews(data.data || []);
         const newsItem = data.data.find((item: any) => item.id === Number(id));
         setNews(newsItem || null);
       } catch (err) {
@@ -27,35 +28,62 @@ function NewsDetail() {
     fetchNews();
   }, [id]);
 
-  if (loading) return <div className="news-detail-loading">Loading...</div>;
+  if (loading) return <div className="news-detail-loading"><MiniLoader /></div>;
   if (!news) return <div className="news-detail-error">News not found.</div>;
 
+  // Suggestions: 3 random news except current
+  const suggestions = allNews
+    .filter((item) => item.id !== Number(id))
+    .slice(0, 4);
+
   return (
-    <div className="news-detail-container">
-      <div className="news-detail-card">
-        <div className="news-detail-header">
-          <h1 className="news-detail-title">{news.headline}</h1>
-          {news.sentiment && (
-            <span className={`news-detail-sentiment ${news.sentiment?.toLowerCase()}`}>
-              {news.sentiment}
-            </span>
-          )}
-        </div>
-        <div className="news-detail-meta">
-          <span className="news-detail-date">{news.date}</span>
-        </div>
-        {news.image && (
-          <div className="news-detail-image-wrapper">
-            <img
-              src={news.image}
-              alt={news.headline}
-              className="news-detail-image"
-            />
+    <div className="container-fluid" style={{ maxWidth: 1200, margin: '0 auto' }}>
+      <div style={{ minHeight: '100vh', width: '100%', padding: '32px 0' }}>
+        <div className="news-detail-main">
+          <div className="news-detail-card news-page-style">
+            <div className="news-detail-header">
+              <h1 className="news-detail-title">{news.headline}</h1>
+              {news.sentiment && (
+                <span className={`news-detail-sentiment ${news.sentiment?.toLowerCase()}`}>
+                  {news.sentiment}
+                </span>
+              )}
+            </div>
+            <div className="news-detail-meta">
+              <span className="news-detail-date">{news.date}</span>
+            </div>
+            {news.image && (
+              <div className="news-detail-image-wrapper">
+                <img
+                  src={news.image}
+                  alt={news.headline}
+                  className="news-detail-image"
+                />
+              </div>
+            )}
+            <div className="news-detail-content">
+              <p className="news-detail-text">{news.text}</p>
+              {news.content && <div className="news-detail-body">{news.content}</div>}
+            </div>
           </div>
-        )}
-        <div className="news-detail-content">
-          <p className="news-detail-text">{news.text}</p>
-          {news.content && <div className="news-detail-body">{news.content}</div>}
+
+          {/* Suggestions Section */}
+          <div className="news-suggestions-section">
+            <h2 className="suggestions-title">Other News</h2>
+            <div className="suggestions-list">
+              {suggestions.map((item) => (
+                <Link to={`/news/${item.id}`} className="suggestion-card" key={item.id}>
+                  {item.image && (
+                    <img src={item.image} alt={item.headline} className="suggestion-image" />
+                  )}
+                  <div className="suggestion-info">
+                    <div className="suggestion-headline">{item.headline}</div>
+                    <div className="suggestion-date">{item.date}</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

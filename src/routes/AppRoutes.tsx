@@ -18,11 +18,15 @@ import AccountPage from "../pages/accounts/AccountPage";
 import AppsPage from "../pages/apps/AppsPage";
 import TokensPage from "../pages/tokens/TokensPage";
 import EventsPage from "../pages/nfts/EventsPage";
-import SingleEvents from "../pages/nfts/SingleEvents"; // ✅ Corrected import
+import SingleEvents from "../pages/nfts/SingleEvents"; 
 import Analysis from "../pages/analysis/AnalysisPage";
 import LandingTools from "../pages/tools/LandingTools";
 import LandingEducation from "../pages/education/LandingEducation";
-import AnalyticsPage from "../pages/analytics/AnalyticsPage"; // ✅ added import
+import AnalyticsPage from "../pages/analytics/AnalyticsPage";  
+import AllNews from "../pages/news/AllNews";
+import SunDownDetail from "../pages/sundown/SunDownDetail";
+
+
 
 function AppRoutes() {
   return (
@@ -38,6 +42,8 @@ function AppRoutes() {
       <Route path="/accounts" element={<AccountPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/analytics" element={<AnalyticsPage />} />
+      <Route path="/all-news" element={<AllNews />} />
+      <Route path="/sundown/:id" element={<SunDownDetail />} />
 
       {/* New routes */}
       <Route path="/apps" element={<AppsPage />} />
