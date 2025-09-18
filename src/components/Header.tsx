@@ -16,18 +16,17 @@ function Header() {
     { label: "Analysis", to: "/analysis" },
     { label: "Tools", to: "/tools" },
     { label: "Education", to: "/education" },
-    { label: "NFTs", to: "/nfts" },
+    { label: "Events", to: "/events" },
     { label: "Validators", to: "/validators" },
     { label: "Analytics", to: "/analytics" },
   ];
 
   const menuContent: any = {
     News: {
-      leftLinks: ["Latest News", "Breaking News", "Top Stories"],
+      leftLinks: ["Latest News"],
       rightContent: {
         "Latest News": <NewsMenu />,
-        "Breaking News": <p>Breaking news coming soon...</p>,
-        "Top Stories": <p>Top market stories will appear here.</p>,
+      
       },
     },
     Markets: {
@@ -132,7 +131,7 @@ function Header() {
                       <div
                         style={{
                           position: "fixed",
-                          top: "55px",
+                          top: "48px",
                           left: 0,
                           width: "100%",
                           height: "50vh",

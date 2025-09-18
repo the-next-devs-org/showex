@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const NewsMenu = () => {
   const [news, setNews] = useState<any[]>([]);
@@ -24,10 +25,8 @@ const NewsMenu = () => {
       ) : news.length > 0 ? (
         news.slice(0, 6).map((item, i) => (
           <div key={i} className="mb-3">
-            <a
-              href={item.url || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={`/news/${item.id || item.uuid || i}`}
               style={{
                 color: "#00E8CC",
                 textDecoration: "none",
@@ -35,7 +34,7 @@ const NewsMenu = () => {
               }}
             >
               {item.headline}
-            </a>
+            </Link>
             {item.text && (
               <p style={{ fontSize: "12px", color: "#aaa" }}>{item.text}</p>
             )}

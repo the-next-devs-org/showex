@@ -2,7 +2,7 @@ import TransactedTable from '../../components/TransactedTable';
 function LandingTransactedNFTS() {
   return (
     <div className="container-fluid">
-      <div style={{ maxWidth: 1200, margin: '36px auto 0 auto', display: 'flex', gap: 32, flexWrap: 'wrap', alignItems: 'stretch' }}>
+      <div style={{ maxWidth: 1200, margin: '36px auto 36px auto', display: 'flex', gap: 32, flexWrap: 'wrap', alignItems: 'stretch' }}>
         <TransactedTable
           title="Most Transacted NFTs"
           subtitle="Daily"
