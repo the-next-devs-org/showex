@@ -140,7 +140,7 @@
 	font-weight: 700;
 }
 /* AppsPage styles: copy of TransactionsPage.css for now */
-@import "../transactions/TransactionsPage.css";
+/* @import "../transactions/TransactionsPage.css"; */
 
 /* Most Used Applications (daily) section styles */
 .apps-most-used-section {

@@ -3,8 +3,8 @@ import React from "react";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
 import "./TransactionsPage.css";
 
 type TagProps = {
@@ -75,6 +75,7 @@ function AppsPage() {
     { hash: '2f369b1...b0f9f7', age: '10 secs', shard: 'Shard 1 → Shard 2', from: 'erd1ssau...vyaq3w4t', to: 'erd1w9en...3qe9e9d8', method: <Tag>Transfer</Tag>, value: 'x0.01 EGLD' },
     { hash: '19381fc...4f095d', age: '10 secs', shard: 'Shard 0', from: 'erd1qgw...3qg0p8m8', to: <Tag color="#7c6fff">erd1cuqj...Qhquzkz</Tag>, method: <Tag>Transfer</Tag>, value: 'x0.01 EGLD' },
   ];
+  console.log("Rendering AppsPage with last stats:", txRows);
   return (
     <div className="blocks-container">
    

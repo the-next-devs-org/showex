@@ -299,7 +299,7 @@ function LandingHero() {
     <div className="container-fluid" style={{ position: "relative" }}>
       <div className="bg-black rounded-4 p-4 pb-5 position-relative overflow-hidden" style={{ boxShadow: '0 0 0 2px #222', minHeight: 520, padding: '36px 36px 0 36px' }}>
         <ThreeBackground />
-        <h1 className="fw-bold" style={{ color: '#fff', fontSize: 36, marginBottom: 28, letterSpacing: '-0.5px', lineHeight: 1.15, zIndex: '99999999', position: 'relative' }}>ShowEX Blockchain Explorer</h1>
+        <h1 className="fw-bold" style={{ color: '#fff', fontSize: 36, marginBottom: 28, letterSpacing: '-0.5px', lineHeight: 1.15, zIndex: '99', position: 'relative' }}>ShowEX Blockchain Explorer</h1>
         <div className="mb-4" style={{ maxWidth: 600, marginBottom: 36 }}>
           <div style={{ position: 'relative' }}>
             <input className="form-control bg-dark text-light border-0 px-4" style={{ borderRadius: 16, fontSize: 16, height: 48, boxShadow: '0 0 0 1.5px #1a2b2b', paddingRight: 44, fontWeight: 500, letterSpacing: '0.1px' }} placeholder="Search for an address, @herotag, transaction/block hash, validator key or token id" />

@@ -12,7 +12,7 @@ import NewsHistoryPage from "../pages/news/NewsHistoryPage";
 import ValidatorsPage from "../pages/validators/ValidatorsPage";
 import SettingsPage from "../pages/settings/SettingsPage";
 import ProfilePage from "../pages/profile/ProfilePage";
-import BlocksPage from "../pages/blocks/BlocksPage";
+import NewsPage from "../pages/news/NewsPage";
 import TransactionsPage from "../pages/transactions/TransactionsPage";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
@@ -21,6 +21,9 @@ import AppsPage from "../pages/apps/AppsPage";
 import TokensPage from "../pages/tokens/TokensPage";
 import Nftspage from "../pages/nfts/NftsPage";
 import AnalyticsPage from "../pages/analytics/AnalyticsPage";
+import Analysis from "../pages/analysis/AnalysisPage";
+import LandingTools from "../pages/tools/LandingTools";
+import LandingEducation from "../pages/education/LandingEducation";
 
 function AppRoutes() {
   return (
@@ -29,7 +32,10 @@ function AppRoutes() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/markets" element={<MarketsPage />} />
       <Route path="/transactions" element={<TransactionsPage  />} />
-      <Route path="/blocks" element={<BlocksPage />} />
+      <Route path="/analysis" element={<Analysis  />} />
+      <Route path="/tools" element={<LandingTools  />} />
+      <Route path="/education" element={<LandingEducation  />} />
+      <Route path="/news" element={<NewsPage />} />
       <Route path="/accounts" element={<AccountPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/analytics" element={<AnalyticsPage />} />

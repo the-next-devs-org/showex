@@ -4,6 +4,7 @@ import LandingCharts from "./LandingCharts";
 import LandingCarousel from "./LandingCarousel";
 import LandingTransactedNFTS from "./LandingTransactedNFTS";
 import BlockchainSlider from "./landingSlider";
+import Loading from "../../components/Loading";
 
 interface NewsItem {
   title: string;
@@ -35,7 +36,7 @@ function LandingPage() {
     fetchNews();
   }, []);
 
-  if (loading) return <p>Loading news...</p>;
+  if (loading) return <Loading />;
 
   return (
     <div className="container-fluid" style={{ maxWidth: 1200, margin: '0 auto' }}>
