@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ThreeBackground from "../../components/ThreeBackground";
 
 function LandingHero() {

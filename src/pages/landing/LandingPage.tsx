@@ -14,9 +14,10 @@ interface NewsItem {
 }
 
 function LandingPage() {
-  // 2. state ko type karo
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  console.log(news);
+
 
   useEffect(() => {
     const fetchNews = async () => {

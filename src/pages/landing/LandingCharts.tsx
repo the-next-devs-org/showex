@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 type ChartPoint = {
   date: string;
@@ -47,6 +47,8 @@ function LandingCharts() {
     y: 0,
     data: null
   });
+
+  console.log(isDropdownOpen, setIsDropdownOpen,tooltip,setTooltip,setSelectedPeriod);
 
   // News state
   const [news, setNews] = useState<NewsItem[]>([]);
@@ -132,6 +134,8 @@ function LandingCharts() {
   const formatNumber = (num: number) => {
     return num.toLocaleString();
   };
+
+  console.log(periods, currentData,formatNumber);
 
   return (
     <div className="container-fluid">
