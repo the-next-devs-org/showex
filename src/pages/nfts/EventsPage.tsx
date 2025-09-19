@@ -5,15 +5,16 @@ import MiniLoader from "../../components/MiniLoader";
 function Nftspage() {
   const [news, setNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [visibleCount, setVisibleCount] = useState(15); // 👈 default 15
+  const [visibleCount, setVisibleCount] = useState(15);
   const navigate = useNavigate();
+  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
+  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+
 
   useEffect(() => {
     async function fetchNews() {
       try {
-        const res = await fetch(
-          "https://forexnewsapi.com/api/v1/events?page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen"
-        );
+        const res = await fetch(`${API_BASE_URL}/events?page=1&token=${API_KEY}`);
         const data = await res.json();
         setNews(data.data);
       } catch (error) {

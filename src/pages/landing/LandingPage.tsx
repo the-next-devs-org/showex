@@ -18,13 +18,14 @@ function LandingPage() {
   const [loading, setLoading] = useState<boolean>(true);
   console.log(news);
 
+  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
+  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch(
-          "https://forexnewsapi.com/api/v1/category?section=general&items=10&page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen"
-        );
+        const res = await fetch(`${API_BASE_URL}/category?section=general&items=10&page=1&token=${API_KEY}`);
         const data = await res.json();
         setNews(data.data || []);
       } catch (error) {

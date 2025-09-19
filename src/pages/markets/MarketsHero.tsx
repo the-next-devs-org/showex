@@ -18,10 +18,12 @@ function MarketsHero() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(9)
+  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
+  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
 
   useEffect(() => {
     fetch(
-      "https://forexnewsapi.com/api/v1?currencypair-include=EUR-USD,GBP-USD&items=6&page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen"
+      `${API_BASE_URL}?currencypair-include=EUR-USD,GBP-USD&items=6&page=1&token=${API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => {

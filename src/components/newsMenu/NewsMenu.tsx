@@ -5,12 +5,13 @@ import MiniLoader from "../MiniLoader";
 const NewsMenu = () => {
   const [news, setNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
+  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
 
   useEffect(() => {
     setLoading(true);
     fetch(
-      "https://forexnewsapi.com/api/v1/trending-headlines?&page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen"
-    )
+      `${API_BASE_URL}/trending-headlines?&page=1&token=${API_KEY}`)
       .then((res) => res.json())
       .then((data) => {
         setNews(data.data || []);

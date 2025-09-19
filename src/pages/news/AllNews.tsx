@@ -13,9 +13,11 @@ const AllNews: React.FC = () => {
     const [news, setNews] = useState<ApiData[]>([]);
     const [loading, setLoading] = useState(true);
     const [visibleCount, setVisibleCount] = useState(12);
+    const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
+    const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
 
     useEffect(() => {
-        fetch("https://forexnewsapi.com/api/v1/sundown-digest?page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen")
+        fetch(`${API_BASE_URL}/sundown-digest?page=1&token=${API_KEY}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data?.data) {
@@ -37,7 +39,6 @@ const AllNews: React.FC = () => {
     return (
         <div
             style={{
-                backgroundColor: "#000000",
                 minHeight: "100vh",
                 padding: "24px",
                 fontFamily: 'system-ui, -apple-system, sans-serif',

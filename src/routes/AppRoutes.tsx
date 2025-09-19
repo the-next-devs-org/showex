@@ -20,11 +20,12 @@ import TokensPage from "../pages/tokens/TokensPage";
 import EventsPage from "../pages/nfts/EventsPage";
 import SingleEvents from "../pages/nfts/SingleEvents"; 
 import Analysis from "../pages/analysis/AnalysisPage";
-import LandingTools from "../pages/tools/LandingTools";
 import LandingEducation from "../pages/education/LandingEducation";
 import AnalyticsPage from "../pages/analytics/AnalyticsPage";  
 import AllNews from "../pages/news/AllNews";
 import SunDownDetail from "../pages/sundown/SunDownDetail";
+import LandingCurrencies from "../pages/currencies/LandingCurrencies";
+import PageNotFound from "../pages/notFound/PageNotFound";
 
 
 
@@ -36,7 +37,7 @@ function AppRoutes() {
       <Route path="/markets" element={<MarketsPage />} />
       <Route path="/transactions" element={<TransactionsPage />} />
       <Route path="/analysis" element={<Analysis />} />
-      <Route path="/tools" element={<LandingTools />} />
+      <Route path="/currencies" element={<LandingCurrencies />} />
       <Route path="/education" element={<LandingEducation />} />
       <Route path="/news" element={<NewsPage />} />
       <Route path="/accounts" element={<AccountPage />} />
@@ -51,7 +52,7 @@ function AppRoutes() {
       <Route path="/news-history" element={<NewsHistoryPage />} />
       <Route path="/tokens" element={<TokensPage />} />
       <Route path="/events" element={<EventsPage />} />
-      <Route path="/event/:id" element={<SingleEvents />} /> {/* ✅ Fixed */}
+      <Route path="/event/:id" element={<SingleEvents />} />
       <Route path="/validators" element={<ValidatorsPage />} />
       <Route path="/settings" element={<SettingsPage />} />
       <Route path="/profile" element={<ProfilePage />} />
@@ -59,7 +60,7 @@ function AppRoutes() {
       <Route path="/register" element={<Register />} />
       <Route
         path="*"
-        element={<h2 className="text-center mt-5">Page Not Found</h2>}
+        element={<PageNotFound />}
       />
     </Routes>
   );

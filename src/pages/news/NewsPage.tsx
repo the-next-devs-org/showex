@@ -14,14 +14,14 @@ function NewsPage() {
   const [allNews, setAllNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadedIds, setLoadedIds] = useState<Set<number>>(new Set());
+  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
+  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
 
   useEffect(() => {
     async function fetchNews() {
       setLoading(true);
       try {
-        const res = await fetch(
-          "https://forexnewsapi.com/api/v1/trending-headlines?&page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen"
-        );
+        const res = await fetch(`${API_BASE_URL}/trending-headlines?&page=1&token=${API_KEY}`);
         const data = await res.json();
         setAllNews(data.data || []);
         // Initial random 15

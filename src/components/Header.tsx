@@ -1,20 +1,21 @@
-import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
-import { FiGrid } from "react-icons/fi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewsMenu from "./newsMenu/NewsMenu";
 
 function Header() {
   const location = useLocation();
   const [hoverItem, setHoverItem] = useState<string | null>(null);
   const [activeSubTab, setActiveSubTab] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const isAuthenticated = false;
 
   const navItems = [
     { label: "Home", to: "/" },
     { label: "News", to: "/news" },
     { label: "Markets", to: "/markets" },
-    // { label: "Analysis", to: "/analysis" },
-    // { label: "Tools", to: "/tools" },
+    { label: "Analysis", to: "/analysis" },
+    { label: "Currencies", to: "/currencies" },
     // { label: "Education", to: "/education" },
     { label: "Events", to: "/events" },
     // { label: "Validators", to: "/validators" },
@@ -26,7 +27,7 @@ function Header() {
       leftLinks: ["Latest News"],
       rightContent: {
         "Latest News": <NewsMenu />,
-      
+
       },
     },
     Markets: {
@@ -64,18 +65,30 @@ function Header() {
     },
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <Navbar
         expand="lg"
-        className="py-2 header-navbar"
-        style={{ position: "sticky", top: 0, zIndex: 1000 }}
+        className={`py-2 header-navbar ${scrolled ? "custmhederbg shadow-sm" : "bg-transparent"}`}
+        style={{ position: "sticky", top: 0, zIndex: 1000, transition: "background-color 0.3s ease" }}
       >
         <Container
           className="px-4 d-flex align-items-center"
           style={{ maxWidth: "1200px" }}
         >
-          {/* Logo */}
           <Navbar.Brand
             as={Link}
             to="/"
@@ -88,7 +101,6 @@ function Header() {
           <Navbar.Toggle aria-controls="main-navbar" className="border-0" />
 
           <Navbar.Collapse id="main-navbar">
-            {/* Center Menu */}
             <Nav className="mx-auto d-flex align-items-center">
               {navItems.map((item) => {
                 const isActive = location.pathname === item.to;
@@ -98,11 +110,11 @@ function Header() {
                   <div
                     key={item.to}
                     onMouseEnter={() => {
-                        if (item.label !== "Home" && item.label !== "Events" && item.label !== "Markets") {
+                      if (item.label !== "Home" && item.label !== "Events" && item.label !== "Markets" && item.label !== "Currencies") {
                         setHoverItem(item.label);
                         setActiveSubTab(
                           menuContent[item.label]?.leftLinks?.[0] || null
-                        ); // default first tab
+                        );  
                       }
                     }}
                     onMouseLeave={() => {
@@ -126,7 +138,6 @@ function Header() {
                       {item.label}
                     </Nav.Link>
 
-                    {/* Hover div */}
                     {hoverItem === item.label && item.label !== "Home" && (
                       <div
                         style={{
@@ -135,7 +146,7 @@ function Header() {
                           left: 0,
                           width: "100%",
                           height: "50vh",
-                          backgroundColor: "#111",
+                          backgroundColor: "#111111",
                           color: "#fff",
                           zIndex: 999,
                         }}
@@ -144,7 +155,6 @@ function Header() {
                           className="container py-4 d-flex gap-5"
                           style={{ maxWidth: "1200px" }}
                         >
-                          {/* Left side links */}
                           <div className="d-flex flex-column gap-3">
                             {menuContent[item.label]?.leftLinks?.map(
                               (link: string) => (
@@ -165,7 +175,6 @@ function Header() {
                             )}
                           </div>
 
-                          {/* Right side content */}
                           <div style={{ flex: 1 }}>
                             {activeSubTab &&
                               menuContent[item.label]?.rightContent?.[activeSubTab]}
@@ -178,44 +187,34 @@ function Header() {
               })}
             </Nav>
 
-            {/* Right Side */}
             <div className="d-flex align-items-center gap-3">
-              {/* Mainnet Dropdown */}
-              <Dropdown align="end">
-                <Dropdown.Toggle
-                  variant="dark"
-                  className="d-flex align-items-center gap-2 border-0 px-3 py-1"
-                  style={{
-                    fontSize: "13px",
-                    backgroundColor: "#111",
-                    borderRadius: "20px",
-                    color: "#fff",
-                  }}
+              {isAuthenticated ? (
+                <Link
+                  to="/profile"
+                  className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize mainSiteBgColor"
                 >
-                  <span
-                    className="rounded-circle"
-                    style={{
-                      width: "8px",
-                      height: "8px",
-                      backgroundColor: "#00E8CC",
-                    }}
-                  ></span>
-                  Mainnet
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item>Testnet</Dropdown.Item>
-                  <Dropdown.Item>Devnet</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+                  Profile
+                </Link>
+              ) : (
+                <>
+                  <Link
+                    to="/signin"
+                    className="btn btn-dark btn-sm px-3 py-1 rounded-pill twelveFontSize text-white"
+                    style={{ fontSize: "13px" }}
+                  >
+                    Login
+                  </Link>
 
-              {/* Grid Icon */}
-              <button
-                className="btn border-0 p-2 rounded-circle"
-                style={{ background: "transparent" }}
-              >
-                <FiGrid size={18} color="white" />
-              </button>
+                  <Link
+                    to="/register"
+                    className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize mainSiteBgColor"
+                  >
+                    Register
+                  </Link>
+                </>
+              )}
             </div>
+
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -6,13 +6,13 @@ function SingleEventPage() {
   const { id } = useParams();
   const [event, setEvent] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
+  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
 
   useEffect(() => {
     async function fetchEvent() {
       try {
-        const res = await fetch(
-          `https://forexnewsapi.com/api/v1/events?eventid=${id}&page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen`
-        );
+        const res = await fetch(`${API_BASE_URL}/events?eventid=${id}&page=1&token=${API_KEY}`);
         const data = await res.json();
         setEvent(data);
       } catch (error) {

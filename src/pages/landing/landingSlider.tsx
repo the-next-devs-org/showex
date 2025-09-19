@@ -18,9 +18,11 @@ const BlockchainSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [blocks, setBlocks] = useState<ApiData[]>([]);
   const navigate = useNavigate();
+  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
+  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
 
   useEffect(() => {
-    fetch("https://forexnewsapi.com/api/v1/sundown-digest?page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen") 
+    fetch(`${API_BASE_URL}/sundown-digest?page=1&token=${API_KEY}`) 
       .then((res) => res.json())
       .then((data) => {
         if (data?.data) {

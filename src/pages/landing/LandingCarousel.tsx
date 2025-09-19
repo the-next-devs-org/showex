@@ -5,13 +5,15 @@ function LandingCarousel() {
   const [stats, setStats] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
+  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
 
   useEffect(() => {
     async function fetchStats() {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://forexnewsapi.com/api/v1/stat?currencypair=EUR-USD&date=last30days&page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen"
+          `${API_BASE_URL}/stat?currencypair=EUR-USD&date=last30days&page=1&token=${API_KEY}`
         );
         const data = await res.json();
         const arr = Object.entries(data.data || {})

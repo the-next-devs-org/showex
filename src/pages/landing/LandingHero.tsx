@@ -4,14 +4,14 @@ import ThreeBackground from "../../components/ThreeBackground";
 function LandingHero() {
   const [topMentions, setTopMentions] = useState<any[]>([]);
   const [mentionsLoading, setMentionsLoading] = useState(true);
+  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
+  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
 
   useEffect(() => {
     async function fetchTopMentions() {
       setMentionsLoading(true);
       try {
-        const res = await fetch(
-          "https://forexnewsapi.com/api/v1/top-mention?date=last7days&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen"
-        );
+        const res = await fetch(`${API_BASE_URL}/top-mention?date=last7days&token=${API_KEY}`);
         const data = await res.json();
         setTopMentions(data.data?.all || []);
       } catch (err) {

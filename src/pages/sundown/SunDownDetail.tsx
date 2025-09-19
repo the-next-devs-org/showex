@@ -13,9 +13,11 @@ const SunDownDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [news, setNews] = useState<ApiData | null>(null);
   const [loading, setLoading] = useState(true);
+  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
+  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
 
   useEffect(() => {
-    fetch("https://forexnewsapi.com/api/v1/sundown-digest?page=1&token=2fy7verxsu14efrjwk4gvrthvaunxddcel5dghen")
+    fetch(`${API_BASE_URL}/sundown-digest?page=1&token=${API_KEY}`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data) {
