@@ -94,8 +94,8 @@ function Header() {
             to="/"
             className="fw-bold fs-5 d-flex align-items-center"
           >
-            <span style={{ color: "#fff" }}>Show</span>
-            <span style={{ color: "#00E8CC" }}>EX</span>
+            <span style={{ color: "#fff" }}>Shox</span>
+            <span style={{ color: "#00E8CC" }}>EZ</span>
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="main-navbar" className="border-0" />

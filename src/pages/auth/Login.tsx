@@ -33,8 +33,8 @@ function Login() {
         <div className="mainLinkDiv d-flex align-items-center justify-content-center">
           <Link to="/" className="text-decoration-none d-flex align-items-center justify-content-center mb-4">
             <div className="d-flex align-items-center justify-content-center mb-4 fs-25 fw-bold">
-              <span style={{ color: "#fff" }}>Show</span>
-              <span style={{ color: "#00E8CC" }}>EX</span>
+              <span style={{ color: "#fff" }}>Shox</span>
+              <span style={{ color: "#00E8CC" }}>EZ</span>
             </div>
           </Link>
         </div>
