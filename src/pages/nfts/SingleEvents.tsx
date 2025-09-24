@@ -6,15 +6,14 @@ function SingleEventPage() {
   const { id } = useParams();
   const [event, setEvent] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
   useEffect(() => {
     async function fetchEvent() {
       try {
-        const res = await fetch(`${API_BASE_URL}/events?eventid=${id}&page=1&token=${API_KEY}`);
+        const res = await fetch(`${API_BACKEND_URL}/eventById/${id}?page=2`);
         const data = await res.json();
-        setEvent(data);
+        setEvent(data.data);
       } catch (error) {
         console.error("Error fetching event:", error);
       } finally {

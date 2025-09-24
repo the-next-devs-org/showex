@@ -5,13 +5,13 @@ import MiniLoader from "../MiniLoader";
 const NewsMenu = () => {
   const [news, setNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
-  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+
 
   useEffect(() => {
     setLoading(true);
     fetch(
-      `${API_BASE_URL}/trending-headlines?&page=1&token=${API_KEY}`)
+      `${API_BACKEND_URL}/trendingHeadlines`)
       .then((res) => res.json())
       .then((data) => {
         setNews(data.data || []);

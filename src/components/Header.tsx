@@ -1,5 +1,5 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NewsMenu from "./newsMenu/NewsMenu";
 
@@ -8,7 +8,8 @@ function Header() {
   const [hoverItem, setHoverItem] = useState<string | null>(null);
   const [activeSubTab, setActiveSubTab] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const isAuthenticated = false;
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { label: "Home", to: "/" },
@@ -66,6 +67,11 @@ function Header() {
   };
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token);
+  }, [location]); 
+
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true);
@@ -77,6 +83,13 @@ function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setIsAuthenticated(false);
+    navigate('/signin'); 
+  };
 
   return (
     <>
@@ -189,12 +202,20 @@ function Header() {
 
             <div className="d-flex align-items-center gap-3">
               {isAuthenticated ? (
+                <>
                 <Link
                   to="/profile"
                   className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize mainSiteBgColor"
                 >
                   Profile
                 </Link>
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize btn-danger"
+                >
+                  Logout
+                </button>
+                </>
               ) : (
                 <>
                   <Link

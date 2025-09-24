@@ -7,16 +7,16 @@ function Nftspage() {
   const [loading, setLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(15);
   const navigate = useNavigate();
-  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+
 
 
   useEffect(() => {
     async function fetchNews() {
       try {
-        const res = await fetch(`${API_BASE_URL}/events?page=1&token=${API_KEY}`);
+        const res = await fetch(`${API_BACKEND_URL}/allEvents`);
         const data = await res.json();
-        setNews(data.data);
+        setNews(Array.isArray(data.data?.data) ? data.data.data : []);
       } catch (error) {
         console.error("Error fetching news:", error);
       } finally {

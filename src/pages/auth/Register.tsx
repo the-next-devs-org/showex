@@ -31,7 +31,8 @@ function Register() {
   const [error, setError] = useState<string | null>(null);
 
   const navigate = useNavigate();
-  const API_BACKEND_URL = import.meta.env.SHOXEZ_API_BACKEND_URL;
+  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>

@@ -14,29 +14,35 @@ function NewsPage() {
   const [allNews, setAllNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadedIds, setLoadedIds] = useState<Set<number>>(new Set());
-  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+
 
   useEffect(() => {
-    async function fetchNews() {
-      setLoading(true);
-      try {
-        const res = await fetch(`${API_BASE_URL}/trending-headlines?&page=1&token=${API_KEY}`);
-        const data = await res.json();
-        setAllNews(data.data || []);
-        // Initial random 15
-        const initial = getRandomItems(data.data || [], 15, new Set());
-        setNewsList(initial);
-        setLoadedIds(new Set(initial.map((item: any) => item.id)));
-      } catch (err) {
-        setAllNews([]);
-        setNewsList([]);
-        setLoadedIds(new Set());
-      }
-      setLoading(false);
+  async function fetchNews() {
+    setLoading(true);
+    try {
+      const res = await fetch(`${API_BACKEND_URL}/trendingHeadlines`);
+      const data = await res.json();
+      console.log("Trending headlines:", data);
+
+      const newsArray = Array.isArray(data?.data?.data) ? data.data.data : [];
+
+      setAllNews(newsArray);
+
+      // Initial random 15
+      const initial = getRandomItems(newsArray, 15, new Set());
+      setNewsList(initial);
+      setLoadedIds(new Set(initial.map((item: any) => item.id)));
+    } catch (err) {
+      setAllNews([]);
+      setNewsList([]);
+      setLoadedIds(new Set());
     }
-    fetchNews();
-  }, []);
+    setLoading(false);
+  }
+  fetchNews();
+}, []);
+
 
   const handleLoadMore = () => {
     const next = getRandomItems(allNews, 15, loadedIds);
