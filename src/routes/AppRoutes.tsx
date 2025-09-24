@@ -26,7 +26,7 @@ import AllNews from "../pages/news/AllNews";
 import SunDownDetail from "../pages/sundown/SunDownDetail";
 import LandingCurrencies from "../pages/currencies/LandingCurrencies";
 import PageNotFound from "../pages/notFound/PageNotFound";
-
+import ProtectedRoute from "../components/ProtectedRoute";
 
 
 function AppRoutes() {
@@ -55,7 +55,14 @@ function AppRoutes() {
       <Route path="/event/:id" element={<SingleEvents />} />
       <Route path="/validators" element={<ValidatorsPage />} />
       <Route path="/settings" element={<SettingsPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/signin" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route

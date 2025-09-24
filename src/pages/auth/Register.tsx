@@ -1,21 +1,37 @@
+'use client'
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
+type FormState = {
+  firstName: string;
+  lastName: string;
+  country: string;
+  email: string;
+  confirmEmail: string;
+  password: string;
+  emailUpdates: boolean;
+  agreeTerms: boolean;
+};
 
 function Register() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormState>({
     firstName: "",
     lastName: "",
-    country: "Pakistan",
+    country: "",
     email: "",
     confirmEmail: "",
     password: "",
     emailUpdates: false,
     agreeTerms: false,
   });
-
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const navigate = useNavigate();
+  const API_BACKEND_URL = import.meta.env.SHOXEZ_API_BACKEND_URL;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -27,20 +43,68 @@ function Register() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Register with:", form);
-};
+    setError(null);
+
+    // Basic validation
+    if (form.email !== form.confirmEmail) {
+      setError("Email and Confirm Email do not match.");
+      return;
+    }
+
+    if (!form.agreeTerms) {
+      setError("You must agree to the terms.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(
+        `${API_BACKEND_URL}/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: form.firstName,
+            firstname: form.firstName,
+            lastname: form.lastName,
+            country: form.country,
+            emailaddress: form.email,
+            password: form.password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || "Registration failed. Please try again.");
+      } else {
+        console.log("Registered:", data);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        navigate("/profile");
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   return (
     <div className="container-fluid vh-100 d-flex align-items-center justify-content-center">
-      {/* Centered Register Card */}
       <form
         onSubmit={handleSubmit}
-        className="w-100 px-5  py-4 shadow mainLoginRegtrCardColor"
+        className="w-100 px-5 py-4 shadow mainLoginRegtrCardColor"
         style={{ maxWidth: "700px", borderRadius: "12px" }}
       >
-        {/* Logo */}
         <div className="mainLinkDiv d-flex align-items-center justify-content-center">
           <Link to="/" className="text-decoration-none d-flex align-items-center justify-content-center mb-4">
             <div className="d-flex align-items-center justify-content-center mb-4 fs-25 fw-bold">
@@ -50,8 +114,10 @@ function Register() {
           </Link>
         </div>
 
-        {/* Inputs in Grid */}
+        {error && <div className="alert alert-danger">{error}</div>}
+
         <div className="row g-3">
+          {/* First Name */}
           <div className="col-md-6">
             <label className="form-label text-white fw-medium mainLoginFntp">
               First name
@@ -63,8 +129,11 @@ function Register() {
               value={form.firstName}
               onChange={handleChange}
               style={{ borderRadius: "6px" }}
+              required
             />
           </div>
+
+          {/* Last Name */}
           <div className="col-md-6">
             <label className="form-label text-white fw-medium mainLoginFntp">
               Last name
@@ -76,9 +145,11 @@ function Register() {
               value={form.lastName}
               onChange={handleChange}
               style={{ borderRadius: "6px" }}
+              required
             />
           </div>
 
+          {/* Country */}
           <div className="col-md-6">
             <label className="form-label text-white fw-medium mainLoginFntp">
               Country / territory
@@ -98,6 +169,7 @@ function Register() {
             </select>
           </div>
 
+          {/* Email */}
           <div className="col-md-6">
             <label className="form-label text-white fw-medium mainLoginFntp">
               Email address
@@ -109,9 +181,11 @@ function Register() {
               value={form.email}
               onChange={handleChange}
               style={{ borderRadius: "6px" }}
+              required
             />
           </div>
 
+          {/* Confirm Email */}
           <div className="col-md-6">
             <label className="form-label text-white fw-medium mainLoginFntp">
               Confirm email address
@@ -123,32 +197,34 @@ function Register() {
               value={form.confirmEmail}
               onChange={handleChange}
               style={{ borderRadius: "6px" }}
+              required
             />
           </div>
 
-            <div className="col-md-6">
-                <label className="form-label text-white fw-medium mainLoginFntp">
-                    Password
-                </label>
-                <div className="position-relative">
-                    <input
-                    type={showPassword ? "text" : "password"}
-                    name="password"
-                    className="form-control"
-                    value={form.password}
-                    onChange={handleChange}
-                    style={{ borderRadius: "6px", paddingRight: "40px" }}
-                    />
-                    <button
-                    type="button"
-                    className="btn position-absolute top-50 end-0 translate-middle-y pe-3 border-0 bg-transparent"
-                    onClick={() => setShowPassword(!showPassword)}
-                    >
-                    {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
-                    </button>
-                </div>
+          {/* Password */}
+          <div className="col-md-6">
+            <label className="form-label text-white fw-medium mainLoginFntp">
+              Password
+            </label>
+            <div className="position-relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                className="form-control"
+                value={form.password}
+                onChange={handleChange}
+                style={{ borderRadius: "6px", paddingRight: "40px" }}
+                required
+              />
+              <button
+                type="button"
+                className="btn position-absolute top-50 end-0 translate-middle-y pe-3 border-0 bg-transparent"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
+              </button>
             </div>
-
+          </div>
         </div>
 
         {/* Checkboxes */}
@@ -200,9 +276,9 @@ function Register() {
           type="submit"
           className="btn btn-dark w-100 py-2 fw-medium mainSiteBgColor"
           style={{ borderRadius: "6px" }}
-          disabled={!form.agreeTerms}
+          disabled={!form.agreeTerms || loading}
         >
-          Register
+          {loading ? "Registering..." : "Register"}
         </button>
 
         <div className="text-center mt-3 small text-white">

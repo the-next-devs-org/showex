@@ -6,6 +6,8 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const API_BACKEND_URL = import.meta.env.SHOXEZ_API_BACKEND_URL;
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
