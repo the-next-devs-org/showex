@@ -130,6 +130,7 @@ const BlockchainSlider: React.FC = () => {
   const getCardStyle = (index: number): React.CSSProperties => ({
     flexShrink: 0,
     width: "320px",
+    height: "400px",
     background:
       "linear-gradient(135deg, rgba(17, 24, 39, 0.9) 0%, rgba(31, 41, 55, 0.7) 100%)",
     borderRadius: "12px",

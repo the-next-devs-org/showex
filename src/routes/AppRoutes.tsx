@@ -27,6 +27,8 @@ import SunDownDetail from "../pages/sundown/SunDownDetail";
 import LandingCurrencies from "../pages/currencies/LandingCurrencies";
 import PageNotFound from "../pages/notFound/PageNotFound";
 import ProtectedRoute from "../components/ProtectedRoute";
+import AnalysisCur from "../pages/analysis/AnalysisCur";
+
 
 
 function AppRoutes() {
@@ -55,6 +57,7 @@ function AppRoutes() {
       <Route path="/event/:id" element={<SingleEvents />} />
       <Route path="/validators" element={<ValidatorsPage />} />
       <Route path="/settings" element={<SettingsPage />} />
+      <Route path="/analysis-cur/:currency" element={<AnalysisCur />} />
       <Route
         path="/profile"
         element={
