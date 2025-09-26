@@ -1,0 +1,125 @@
+.landing-hero-bg {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+}
+
+/* Neon stars (random blinking dots) */
+.landing-hero-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #00e8cc;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: blink 3s infinite ease-in-out;
+  box-shadow: 0 0 8px #00e8cc;
+}
+@keyframes blink {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+/* Top Bar */
+.landing-hero-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px 48px 0 48px;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+.landing-hero-title {
+  font-size: 2.4rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0 0 12px #00e8ccaa;
+}
+.landing-hero-title-underline {
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, #00e8cc 60%, transparent 100%);
+  border-radius: 2px;
+  margin-top: 8px;
+  box-shadow: 0 0 20px #00e8ccaa;
+}
+.landing-hero-topright {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+.landing-hero-smooth {
+  font-size: 1rem;
+  opacity: 0.85;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px #00e8ccaa;
+}
+.landing-hero-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 8px;
+}
+.landing-hero-menu span {
+  display: block;
+  width: 32px;
+  height: 4px;
+  background: #fff;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+/* Right Scrollbar */
+.landing-hero-scrollbar {
+  position: absolute;
+  top: 90px;
+  right: 32px;
+  width: 14px;
+  height: 62vh;
+  background: rgba(0, 232, 204, 0.15);
+  border-radius: 8px;
+  z-index: 2;
+  box-shadow: 0 0 12px #00e8cc88;
+}
+
+/* Map container */
+.landing-hero-map-container {
+  width: 100%;
+  height: 70vh;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 0 28px #00e8cc55);
+  z-index: 2;
+}
+
+/* Hotspot pulse animation */
+@keyframes pulse {
+  0% { r: 8; opacity: 0.8; }
+  50% { r: 14; opacity: 0.2; }
+  100% { r: 8; opacity: 0.8; }
+}
+.hotspot-circle {
+  fill: orange;
+  filter: url(#glow);
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+

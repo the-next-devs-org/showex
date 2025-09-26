@@ -28,7 +28,6 @@ function Header() {
       leftLinks: ["Latest News"],
       rightContent: {
         "Latest News": <NewsMenu />,
-
       },
     },
     Markets: {
@@ -69,7 +68,7 @@ function Header() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     setIsAuthenticated(!!token);
-  }, [location]); 
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,15 +87,23 @@ function Header() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setIsAuthenticated(false);
-    navigate('/signin'); 
+    navigate("/signin");
   };
 
   return (
     <>
       <Navbar
         expand="lg"
-        className={`py-2 header-navbar ${scrolled ? "custmhederbg shadow-sm" : "bg-transparent"}`}
-        style={{ position: "sticky", top: 0, zIndex: 1000, transition: "background-color 0.3s ease" }}
+        className={`py-2 header-navbar ${
+          scrolled ? "custmhederbg shadow-sm" : "bg-transparent"
+        }`}
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          transition: "background-color 0.3s ease",
+          backgroundColor: "transparent",
+        }}
       >
         <Container
           className="px-4 d-flex align-items-center"
@@ -123,11 +130,16 @@ function Header() {
                   <div
                     key={item.to}
                     onMouseEnter={() => {
-                      if (item.label !== "Home" && item.label !== "Events" && item.label !== "Markets" && item.label !== "Currencies") {
+                      if (
+                        item.label !== "Home" &&
+                        item.label !== "Events" &&
+                        item.label !== "Markets" &&
+                        item.label !== "Currencies"
+                      ) {
                         setHoverItem(item.label);
                         setActiveSubTab(
                           menuContent[item.label]?.leftLinks?.[0] || null
-                        );  
+                        );
                       }
                     }}
                     onMouseLeave={() => {
@@ -203,39 +215,84 @@ function Header() {
             <div className="d-flex align-items-center gap-3">
               {isAuthenticated ? (
                 <>
-                <Link
-                  to="/profile"
-                  className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize mainSiteBgColor"
-                >
-                  Profile
-                </Link>
-                <button
-                  onClick={handleLogout}
-                  className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize btn-danger"
-                >
-                  Logout
-                </button>
+                  <Link
+                    to="/profile"
+                    className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize mainSiteBgColor"
+                  >
+                    Profile
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize btn-danger"
+                  >
+                    Logout
+                  </button>
                 </>
               ) : (
                 <>
                   <Link
                     to="/signin"
-                    className="btn btn-dark btn-sm px-3 py-1 rounded-pill twelveFontSize text-white"
-                    style={{ fontSize: "13px" }}
+                    className="btn btn-dark btn-sm px-3 py-1 rounded-pill twelveFontSize"
+                    style={{
+                      fontSize: "13px !important",
+                      border: "none",
+                      background: "none",
+                      color: "#8e8e8e",
+                      transition: "background 0.18s, color 0.18s, transform 0.15s",
+                      textDecoration: "none",
+                    }}
+                    onMouseOver={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.background =
+                        "#00e8cc";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "#000";
+                      (e.currentTarget as HTMLAnchorElement).style.transform =
+                        "scale(1.05)";
+                    }}
+                    onMouseOut={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.background =
+                        "none";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
+                      (e.currentTarget as HTMLAnchorElement).style.transform =
+                        "scale(1)";
+                    }}
                   >
                     Login
                   </Link>
 
                   <Link
                     to="/register"
-                    className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize mainSiteBgColor"
+                    style={{
+                      color: "#8e8e8e",
+                      padding: "2px 13px",
+                      fontSize: "13px",
+                      borderRadius: "999px",
+                      border: "none",
+                      letterSpacing: "1px",
+                      transition: "background 0.18s, color 0.18s, transform 0.15s",
+                      cursor: "pointer",
+                      textDecoration: "none",
+                      background: "none",
+                    }}
+                    onMouseOver={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.background =
+                        "#00e8cc";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "#000";
+                      (e.currentTarget as HTMLAnchorElement).style.transform =
+                        "scale(1.05)";
+                    }}
+                    onMouseOut={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.background =
+                        "none";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
+                      (e.currentTarget as HTMLAnchorElement).style.transform =
+                        "scale(1)";
+                    }}
                   >
                     Register
                   </Link>
                 </>
               )}
             </div>
-
           </Navbar.Collapse>
         </Container>
       </Navbar>

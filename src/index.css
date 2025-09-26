@@ -972,15 +972,8 @@ body {
 }
 
 body {
-	background: linear-gradient(135deg,
-			var(--brand) 0%,
-			var(--bg-2) 30%,
-			/* dark slate */
-			var(--bg-1) 60%,
-			/* deep navy */
-			var(--accent) 100%
-			/* teal/cyan */
-		);
+	background: #0A0F1D !important;
+
 	background-attachment: fixed;
 	background-size: cover;
 }
