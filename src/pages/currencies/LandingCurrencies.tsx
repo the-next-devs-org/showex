@@ -17,20 +17,46 @@ function LandingCurrencies() {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [visibleCount, setVisibleCount] = useState(9)
+  const [visibleCount, setVisibleCount] = useState(9);
 
   const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
-
   useEffect(() => {
-    fetch(
-      `${API_BACKEND_URL}/sentimentAnalysis`
-    )
+    fetch(`${API_BACKEND_URL}/sentimentAnalysis`)
       .then((res) => res.json())
-      .then((data) => {
-        if (data?.data) {
-          setNews(data.data.data);
-        }
+      .then((payload) => {
+        console.log("Market news data:", payload);
+        const rows: any[] = Array.isArray(payload?.data) ? payload.data : [];
+
+        const toLabel = (score: number) =>
+          score > 0.05 ? "Positive" : score < -0.05 ? "Negative" : "Neutral";
+
+        const mapped: NewsItem[] = rows.map((row) => {
+          const sentiment = toLabel(Number(row?.sentiment_score ?? 0));
+          const pair = String(row?.pair ?? "");
+          const date = String(row?.date ?? "");
+          const positive = Number(row?.Positive ?? 0);
+          const negative = Number(row?.Negative ?? 0);
+          const neutral = Number(row?.Neutral ?? 0);
+          const score = Number(row?.sentiment_score ?? 0);
+
+          return {
+            // No real article link available → use "#" (so <Link> is happy)
+            news_url: "#",
+            image_url: "",
+
+            // Build a readable title and text from the counts
+            title: `${pair} sentiment on ${date}`,
+            text: `Positive: ${positive} | Negative: ${negative} | Neutral: ${neutral} | Score: ${score}`,
+
+            source_name: "Forex Sentiment API",
+            date,
+            sentiment,
+            currency: [pair],
+          };
+        });
+
+        setNews(mapped);
       })
       .catch((err) => {
         console.error("Error fetching news:", err);
@@ -74,7 +100,12 @@ function LandingCurrencies() {
         <div className="row">
           {news.map((item, index) => (
             <div className="col-md-4 mb-4" key={index}>
-              <Link to={item.news_url} target="_blank" style={{ textDecoration: 'none' }} key={index}>
+              <Link
+                to={item.news_url}
+                target="_blank"
+                style={{ textDecoration: "none" }}
+                key={index}
+              >
                 <div
                   className="card h-100"
                   style={{

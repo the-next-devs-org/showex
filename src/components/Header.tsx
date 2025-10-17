@@ -18,6 +18,7 @@ function Header() {
     { label: "Analysis", to: "/analysis" },
     { label: "Currencies", to: "/currencies" },
     // { label: "Education", to: "/education" },
+    { label: "Calendar", to: "/calendar" },
     { label: "Events", to: "/events" },
     // { label: "Validators", to: "/validators" },
     { label: "Analytics", to: "/analytics" },
@@ -40,7 +41,11 @@ function Header() {
       },
     },
     Analysis: {
-      leftLinks: ["Technical Analysis", "Fundamental Analysis", "Market Insights"],
+      leftLinks: [
+        "Technical Analysis",
+        "Fundamental Analysis",
+        "Market Insights",
+      ],
       rightContent: {
         "Technical Analysis": <p>Daily technical analysis reports.</p>,
         "Fundamental Analysis": <p>Macro & fundamental breakdowns.</p>,
@@ -202,7 +207,9 @@ function Header() {
 
                           <div style={{ flex: 1 }}>
                             {activeSubTab &&
-                              menuContent[item.label]?.rightContent?.[activeSubTab]}
+                              menuContent[item.label]?.rightContent?.[
+                                activeSubTab
+                              ]}
                           </div>
                         </div>
                       </div>
@@ -238,20 +245,23 @@ function Header() {
                       border: "none",
                       background: "none",
                       color: "#8e8e8e",
-                      transition: "background 0.18s, color 0.18s, transform 0.15s",
+                      transition:
+                        "background 0.18s, color 0.18s, transform 0.15s",
                       textDecoration: "none",
                     }}
                     onMouseOver={(e) => {
                       (e.currentTarget as HTMLAnchorElement).style.background =
                         "#00e8cc";
-                      (e.currentTarget as HTMLAnchorElement).style.color = "#000";
+                      (e.currentTarget as HTMLAnchorElement).style.color =
+                        "#000";
                       (e.currentTarget as HTMLAnchorElement).style.transform =
                         "scale(1.05)";
                     }}
                     onMouseOut={(e) => {
                       (e.currentTarget as HTMLAnchorElement).style.background =
                         "none";
-                      (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
+                      (e.currentTarget as HTMLAnchorElement).style.color =
+                        "#fff";
                       (e.currentTarget as HTMLAnchorElement).style.transform =
                         "scale(1)";
                     }}
@@ -268,7 +278,8 @@ function Header() {
                       borderRadius: "999px",
                       border: "none",
                       letterSpacing: "1px",
-                      transition: "background 0.18s, color 0.18s, transform 0.15s",
+                      transition:
+                        "background 0.18s, color 0.18s, transform 0.15s",
                       cursor: "pointer",
                       textDecoration: "none",
                       background: "none",
@@ -276,14 +287,16 @@ function Header() {
                     onMouseOver={(e) => {
                       (e.currentTarget as HTMLAnchorElement).style.background =
                         "#00e8cc";
-                      (e.currentTarget as HTMLAnchorElement).style.color = "#000";
+                      (e.currentTarget as HTMLAnchorElement).style.color =
+                        "#000";
                       (e.currentTarget as HTMLAnchorElement).style.transform =
                         "scale(1.05)";
                     }}
                     onMouseOut={(e) => {
                       (e.currentTarget as HTMLAnchorElement).style.background =
                         "none";
-                      (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
+                      (e.currentTarget as HTMLAnchorElement).style.color =
+                        "#fff";
                       (e.currentTarget as HTMLAnchorElement).style.transform =
                         "scale(1)";
                     }}

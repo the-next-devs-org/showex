@@ -18,18 +18,21 @@ import AccountPage from "../pages/accounts/AccountPage";
 import AppsPage from "../pages/apps/AppsPage";
 import TokensPage from "../pages/tokens/TokensPage";
 import EventsPage from "../pages/nfts/EventsPage";
-import SingleEvents from "../pages/nfts/SingleEvents"; 
+import SingleEvents from "../pages/nfts/SingleEvents";
 import Analysis from "../pages/analysis/AnalysisPage";
 import LandingEducation from "../pages/education/LandingEducation";
-import AnalyticsPage from "../pages/analytics/AnalyticsPage";  
+import AnalyticsPage from "../pages/analytics/AnalyticsPage";
 import AllNews from "../pages/news/AllNews";
 import SunDownDetail from "../pages/sundown/SunDownDetail";
 import LandingCurrencies from "../pages/currencies/LandingCurrencies";
 import PageNotFound from "../pages/notFound/PageNotFound";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AnalysisCur from "../pages/analysis/AnalysisCur";
-
-
+import ExportDemo from "../pages/ExportDemo";
+import CalendarPage from "../pages/calendar/CalendarPage";
+import AboutPage from "../pages/about/AboutPage";
+import PrivacyPage from "../pages/privacy/PrivacyPage";
+import TermsPage from "../pages/terms/TermsPage";
 
 function AppRoutes() {
   return (
@@ -45,8 +48,15 @@ function AppRoutes() {
       <Route path="/accounts" element={<AccountPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/analytics" element={<AnalyticsPage />} />
+      <Route path="/calendar" element={<CalendarPage />} />
+      <Route path="/export-demo" element={<ExportDemo />} />
       <Route path="/all-news" element={<AllNews />} />
       <Route path="/sundown/:id" element={<SunDownDetail />} />
+
+      {/* Company Pages */}
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
+      <Route path="/terms" element={<TermsPage />} />
 
       {/* New routes */}
       <Route path="/apps" element={<AppsPage />} />
@@ -68,10 +78,7 @@ function AppRoutes() {
       />
       <Route path="/signin" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route
-        path="*"
-        element={<PageNotFound />}
-      />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }

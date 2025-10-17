@@ -1,0 +1,200 @@
+/* Export Demo Page Styles */
+.export-demo-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #0a0a0f;
+    min-height: 100vh;
+    color: #fff;
+}
+
+.export-demo-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px;
+    background: linear-gradient(135deg, #1a1a1f 0%, #0f0f12 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(35, 247, 221, 0.2);
+}
+
+.export-demo-header h1 {
+    font-size: 42px;
+    margin: 0 0 15px 0;
+    background: linear-gradient(135deg, #23f7dd 0%, #00e8cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.export-demo-header p {
+    font-size: 18px;
+    color: #8e8e8e;
+    margin: 0;
+}
+
+.demo-section {
+    background: #1a1a1f;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.demo-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.demo-section-header h2 {
+    font-size: 24px;
+    color: #fff;
+    margin: 0;
+}
+
+.demo-description {
+    background: rgba(35, 247, 221, 0.05);
+    border-left: 3px solid #23f7dd;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.demo-description p {
+    margin: 8px 0;
+    color: #bdbdbd;
+    font-size: 15px;
+}
+
+.demo-description strong {
+    color: #23f7dd;
+}
+
+.demo-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #232328;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.demo-table thead {
+    background: linear-gradient(135deg, #2a2a30 0%, #232328 100%);
+}
+
+.demo-table th {
+    padding: 15px;
+    text-align: left;
+    color: #23f7dd;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.demo-table td {
+    padding: 12px 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 14px;
+}
+
+.demo-table tbody tr:hover {
+    background: rgba(35, 247, 221, 0.05);
+}
+
+.demo-instructions {
+    background: linear-gradient(135deg, #232328 0%, #1a1a1f 100%);
+    border-radius: 16px;
+    padding: 35px;
+    border: 2px solid rgba(35, 247, 221, 0.3);
+}
+
+.demo-instructions h2 {
+    color: #23f7dd;
+    font-size: 24px;
+    margin: 0 0 20px 0;
+}
+
+.demo-instructions ol,
+.demo-instructions ul {
+    color: #bdbdbd;
+    font-size: 16px;
+    line-height: 1.8;
+    padding-left: 25px;
+}
+
+.demo-instructions li {
+    margin-bottom: 12px;
+}
+
+.demo-instructions strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.demo-instructions ul ul {
+    margin-top: 10px;
+}
+
+.demo-instructions p {
+    color: #bdbdbd;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .export-demo-page {
+        padding: 20px 10px;
+    }
+
+    .export-demo-header h1 {
+        font-size: 28px;
+    }
+
+    .export-demo-header p {
+        font-size: 16px;
+    }
+
+    .demo-section {
+        padding: 20px;
+    }
+
+    .demo-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .demo-section-header h2 {
+        font-size: 20px;
+    }
+
+    .demo-table {
+        font-size: 13px;
+    }
+
+    .demo-table th,
+    .demo-table td {
+        padding: 10px 8px;
+    }
+
+    .demo-instructions {
+        padding: 25px 20px;
+    }
+
+    .demo-instructions h2 {
+        font-size: 20px;
+    }
+
+    .demo-instructions ol,
+    .demo-instructions ul,
+    .demo-instructions p {
+        font-size: 14px;
+    }
+}

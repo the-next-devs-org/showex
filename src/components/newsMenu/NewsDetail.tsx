@@ -16,7 +16,9 @@ function NewsDetail() {
     async function fetchNews() {
       setLoading(true);
       try {
-        const res = await fetch(`${API_BASE_URL}/trending-headlines?&page=1&token=${API_KEY}`);
+        const res = await fetch(
+          `${API_BASE_URL}/trending-headlines?&page=1&token=${API_KEY}`
+        );
         const data = await res.json();
         setAllNews(data.data || []);
         const newsItem = data.data.find((item: any) => item.id === Number(id));
@@ -29,7 +31,12 @@ function NewsDetail() {
     fetchNews();
   }, [id]);
 
-  if (loading) return <div className="news-detail-loading"><MiniLoader /></div>;
+  if (loading)
+    return (
+      <div className="news-detail-loading">
+        <MiniLoader />
+      </div>
+    );
   if (!news) return <div className="news-detail-error">News not found.</div>;
 
   // Suggestions: 3 random news except current
@@ -38,14 +45,19 @@ function NewsDetail() {
     .slice(0, 4);
 
   return (
-    <div className="container-fluid" style={{ maxWidth: 1200, margin: '0 auto' }}>
-      <div style={{ minHeight: '100vh', width: '100%', padding: '32px 0' }}>
+    <div
+      className="container-fluid"
+      style={{ maxWidth: 1200, margin: "0 auto" }}
+    >
+      <div style={{ minHeight: "100vh", width: "100%", padding: "32px 0" }}>
         <div className="news-detail-main">
           <div className="news-detail-card news-page-style">
             <div className="news-detail-header">
               <h1 className="news-detail-title">{news.headline}</h1>
               {news.sentiment && (
-                <span className={`news-detail-sentiment ${news.sentiment?.toLowerCase()}`}>
+                <span
+                  className={`news-detail-sentiment ${news.sentiment?.toLowerCase()}`}
+                >
                   {news.sentiment}
                 </span>
               )}
@@ -64,7 +76,9 @@ function NewsDetail() {
             )}
             <div className="news-detail-content">
               <p className="news-detail-text">{news.text}</p>
-              {news.content && <div className="news-detail-body">{news.content}</div>}
+              {news.content && (
+                <div className="news-detail-body">{news.content}</div>
+              )}
             </div>
           </div>
 
@@ -73,9 +87,17 @@ function NewsDetail() {
             <h2 className="suggestions-title">Other News</h2>
             <div className="suggestions-list">
               {suggestions.map((item) => (
-                <Link to={`/news/${item.id}`} className="suggestion-card" key={item.id}>
+                <Link
+                  to={`/news/${item.id}`}
+                  className="suggestion-card"
+                  key={item.id}
+                >
                   {item.image && (
-                    <img src={item.image} alt={item.headline} className="suggestion-image" />
+                    <img
+                      src={item.image}
+                      alt={item.headline}
+                      className="suggestion-image"
+                    />
                   )}
                   <div className="suggestion-info">
                     <div className="suggestion-headline">{item.headline}</div>
