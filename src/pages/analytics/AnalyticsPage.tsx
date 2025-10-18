@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   LineChart,
   Line,
@@ -61,6 +62,7 @@ const generateTokensData = () => {
 };
 
 function AnalyticsPage() {
+  const { t } = useTranslation();
   // State for dropdown and chart range
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const [selectedRange, setSelectedRange] = React.useState("30d");
@@ -130,7 +132,7 @@ function AnalyticsPage() {
         <div className="blocks-search-bar blocks-search-bar-right">
           <input
             type="text"
-            placeholder="Search for an address, @herotag, transaction/block hash, validator key or token id"
+            placeholder={t('analytics.search')}
           />
           <button className="blocks-search-btn">
             <span role="img" aria-label="search">
@@ -228,7 +230,7 @@ function AnalyticsPage() {
       {/* Blocks Section */}
       <div className="blocks-section">
         <div className="blocks-section-title">
-          MultiversX Blockchain analytics (Beta)
+          {t('analytics.title')}
         </div>
         <div className="blocks-section-cards">
           <div className="blocks-section-card">
@@ -261,8 +263,8 @@ function AnalyticsPage() {
       <div className="analytics-root container">
         {/* Tabs */}
         <div className="analytics-tabs-row">
-          <button className="analytics-tab active">Key Metrics</button>
-          <button className="analytics-tab">Compare</button>
+          <button className="analytics-tab active">{t('analytics.keyMetrics')}</button>
+          <button className="analytics-tab">{t('analytics.compare')}</button>
         </div>
 
         {/* AI Analytics Section */}
@@ -270,8 +272,8 @@ function AnalyticsPage() {
           <div className="ai-analytics-header">
             <div className="ai-analytics-title">
               <FaRobot className="ai-icon" />
-              <h2>AI-Powered Trend Forecasts</h2>
-              <span className="ai-badge">BETA</span>
+              <h2>{t('analytics.aiPredictions.title')}</h2>
+              <span className="ai-badge">{t('analytics.aiPredictions.beta')}</span>
             </div>
             <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
               <ExportButton
@@ -287,7 +289,7 @@ function AnalyticsPage() {
                 onClick={loadPredictions}
                 disabled={loadingPredictions}
               >
-                {loadingPredictions ? "Loading..." : "Refresh Predictions"}
+                {loadingPredictions ? "..." : t('analytics.aiPredictions.refresh')}
               </button>
             </div>
           </div>
@@ -299,7 +301,7 @@ function AnalyticsPage() {
           {loadingPredictions ? (
             <div className="ai-loading">
               <div className="ai-loading-spinner"></div>
-              <p>Generating AI predictions...</p>
+              <p>{t('analytics.aiPredictions.loading')}</p>
             </div>
           ) : (
             <div className="ai-predictions-grid">
@@ -518,29 +520,34 @@ function AnalyticsPage() {
                         overflow: "hidden",
                       }}
                     >
-                      {["7d", "30d", "365d", "All"].map((range) => (
-                        <div
-                          key={range}
-                          style={{
-                            padding: "8px 0",
-                            borderBottom:
-                              range !== "All" ? "1px solid #333" : "none",
-                            color: "#fff",
-                            background:
-                              selectedRange === range
-                                ? "#18191b"
-                                : "transparent",
-                            cursor: "pointer",
-                          }}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedRange(range);
-                            setDropdownOpen(false);
-                          }}
-                        >
-                          {range}
-                        </div>
-                      ))}
+                      {["7d", "30d", "365d", "All"].map((range) => {
+                        const translationKey = range === "7d" ? "last7Days" :
+                                             range === "30d" ? "last30Days" :
+                                             range === "365d" ? "last365Days" : "allTime";
+                        return (
+                          <div
+                            key={range}
+                            style={{
+                              padding: "8px 0",
+                              borderBottom:
+                                range !== "All" ? "1px solid #333" : "none",
+                              color: "#fff",
+                              background:
+                                selectedRange === range
+                                  ? "#18191b"
+                                  : "transparent",
+                              cursor: "pointer",
+                            }}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedRange(range);
+                              setDropdownOpen(false);
+                            }}
+                          >
+                            {t(`analytics.timeRanges.${translationKey}`)}
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
@@ -754,9 +761,9 @@ function AnalyticsPage() {
         {/* Most Used Applications (daily) */}
         <div className="analytics-card analytics-card-apps">
           <div className="analytics-card-title">
-            Most Used Applications (daily){" "}
+            {t('analytics.charts.mostUsedApps')}{" "}
             <button className="analytics-card-btn">
-              View Dashboard <FaArrowRight />
+              {t('analytics.charts.viewDashboard')} <FaArrowRight />
             </button>
           </div>
           <div className="analytics-apps-list">
@@ -906,10 +913,10 @@ function AnalyticsPage() {
             </LineChart>
           </ResponsiveContainer>
           <div className="analytics-card-btn-row">
-            <button className="analytics-card-btn">+ New ESDTs</button>
-            <button className="analytics-card-btn">+ New NFTs</button>
+            <button className="analytics-card-btn">{t('analytics.buttons.newESDTs')}</button>
+            <button className="analytics-card-btn">{t('analytics.buttons.newNFTs')}</button>
             <button className="analytics-card-btn">
-              + New Smart Contracts
+              {t('analytics.buttons.newContracts')}
             </button>
           </div>
         </div>

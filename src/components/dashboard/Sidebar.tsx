@@ -4,10 +4,9 @@ import './Sidebar.css';
 import {
   DashboardIcon,
   AnalyticsIcon,
-  TransactionIcon,
   UserGroupIcon,
   SettingsIcon,
-  ProfileIcon
+  NotificationIcon,
 } from './Icons';
 
 const Sidebar: React.FC = () => {
@@ -17,10 +16,12 @@ const Sidebar: React.FC = () => {
 
   const menuItems = [
     { path: '/dashboard', icon: DashboardIcon, label: 'Overview' },
-    { path: '/dashboard/analytics', icon: AnalyticsIcon, label: 'Analytics' },
-    { path: '/dashboard/transactions', icon: TransactionIcon, label: 'Transactions' },
+    // { path: '/dashboard/analytics', icon: AnalyticsIcon, label: 'Analytics' },
+    { path: '/dashboard/indicators', icon: AnalyticsIcon, label: 'Indicators' },
+    // { path: '/dashboard/transactions', icon: TransactionIcon, label: 'Transactions' },
     // Users link sirf admin ke liye
     ...(loggedInUser.role === 1 ? [{ path: '/dashboard/users', icon: UserGroupIcon, label: 'Users' }] : []),
+    { path: '/dashboard/notification', icon: NotificationIcon, label: 'Notifications' },
     { path: '/dashboard/settings', icon: SettingsIcon, label: 'Settings' },
   ];
 

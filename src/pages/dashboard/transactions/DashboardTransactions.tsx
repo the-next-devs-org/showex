@@ -1,8 +1,10 @@
 import React from 'react';
 import './DashboardTransactions.css';
 import DashboardLayout from '../../../components/dashboard/DashboardLayout';
+import { useTranslation } from 'react-i18next';
 
 const DashboardTransactions: React.FC = () => {
+  const { t } = useTranslation();
   const transactions = [
     {
       id: 1,
@@ -30,40 +32,40 @@ const DashboardTransactions: React.FC = () => {
     <DashboardLayout>
       <div className="dt-root">
         <div className="dt-header">
-          <h1 className="dt-title">Transactions</h1>
-          <p className="dt-subtitle">View and manage your transactions</p>
+          <h1 className="dt-title">{t('dashboard.transactions.title')}</h1>
+          <p className="dt-subtitle">{t('dashboard.transactions.subtitle')}</p>
         </div>
 
         <div className="dt-filters">
           <div className="dt-filter-group">
             <select className="dt-select">
-              <option value="all">All Types</option>
-              <option value="sent">Sent</option>
-              <option value="received">Received</option>
+              <option value="all">{t('dashboard.transactions.filters.allTypes')}</option>
+              <option value="sent">{t('dashboard.transactions.filters.sent')}</option>
+              <option value="received">{t('dashboard.transactions.filters.received')}</option>
             </select>
 
             <select className="dt-select">
-              <option value="all">All Status</option>
-              <option value="completed">Completed</option>
-              <option value="pending">Pending</option>
-              <option value="failed">Failed</option>
+              <option value="all">{t('dashboard.transactions.filters.allStatus')}</option>
+              <option value="completed">{t('dashboard.transactions.filters.completed')}</option>
+              <option value="pending">{t('dashboard.transactions.filters.pending')}</option>
+              <option value="failed">{t('dashboard.transactions.filters.failed')}</option>
             </select>
           </div>
 
-          <button className="dt-btn-export">Export CSV</button>
+          <button className="dt-btn-export">{t('dashboard.transactions.buttons.exportCsv')}</button>
         </div>
 
         <div className="dt-table-container">
           <table className="dt-table">
             <thead>
               <tr>
-                <th>Type</th>
-                <th>Amount</th>
-                <th>USD Value</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Time</th>
-                <th>Status</th>
+                <th>{t('dashboard.transactions.table.type')}</th>
+                <th>{t('dashboard.transactions.table.amount')}</th>
+                <th>{t('dashboard.transactions.table.usdValue')}</th>
+                <th>{t('dashboard.transactions.table.from')}</th>
+                <th>{t('dashboard.transactions.table.to')}</th>
+                <th>{t('dashboard.transactions.table.time')}</th>
+                <th>{t('dashboard.transactions.table.status')}</th>
               </tr>
             </thead>
             <tbody>
@@ -83,7 +85,7 @@ const DashboardTransactions: React.FC = () => {
         </div>
 
         <div className="dt-pagination">
-          <button className="dt-btn-page">Previous</button>
+          <button className="dt-btn-page">{t('dashboard.transactions.buttons.previous')}</button>
           <div className="dt-page-numbers">
             <button className="active">1</button>
             <button>2</button>
@@ -91,7 +93,7 @@ const DashboardTransactions: React.FC = () => {
             <span>...</span>
             <button>10</button>
           </div>
-          <button className="dt-btn-page">Next</button>
+          <button className="dt-btn-page">{t('dashboard.transactions.buttons.next')}</button>
         </div>
       </div>
     </DashboardLayout>

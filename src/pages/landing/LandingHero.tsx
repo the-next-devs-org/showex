@@ -1,9 +1,9 @@
-import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import "./LandingHero.css";
-
+ 
 // World map topology
 const geoUrl = "https://unpkg.com/world-atlas@2/countries-110m.json";
-
+ 
 // Hotspot coordinates (approximate, adjust as needed)
 const hotspots = [
   { name: "USA", coordinates: [-100, 40] },
@@ -13,7 +13,7 @@ const hotspots = [
   { name: "China", coordinates: [105, 35] },
   { name: "Australia", coordinates: [133, -25] },
 ];
-
+ 
 // Function to generate random neon stars
 type Star = { id: number; top: string; left: string; animationDelay: string };
 function generateStars(count: number): Star[] {
@@ -29,7 +29,7 @@ function generateStars(count: number): Star[] {
   return stars;
 }
 const starsArray = generateStars(120);
-
+ 
 function LandingHero() {
   return (
     <div className="landing-hero-bg">
@@ -47,8 +47,8 @@ function LandingHero() {
           />
         ))}
       </div>
-
-
+ 
+ 
       {/* Map */}
       <div className="landing-hero-map-container">
         <ComposableMap
@@ -75,14 +75,21 @@ function LandingHero() {
               ))
             }
           </Geographies>
-
+ 
           {/* Hotspots */}
           {hotspots.map((spot, i) => (
-            <Marker key={i} coordinates={spot.coordinates}>
-              <circle className="hotspot-circle" r={8} />
-            </Marker>
+            <Geographies geography={geoUrl}>
+              {({ projection }) => {
+                const [x, y] = projection(spot.coordinates);
+                return (
+                  <g key={i} transform={`translate(${x},${y})`}>
+                    <circle className="hotspot-circle" r={8} />
+                  </g>
+                );
+              }}
+            </Geographies>
           ))}
-
+ 
           {/* SVG filter for glow */}
           <defs>
             <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -98,5 +105,5 @@ function LandingHero() {
     </div>
   );
 }
-
+ 
 export default LandingHero;

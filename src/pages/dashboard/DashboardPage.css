@@ -37,7 +37,7 @@
   margin-bottom: 30px;
 }
 
-.stat-card {
+.dashboardpagestat-card {
   background: #ffffff;
   border-radius: 12px;
   padding: 24px;
@@ -47,7 +47,7 @@
   transition: transform 0.3s ease;
 }
 
-.stat-card:hover {
+.dashboardpagestat-card:hover {
   transform: translateY(-5px);
 }
 

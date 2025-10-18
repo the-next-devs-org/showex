@@ -8,12 +8,6 @@ import {
   UsersIcon,
   RevenueIcon,
   GrowthIcon,
-  SendIcon,
-  ReceiveIcon,
-  AnalyticsIcon,
-  SettingsIcon,
-  ActivityTransactionIcon,
-  NewUserIcon
 } from '../../components/dashboard/Icons';
 
 const DashboardPage: React.FC = () => {
@@ -52,7 +46,7 @@ const DashboardPage: React.FC = () => {
             </div>
             
             <div className="dashboard-stats">
-              <div className="stat-card" style={{ display: "none", width: "25%" }}>
+              <div className="dashboardpagestat-card" style={{ display: "none", width: "25%" }}>
                 <div className="stat-icon transactions">
                   <TransactionIcon />
                 </div>
@@ -61,7 +55,7 @@ const DashboardPage: React.FC = () => {
                   <p>2,405</p>
                 </div>
               </div>
-              <div className="stat-card" style={{width: "25%" }}>
+              <div className="dashboardpagestat-card" style={{width: "25%" }}>
                 <div className="stat-icon users">
                   <UsersIcon />
                 </div>
@@ -70,7 +64,7 @@ const DashboardPage: React.FC = () => {
                   <p>{totalUsers.toLocaleString()}</p>
                 </div>
               </div>
-              <div className="stat-card" style={{ display: "none", width: "25%" }}>
+              <div className="dashboardpagestat-card" style={{ display: "none", width: "25%" }}>
                 <div className="stat-icon revenue">
                   <RevenueIcon />
                 </div>
@@ -79,7 +73,7 @@ const DashboardPage: React.FC = () => {
                   <p>$12,345</p>
                 </div>
               </div>
-              <div className="stat-card" style={{ display: "none", width: "25%" }}>
+              <div className="dashboardpagestat-card" style={{ display: "none", width: "25%" }}>
                 <div className="stat-icon growth">
                   <GrowthIcon />
                 </div>

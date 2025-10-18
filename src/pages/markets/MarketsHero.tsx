@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import MiniLoader from "../../components/MiniLoader";
 import { Link } from "react-router-dom";
 
@@ -14,6 +15,7 @@ interface NewsItem {
 }
 
 function MarketsHero() {
+  const { t } = useTranslation();
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -69,7 +71,7 @@ function MarketsHero() {
   return (
     <div style={{ minHeight: "100vh", color: "white" }}>
       <div className="container py-5">
-        <h2 className="mb-4">📈 Market News</h2>
+        <h2 className="mb-4">{t('markets.marketNews')}</h2>
 
         <div className="row">
           {news.map((item, index) => (
@@ -132,7 +134,7 @@ function MarketsHero() {
               className="load-more-btn btn btn-outline-light"
               onClick={() => setVisibleCount((prev) => prev + 9)}
             >
-              Load More
+              {t('markets.loadMore')}
             </button>
           </div>
         )}

@@ -1,9 +1,11 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./NewsDetail.css";
 import MiniLoader from "../MiniLoader";
 
 function NewsDetail() {
+  const { t } = useTranslation();
   const { id } = useParams(); // id from route
   const [news, setNews] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -57,7 +59,7 @@ function NewsDetail() {
       </div>
     );
 
-  if (!news) return <div className="news-detail-error">News not found.</div>;
+  if (!news) return <div className="news-detail-error">{t('newsDetail.newsNotFound')}</div>;
 
   // ✅ Filter other news for suggestions
   const suggestions = allNews
@@ -104,7 +106,7 @@ function NewsDetail() {
 
           {/* ✅ Suggestions Section */}
           <div className="news-suggestions-section">
-            <h2 className="suggestions-title">Other News</h2>
+            <h2 className="suggestions-title">{t('newsDetail.otherNews')}</h2>
             <div className="suggestions-list">
               {suggestions.map((item) => (
                 <Link

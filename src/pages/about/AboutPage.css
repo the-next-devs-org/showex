@@ -120,16 +120,17 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 10px;
 }
 
 .stat-card {
     background: linear-gradient(135deg, #1a1a1f 0%, #232328 100%);
-    padding: 40px;
+    padding: 10px;
     border-radius: 16px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
+    gap: 10px!important;
 }
 
 .stat-card:hover {

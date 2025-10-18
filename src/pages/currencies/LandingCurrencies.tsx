@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MiniLoader from "../../components/MiniLoader";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
  
 interface NewsItem {
   news_url: string;
@@ -14,6 +15,7 @@ interface NewsItem {
 }
  
 function LandingCurrencies() {
+  const { t } = useTranslation();
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -29,7 +31,7 @@ function LandingCurrencies() {
         const rows: any[] = Array.isArray(payload?.data) ? payload.data : [];
  
         const toLabel = (score: number) =>
-          score > 0.05 ? "Positive" : score < -0.05 ? "Negative" : "Neutral";
+          score > 0.05 ? t('currencies.sentiment.positive') : score < -0.05 ? t('currencies.sentiment.negative') : t('currencies.sentiment.neutral');
  
         const mapped: NewsItem[] = rows.map((row) => {
           const sentiment = toLabel(Number(row?.sentiment_score ?? 0));
@@ -46,8 +48,8 @@ function LandingCurrencies() {
             image_url: "",
  
             // Build a readable title and text from the counts
-            title: `${pair} sentiment on ${date}`,
-            text: `Positive: ${positive} | Negative: ${negative} | Neutral: ${neutral} | Score: ${score}`,
+            title: `${pair} ${t('currencies.sentiment.title')} ${date}`,
+            text: t('currencies.sentiment.details', { positive, negative, neutral, score }),
  
             source_name: "Forex Sentiment API",
             date,
@@ -60,30 +62,29 @@ function LandingCurrencies() {
       })
       .catch((err) => {
         console.error("Error fetching news:", err);
-        setError("Failed to load market news.");
+        setError(t('currencies.error'));
       })
       .finally(() => setLoading(false));
-  }, []);
- 
+  }, [t]);
+
   const getSentimentColor = (sentiment: string) => {
     switch (sentiment) {
-      case "Positive":
+      case t('currencies.sentiment.positive'):
         return "#28a745";
-      case "Negative":
+      case t('currencies.sentiment.negative'):
         return "#dc3545";
       default:
         return "#ffc107";
     }
-  };
- 
-  if (loading) {
+  };  if (loading) {
     return (
       <div className="text-center text-white py-5">
         <MiniLoader />
+        <p>{t('currencies.loading')}</p>
       </div>
     );
   }
- 
+
   if (error) {
     return (
       <div className="text-center text-danger py-5">
@@ -91,11 +92,11 @@ function LandingCurrencies() {
       </div>
     );
   }
- 
+
   return (
     <div style={{ minHeight: "100vh", color: "white" }}>
       <div className="container py-5">
-        <h2 className="mb-4">📈 Market News</h2>
+        <h2 className="mb-4">{t('currencies.marketNews')}</h2>
  
         <div className="row">
           {news.map((item, index) => (
@@ -163,7 +164,7 @@ function LandingCurrencies() {
               className="load-more-btn btn btn-outline-light"
               onClick={() => setVisibleCount((prev) => prev + 9)}
             >
-              Load More
+              {t('currencies.loadMore')}
             </button>
           </div>
         )}

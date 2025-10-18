@@ -77,7 +77,7 @@ table {
   border-collapse: collapse;
 }
 
-th {
+.dashboarduserssth {
   background: #f8f9fa;
   padding: 16px;
   text-align: left;
@@ -86,7 +86,7 @@ th {
   font-weight: 500;
 }
 
-td {
+.dashboardusersstd {
   padding: 16px;
   font-size: 14px;
   color: #1a1f37;

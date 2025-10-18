@@ -13,29 +13,33 @@ function LandingTransactedNFTS() {
     async function fetchStats() {
       setLoading(true);
       try {
-        const res = await fetch(
-          `${VITE_SHOXEZ_API_BACKEND_URL}/sentimentAnalysis`
-        );
+        const res = await fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/sentimentAnalysis`);
         const data = await res.json();
-        // Convert data.data object to array for table
-        const arr = Object.entries(data.data || {})
-          .map(([date, val]: any, idx) => ({
+
+        // ✅ data.data is already an array
+        const arr = (data.data || [])
+          .map((item: any, idx: number) => ({
             rank: idx + 1,
-            date,
-            positive: val["EUR-USD"].Positive,
-            negative: val["EUR-USD"].Negative,
-            neutral: val["EUR-USD"].Neutral,
-            sentiment: val["EUR-USD"].sentiment_score,
+            date: item.date,
+            pair: item.pair,
+            positive: item.Positive,
+            negative: item.Negative,
+            neutral: item.Neutral,
+            sentiment: item.sentiment_score,
           }))
-          .sort((a, b) => (a.date < b.date ? 1 : -1)); 
+          .sort((a: any, b: any) => (a.date < b.date ? 1 : -1)); // newest first
+
         setTableData(arr);
       } catch (err) {
+        console.error("Error fetching sentiment data:", err);
         setTableData([]);
       }
       setLoading(false);
     }
+
     fetchStats();
   }, []);
+
 
   return (
     <div className="container-fluid">
@@ -65,23 +69,23 @@ function LandingTransactedNFTS() {
             loading
               ? []
               : tableData.map((row) => ({
-                  ...row,
-                  sentiment: (
-                    <span
-                      style={{
-                        color:
-                          row.sentiment > 0.2
-                            ? "#2e7d32"
-                            : row.sentiment < -0.2
+                ...row,
+                sentiment: (
+                  <span
+                    style={{
+                      color:
+                        row.sentiment > 0.2
+                          ? "#2e7d32"
+                          : row.sentiment < -0.2
                             ? "#c62828"
                             : "#aaa",
-                        fontWeight: 600,
-                      }}
-                    >
-                      {row.sentiment}
-                    </span>
-                  ),
-                }))
+                      fontWeight: 600,
+                    }}
+                  >
+                    {row.sentiment}
+                  </span>
+                ),
+              }))
           }
         />
       </div>

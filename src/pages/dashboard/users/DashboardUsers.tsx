@@ -171,6 +171,7 @@ const DashboardUsers: React.FC = () => {
   return (
     <DashboardLayout>
       <div className="dashboard-users">
+        <ToastContainer />
         <div className="users-header">
           <h1>Users Management</h1>
           <p>Manage and monitor user accounts</p>
@@ -310,7 +311,7 @@ const DashboardUsers: React.FC = () => {
                   <input
                     type="password"
                     className="ds-input"
-                    onChange={(e) => setEditingUser({ ...editingUser, password: e.target.value })}
+                    onChange={() => {}}
                   />
                 </div>
                 <div className="ds-field">
@@ -357,18 +358,18 @@ const DashboardUsers: React.FC = () => {
               <table>
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Username</th>
-                    <th>Country</th>
-                    <th>Created</th>
-                    <th>Actions</th>
+                    <th className='dashboarduserssth'>Name</th>
+                    <th className='dashboarduserssth'>Email</th>
+                    <th className='dashboarduserssth'>Username</th>
+                    <th className='dashboarduserssth'>Country</th>
+                    <th className='dashboarduserssth'>Created</th>
+                    <th className='dashboarduserssth'>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {pageItems.map((user) => (
                     <tr key={user.id}>
-                      <td>
+                      <td className='dashboardusersstd'>
                         <div className="user-info">
                           <div className="user-avatar">
                             {(user.firstname || user.lastname || user.username || 'U').charAt(0)}
@@ -376,11 +377,11 @@ const DashboardUsers: React.FC = () => {
                           <span>{`${user.firstname || ''} ${user.lastname || ''}`.trim() || user.username}</span>
                         </div>
                       </td>
-                      <td>{user.emailaddress}</td>
-                      <td>{user.username}</td>
-                      <td>{user.country}</td>
-                      <td>{user.createdAt ? new Date(user.createdAt).toLocaleString() : ''}</td>
-                      <td>
+                      <td className='dashboardusersstd'>{user.emailaddress}</td>
+                      <td className='dashboardusersstd'>{user.username}</td>
+                      <td className='dashboardusersstd'>{user.country}</td>
+                      <td className='dashboardusersstd'>{user.createdAt ? new Date(user.createdAt).toLocaleString() : ''}</td>
+                      <td className='dashboardusersstd'>
                         <div className="user-actions">
                           <button className="action-button edit" onClick={() => setEditingUser(user)}>Edit</button>
                           <button className="action-button delete" onClick={() => handleDelete(user.id)}>Delete</button>

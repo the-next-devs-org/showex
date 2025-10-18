@@ -3,7 +3,10 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import NewsMenu from "./newsMenu/NewsMenu";
-
+import {
+  FaTelegram,
+  FaInstagram,
+} from "react-icons/fa";
 function Header() {
   const location = useLocation();
   const [hoverItem, setHoverItem] = useState<string | null>(null);
@@ -24,13 +27,31 @@ function Header() {
     { label: t('nav.home'), to: "/" },
     { label: t('nav.news'), to: "/news" },
     { label: t('nav.markets'), to: "/markets" },
-    { label: t('nav.analysis'), to: "/analysis" },
+    // { label: t('nav.analysis'), to: "/analysis" },
     { label: t('nav.currencies'), to: "/currencies" },
     // { label: "Education", to: "/education" },
     { label: t('nav.calendar'), to: "/calendar" },
     { label: t('nav.events'), to: "/events" },
     // { label: "Validators", to: "/validators" },
     { label: t('nav.analytics'), to: "/analytics" },
+  ];
+
+  const socialLinks = [
+    {
+      href: "https://t.me/ShoxjahonEshniyozov",
+      label: "Telegram 1",
+      icon: <FaTelegram />,
+    },
+    {
+      href: "https://t.me/EshniyozovShohjaxon",
+      label: "Telegram 2",
+      icon: <FaTelegram />,
+    },
+    {
+      href: "https://www.instagram.com/brat_00815/",
+      label: "Instagram",
+      icon: <FaInstagram />,
+    },
   ];
 
   const menuContent: any = {
@@ -114,15 +135,14 @@ function Header() {
     <>
       <Navbar
         expand="lg"
-        className={`py-2 header-navbar ${
-          scrolled ? "custmhederbg shadow-sm" : "bg-transparent"
-        }`}
+        className={`py-2 header-navbar ${scrolled ? "custmhederbg shadow-sm" : "bg-transparent"
+          }`}
         style={{
           position: "sticky",
           top: 0,
           zIndex: 1000,
           transition: "background-color 0.3s ease",
-          backgroundColor: "transparent",
+          backgroundColor: "black",
         }}
       >
         <Container
@@ -224,7 +244,7 @@ function Header() {
                           <div style={{ flex: 1 }}>
                             {activeSubTab &&
                               menuContent[item.label]?.rightContent?.[
-                                activeSubTab
+                              activeSubTab
                               ]}
                           </div>
                         </div>
@@ -253,22 +273,22 @@ function Header() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu align="end">
-                    <Dropdown.Item onClick={() => changeLanguage('en')}>
-                      🇬🇧 {t('language.english')}
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => changeLanguage('ru')}>
-                      🇷🇺 {t('language.russian')}
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => changeLanguage('uz')}>
-                      🇺🇿 {t('language.uzbek')}
-                    </Dropdown.Item>
+                  <Dropdown.Item onClick={() => changeLanguage('en')}>
+                    🇬🇧 {t('language.english')}
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => changeLanguage('ru')}>
+                    🇷🇺 {t('language.russian')}
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => changeLanguage('uz')}>
+                    🇺🇿 {t('language.uzbek')}
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
 
               {isAuthenticated ? (
                 <>
                   <Link
-                    to="/settings"
+                    to="/dashboard"
                     className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize mainSiteBgColor"
                   >
                     {t('auth.profile')}
@@ -310,7 +330,7 @@ function Header() {
                       (e.currentTarget as HTMLAnchorElement).style.transform =
                         "scale(1)";
                     }}
-                    >
+                  >
                     {t('auth.login')}
                   </Link>
 
@@ -345,7 +365,7 @@ function Header() {
                       (e.currentTarget as HTMLAnchorElement).style.transform =
                         "scale(1)";
                     }}
-                    >
+                  >
                     {t('auth.register')}
                   </Link>
                 </>
@@ -354,8 +374,67 @@ function Header() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {/* Sub-header row: left lorem ipsum, right social icons (neon style) */}
+      <div className="subheader-container">
+        <style>{`
+          .subheader-container{ background:#071015; color:#cfd8dc; border-bottom:1px solid rgba(255,255,255,0.04); font-size:13px; }
+          .subheader-inner{ max-width:1200px; display:flex; align-items:center; justify-content:space-between; padding:10px 0; }
+          .neon-text{ color:#9aa7ab; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-weight:500; }
+          /* animated gradient highlight */
+          .neon-highlight{
+            display:inline-block;
+            background: linear-gradient(90deg, #00E8CC 0%, #7C4DFF 40%, #00A0FF 70%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: neonMove 4s linear infinite;
+            text-shadow: 0 0 8px rgba(0,232,204,0.25), 0 0 18px rgba(124,77,255,0.18);
+          }
+          @keyframes neonMove{ 0%{ background-position:0% 50%; } 50%{ background-position:100% 50%; } 100%{ background-position:0% 50%; } }
+
+          .social-row{ display:flex; gap:12px; align-items:center; margin-left:16px; }
+          .social-icon{ width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease; box-shadow: 0 0 8px rgba(0,0,0,0.3); }
+          .social-icon svg{ width:18px; height:18px; color:#fff; }
+          .social-icon.telegram{ background:linear-gradient(180deg,#00A3D9,#0077B6); box-shadow:0 0 14px rgba(0,163,217,0.18), 0 0 28px rgba(0,120,180,0.08); }
+          .social-icon.instagram{ background: linear-gradient(45deg,#feda75 0%,#fa7e1e 25%,#d62976 50%,#962fbf 75%,#4f5bd5 100%); box-shadow:0 0 18px rgba(214,41,118,0.14), 0 0 34px rgba(79,91,213,0.08); }
+          .social-icon:hover{ transform:translateY(-3px) scale(1.04); }
+          .social-icon.telegram:hover{ box-shadow:0 0 20px rgba(0,163,217,0.28),0 0 40px rgba(0,120,180,0.12); }
+          .social-icon.instagram:hover{ box-shadow:0 0 28px rgba(214,41,118,0.28),0 0 48px rgba(79,91,213,0.18); }
+          @media(max-width:768px){ .neon-text{ font-size:12px; } .social-icon{ width:30px; height:30px; } }
+        `}</style>
+
+        <Container className="px-4 subheader-inner">
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <span className="neon-text">
+              <span className="neon-highlight">The founder is Eshniyozov Shoxjahon Akmal ogli.</span>
+            </span>
+          </div>
+
+          <div className="social-row">
+            {socialLinks.map(({ href, label, icon }) => {
+              const isInstagram = /instagram/i.test(href);
+              const cls = isInstagram ? 'social-icon instagram' : 'social-icon telegram';
+              return (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className={cls}
+                >
+                  {icon}
+                </a>
+              );
+            })}
+          </div>
+        </Container>
+      </div>
     </>
   );
 }
 
 export default Header;
+

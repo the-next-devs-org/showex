@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import AppRoutes from "./routes/AppRoutes";
 import Footer from "./components/Footer";
 import StarfieldBackground from "./components/StarfieldBackground";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 

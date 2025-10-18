@@ -1,8 +1,8 @@
 // AdminRoute.tsx
-import React from "react";
 import { Navigate } from "react-router-dom";
 
-const AdminRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
+import React from 'react';
+const AdminRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const loggedInUser = JSON.parse(localStorage.getItem("user") || "{}");
 
   if (loggedInUser.role !== 1) {

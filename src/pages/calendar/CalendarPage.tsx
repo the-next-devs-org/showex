@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import ExportButton from "../../components/ExportButton";
 import "./CalendarPage.css";
 import {
@@ -26,6 +27,7 @@ interface EconomicEvent {
 type ViewFilter = "day" | "week";
 
 function CalendarPage() {
+  const { t } = useTranslation();
   const [viewFilter, setViewFilter] = useState<ViewFilter>("week");
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedCurrency, setSelectedCurrency] = useState<string>("All");
@@ -281,10 +283,10 @@ function CalendarPage() {
           <div className="calendar-header-content">
             <div className="calendar-title">
               <FaCalendarAlt className="calendar-icon" />
-              <h1>Economic Calendar</h1>
+              <h1>{t('calendar.title')}</h1>
             </div>
             <p className="calendar-subtitle">
-              Track important economic indicators, forecasts, and actual results
+              {t('calendar.subtitle')}
             </p>
           </div>
 
@@ -294,7 +296,7 @@ function CalendarPage() {
               filename="economic_calendar"
               sheetName="Calendar"
               variant="primary"
-              buttonText="Export Calendar"
+              buttonText={t('calendar.exportButton')}
             />
           </div>
         </div>
@@ -307,7 +309,7 @@ function CalendarPage() {
             </div>
             <div className="stat-content">
               <div className="stat-value">{stats.total}</div>
-              <div className="stat-label">Total Events</div>
+              <div className="stat-label">{t('calendar.stats.total')}</div>
             </div>
           </div>
 
@@ -317,7 +319,7 @@ function CalendarPage() {
             </div>
             <div className="stat-content">
               <div className="stat-value">{stats.highImportance}</div>
-              <div className="stat-label">High Importance</div>
+              <div className="stat-label">{t('calendar.stats.highImportance')}</div>
             </div>
           </div>
 
@@ -327,7 +329,7 @@ function CalendarPage() {
             </div>
             <div className="stat-content">
               <div className="stat-value">{stats.completed}</div>
-              <div className="stat-label">Completed</div>
+              <div className="stat-label">{t('calendar.stats.completed')}</div>
             </div>
           </div>
 
@@ -337,7 +339,7 @@ function CalendarPage() {
             </div>
             <div className="stat-content">
               <div className="stat-value">{stats.pending}</div>
-              <div className="stat-label">Pending</div>
+              <div className="stat-label">{t('calendar.stats.pending')}</div>
             </div>
           </div>
         </div>
@@ -347,31 +349,31 @@ function CalendarPage() {
           <div className="filter-section">
             <div className="filter-group">
               <FaFilter className="filter-icon" />
-              <label>View:</label>
+              <label>{t('calendar.filter.view')}:</label>
               <div className="view-toggle">
                 <button
                   className={viewFilter === "day" ? "active" : ""}
                   onClick={() => setViewFilter("day")}
                 >
-                  Day
+                  {t('calendar.view.day')}
                 </button>
                 <button
                   className={viewFilter === "week" ? "active" : ""}
                   onClick={() => setViewFilter("week")}
                 >
-                  Week
+                  {t('calendar.view.week')}
                 </button>
               </div>
             </div>
 
             <div className="filter-group">
-              <label>Currency:</label>
+              <label>{t('calendar.filter.currency')}:</label>
               <select
                 value={selectedCurrency}
                 onChange={(e) => setSelectedCurrency(e.target.value)}
                 className="filter-select"
               >
-                <option value="All">All Currencies</option>
+                <option value="All">{t('calendar.filter.allCurrencies')}</option>
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
                 <option value="GBP">GBP</option>
@@ -383,16 +385,16 @@ function CalendarPage() {
             </div>
 
             <div className="filter-group">
-              <label>Importance:</label>
+              <label>{t('calendar.filter.importance')}:</label>
               <select
                 value={selectedImportance}
                 onChange={(e) => setSelectedImportance(e.target.value)}
                 className="filter-select"
               >
-                <option value="All">All Levels</option>
-                <option value="High">High</option>
-                <option value="Medium">Medium</option>
-                <option value="Low">Low</option>
+                <option value="All">{t('calendar.filter.allLevels')}</option>
+                <option value="High">{t('calendar.legend.importance.high')}</option>
+                <option value="Medium">{t('calendar.legend.importance.medium')}</option>
+                <option value="Low">{t('calendar.legend.importance.low')}</option>
               </select>
             </div>
           </div>
@@ -514,46 +516,46 @@ function CalendarPage() {
 
         {/* Legend */}
         <div className="calendar-legend">
-          <h3>Legend</h3>
+          <h3>{t('calendar.legend.title')}</h3>
           <div className="legend-grid">
             <div className="legend-section">
-              <h4>Importance Levels:</h4>
+              <h4>{t('calendar.legend.importance.title')}</h4>
               <div className="legend-items">
                 <div className="legend-item">
-                  <span className="importance-badge importance-high">High</span>
-                  <span>Major market impact expected</span>
+                  <span className="importance-badge importance-high">{t('calendar.legend.importance.high')}</span>
+                  <span>{t('calendar.legend.importance.highDesc')}</span>
                 </div>
                 <div className="legend-item">
                   <span className="importance-badge importance-medium">
-                    Medium
+                    {t('calendar.legend.importance.medium')}
                   </span>
-                  <span>Moderate market impact</span>
+                  <span>{t('calendar.legend.importance.mediumDesc')}</span>
                 </div>
                 <div className="legend-item">
-                  <span className="importance-badge importance-low">Low</span>
-                  <span>Minor market impact</span>
+                  <span className="importance-badge importance-low">{t('calendar.legend.importance.low')}</span>
+                  <span>{t('calendar.legend.importance.lowDesc')}</span>
                 </div>
               </div>
             </div>
 
             <div className="legend-section">
-              <h4>Impact Indicators:</h4>
+              <h4>{t('calendar.legend.impact.title')}</h4>
               <div className="legend-items">
                 <div className="legend-item">
-                  <span className="impact-badge impact-positive">Positive</span>
-                  <span>Better than forecast</span>
+                  <span className="impact-badge impact-positive">{t('calendar.legend.impact.positive')}</span>
+                  <span>{t('calendar.legend.impact.positiveDesc')}</span>
                 </div>
                 <div className="legend-item">
-                  <span className="impact-badge impact-negative">Negative</span>
-                  <span>Worse than forecast</span>
+                  <span className="impact-badge impact-negative">{t('calendar.legend.impact.negative')}</span>
+                  <span>{t('calendar.legend.impact.negativeDesc')}</span>
                 </div>
                 <div className="legend-item">
-                  <span className="impact-badge impact-neutral">Neutral</span>
-                  <span>Matches forecast</span>
+                  <span className="impact-badge impact-neutral">{t('calendar.legend.impact.neutral')}</span>
+                  <span>{t('calendar.legend.impact.neutralDesc')}</span>
                 </div>
                 <div className="legend-item">
-                  <span className="impact-badge impact-pending">Pending</span>
-                  <span>Not yet released</span>
+                  <span className="impact-badge impact-pending">{t('calendar.legend.impact.pending')}</span>
+                  <span>{t('calendar.legend.impact.pendingDesc')}</span>
                 </div>
               </div>
             </div>

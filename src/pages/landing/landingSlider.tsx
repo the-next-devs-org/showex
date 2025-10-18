@@ -23,11 +23,15 @@ const BlockchainSlider: React.FC = () => {
   const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
   useEffect(() => {
-    fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/sundownDigest`) 
+    fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/sundownDigest`)
       .then((res) => res.json())
       .then((data) => {
-        if (data?.data) {
-          setBlocks(data.data);
+        console.log("API response:", data);
+       
+        if (Array.isArray(data?.data?.data)) {
+          setBlocks(data.data.data);
+        } else {
+          setBlocks([]);
         }
       })
       .catch((err) => console.error("Error fetching data:", err));

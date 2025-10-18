@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import "./AboutPage.css";
 import {
   FaRocket,
@@ -12,9 +13,11 @@ import {
   FaGlobe,
   FaAward,
 } from "react-icons/fa";
+const analyticsImgabout = "/aboutus.jpg";
 
 function AboutPage() {
   const [imageError, setImageError] = useState(false);
+  const { t } = useTranslation();
 
   const values = [
     {
@@ -83,31 +86,21 @@ function AboutPage() {
       <section className="about-hero">
         <div className="about-hero-content">
           <div className="hero-text">
-            <h1 className="about-title">
-              About <span className="highlight">ShoxEz</span>
-            </h1>
-            <p className="about-subtitle">
-              Empowering traders and investors with real-time data, advanced
-              analytics, and comprehensive market insights.
-            </p>
-            <div className="hero-badges">
-              <span className="hero-badge">Est. 2020</span>
-              <span className="hero-badge">Global Platform</span>
-              <span className="hero-badge">Trusted by Millions</span>
-            </div>
+            <h1 className="about-title">{t('about.heroTitle')}</h1>
+            <p className="about-subtitle">{t('about.heroSubtitle')}</p>
           </div>
 
           <div className="hero-image">
             {!imageError ? (
               <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop"
+                src={analyticsImgabout}
                 alt="Financial Analytics"
                 onError={() => setImageError(true)}
               />
             ) : (
               <div className="image-placeholder">
                 <FaChartLine className="placeholder-icon" />
-                <p>Add your company image here</p>
+                <p>{t('aboutPage.imagePlaceholder')}</p>
               </div>
             )}
             <div className="image-overlay"></div>
@@ -122,7 +115,15 @@ function AboutPage() {
             <div key={index} className="stat-card">
               <div className="stat-icon">{stat.icon}</div>
               <div className="stat-value">{stat.value}</div>
-              <div className="stat-label">{stat.label}</div>
+              <div className="stat-label">
+                {index === 0
+                  ? t('aboutPage.stats.activeUsers')
+                  : index === 1
+                  ? t('aboutPage.stats.marketsTracked')
+                  : index === 2
+                  ? t('aboutPage.stats.countries')
+                  : t('aboutPage.stats.support')}
+              </div>
             </div>
           ))}
         </div>
@@ -135,36 +136,24 @@ function AboutPage() {
             <div className="mission-icon">
               <FaRocket />
             </div>
-            <h2>Our Mission</h2>
-            <p>
-              To democratize access to financial markets by providing
-              cutting-edge tools, real-time data, and comprehensive analytics
-              that empower every trader and investor to make informed decisions.
-            </p>
+              <h2>{t('aboutPage.missionTitle')}</h2>
+              <p>{t('aboutPage.missionText')}</p>
           </div>
 
           <div className="mission-card">
             <div className="mission-icon">
               <FaEye />
             </div>
-            <h2>Our Vision</h2>
-            <p>
-              To become the world's most trusted and comprehensive financial
-              information platform, bridging the gap between complex market data
-              and actionable insights for users globally.
-            </p>
+              <h2>{t('aboutPage.visionTitle')}</h2>
+              <p>{t('aboutPage.visionText')}</p>
           </div>
 
           <div className="mission-card">
             <div className="mission-icon">
               <FaHeart />
             </div>
-            <h2>Our Values</h2>
-            <p>
-              Built on trust, transparency, and innovation, we strive to
-              maintain the highest standards of accuracy and integrity while
-              continuously evolving to meet our users' needs.
-            </p>
+              <h2>{t('aboutPage.valuesTitle')}</h2>
+              <p>{t('aboutPage.values.trustText')}</p>
           </div>
         </div>
       </section>
@@ -172,15 +161,15 @@ function AboutPage() {
       {/* Values Section */}
       <section className="about-values">
         <div className="values-header">
-          <h2>What We Stand For</h2>
-          <p>The core principles that guide everything we do</p>
+            <h2>{t('aboutPage.valuesTitle')}</h2>
+            <p>{t('aboutPage.values.trustText')}</p>
         </div>
         <div className="values-grid">
           {values.map((value, index) => (
             <div key={index} className="value-card">
               <div className="value-icon">{value.icon}</div>
-              <h3>{value.title}</h3>
-              <p>{value.description}</p>
+              <h3>{t(`aboutPage.values.${index === 0 ? 'trustTitle' : index === 1 ? 'innovationTitle' : index === 2 ? 'integrityTitle' : 'globalTitle'}`)}</h3>
+              <p>{t(`aboutPage.values.${index === 0 ? 'trustText' : index === 1 ? 'innovationText' : index === 2 ? 'integrityText' : 'globalText'}`)}</p>
             </div>
           ))}
         </div>
@@ -190,57 +179,49 @@ function AboutPage() {
       <section className="about-story">
         <div className="story-container">
           <div className="story-content">
-            <h2>Our Story</h2>
+            <h2>{t('about.storyHeading')}</h2>
             <div className="story-text">
-              <p>
-                Founded in 2020, ShoxEz began with a simple vision: to make
-                financial markets accessible to everyone. What started as a
-                small team of passionate developers and market analysts has
-                grown into a comprehensive platform serving millions of users
-                worldwide.
-              </p>
-              <p>
-                We recognized that while financial data was abundant, making
-                sense of it was challenging. ShoxEz was built to bridge this
-                gap, combining advanced technology with intuitive design to
-                deliver insights that matter.
-              </p>
-              <p>
-                Today, we track over 500 markets across 150 countries, providing
-                real-time data, AI-powered analytics, economic calendars, and
-                comprehensive news coverage. Our commitment to innovation drives
-                us to continuously enhance our platform with new features and
-                capabilities.
-              </p>
+              <p>{t('about.story.p1')}</p>
+              <p>{t('about.story.p2')}</p>
+              <h3>{t('about.story.sub1')}</h3>
+              <p>{t('about.story.p3')}</p>
+              <p>{t('about.story.p4')}</p>
+              <p>{t('about.story.p5')}</p>
+              <p>{t('about.story.p6')}</p>
+              <h3>{t('about.story.sub2')}</h3>
+              <p>{t('about.story.p7')}</p>
+              <p>{t('about.story.p8')}</p>
+              <p>{t('about.story.p9')}</p>
+              <p>{t('about.story.p10')}</p>
             </div>
           </div>
           <div className="story-timeline">
             <div className="timeline-item">
               <div className="timeline-year">2020</div>
               <div className="timeline-content">
-                <h4>Founded</h4>
-                <p>ShoxEz launched with basic market tracking</p>
+                <h4>{t('aboutPage.timeline.founded')}</h4>
+                <p>{t('aboutPage.timelineDesc.founded')}</p>
               </div>
             </div>
             <div className="timeline-item">
               <div className="timeline-year">2021</div>
               <div className="timeline-content">
-                <h4>Expansion</h4>
-                <p>Added analytics and economic calendar</p>
+                <h4>{t('aboutPage.timeline.expansion')}</h4>
+                <p>{t('aboutPage.timelineDesc.expansion')}</p>
               </div>
             </div>
             <div className="timeline-item">
               <div className="timeline-year">2023</div>
               <div className="timeline-content">
-                <h4>AI Integration</h4>
-                <p>Introduced AI-powered predictions</p>
+                  <h4>{t('aboutPage.timeline.ai')}</h4>
+                <p>{t('aboutPage.timelineDesc.ai')}</p>
               </div>
             </div>
             <div className="timeline-item">
               <div className="timeline-year">2025</div>
               <div className="timeline-content">
-                <h4>Global Leader</h4>
-                <p>Serving 1M+ users worldwide</p>
+                  <h4>{t('aboutPage.timeline.global')}</h4>
+                <p>{t('aboutPage.timelineDesc.global')}</p>
               </div>
             </div>
           </div>
@@ -250,8 +231,8 @@ function AboutPage() {
       {/* Team Section */}
       <section className="about-team">
         <div className="team-header">
-          <h2>Meet Our Team</h2>
-          <p>The brilliant minds behind ShoxEz</p>
+         <h2>{t('aboutPage.teamTitle')}</h2>
+         <p>{t('aboutPage.teamSubtitle')}</p>
         </div>
         <div className="team-grid">
           {team.map((member, index) => (

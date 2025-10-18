@@ -3,6 +3,124 @@
 	"nav": {
 		"home": "Bosh sahifa",
 		"news": "Yangiliklar",
+	"dashboard": {
+		"analytics": {
+			"title": "Tahlil ko'rsatkichlari",
+			"subtitle": "Samaradorlik ko'rsatkichlarini kuzatish",
+			"cards": {
+				"dailyUsers": "Kunlik faol foydalanuvchilar",
+				"revenue": "Daromad",
+				"conversionRate": "Konversiya darajasi",
+				"avgSession": "O'rtacha sessiya",
+				"vsLastWeek": "o'tgan haftaga nisbatan"
+			},
+			"charts": {
+				"userGrowth": "Foydalanuvchilar o'sishi",
+				"revenueTrend": "Daromad tendensiyasi"
+			}
+		},
+		"transactions": {
+			"title": "Tranzaksiyalar",
+			"subtitle": "Tranzaksiyalarni ko'rish va boshqarish",
+			"filters": {
+				"allTypes": "Barcha turlar",
+				"sent": "Yuborilgan",
+				"received": "Qabul qilingan",
+				"allStatus": "Barcha holatlar",
+				"completed": "Yakunlangan",
+				"pending": "Kutilmoqda",
+				"failed": "Amalga oshmadi"
+			},
+			"table": {
+				"type": "Turi",
+				"amount": "Miqdori",
+				"usdValue": "USD qiymati",
+				"from": "Kimdan",
+				"to": "Kimga",
+				"time": "Vaqt",
+				"status": "Holat"
+			},
+			"buttons": {
+				"exportCsv": "CSV eksport",
+				"previous": "Oldingi",
+				"next": "Keyingi"
+			}
+		},
+		"indicators": {
+			"title": "Indikatorlar",
+			"subtitle": "Panel indikatorlarini ko'rish va boshqarish",
+			"loading": "Yuklanmoqda...",
+			"loadingDetails": "Tafsilotlar yuklanmoqda...",
+			"noData": "Ma'lumot topilmadi.",
+			"noIndicators": "Indikatorlar topilmadi.",
+			"error": "Indikatorlarni yuklab bo'lmadi",
+			"errorDetails": "Indikator tafsilotlarini yuklab bo'lmadi",
+			"table": {
+				"date": "Sana",
+				"value": "Qiymat",
+				"id": "ID"
+			}
+		},
+		"settings": {
+			"title": "Sozlamalar",
+			"subtitle": "Hisobni va parametrlarni boshqarish",
+			"profile": {
+				"title": "Profil sozlamalari",
+				"firstName": "Ism",
+				"lastName": "Familiya",
+				"username": "Foydalanuvchi nomi",
+				"email": "Email manzil",
+				"country": "Mamlakat",
+				"selectCountry": "Mamlakatni tanlang",
+				"countries": {
+					"pakistan": "Pokiston",
+					"us": "AQSh",
+					"uk": "Buyuk Britaniya",
+					"canada": "Kanada",
+					"india": "Hindiston"
+				}
+			},
+			"security": {
+				"title": "Xavfsizlik",
+				"currentPassword": "Joriy parol",
+				"newPassword": "Yangi parol",
+				"confirmPassword": "Yangi parolni tasdiqlang"
+			},
+			"buttons": {
+				"saving": "Saqlanmoqda...",
+				"saveChanges": "O'zgarishlarni saqlash",
+				"updating": "Yangilanmoqda...",
+				"updatePassword": "Parolni yangilash"
+			}
+		},
+		"notifications": {
+			"title": "Bildirishnomalar",
+			"subtitle": "Bildirishnomalarni boshqarish",
+			"settings": {
+				"emailNotifications": {
+					"title": "Email bildirishnomalari",
+					"desc": "Muhim yangilanishlarni email orqali qabul qiling"
+				},
+				"currencies": {
+					"title": "Valyutalarni tanlang",
+					"usd": "USD - AQSh dollari",
+					"eur": "EUR - Yevro",
+					"gbp": "GBP - Britaniya funti",
+					"jpy": "JPY - Yaponiya iyenasi",
+					"aud": "AUD - Avstraliya dollari"
+				}
+			},
+			"buttons": {
+				"saveChanges": "O'zgarishlarni saqlash",
+				"saving": "Saqlanmoqda...",
+				"saved": "Saqlandi!"
+			},
+			"messages": {
+				"updateSuccess": "Bildirishnomalar muvaffaqiyatli yangilandi!",
+				"updateError": "Bildirishnomalarni yangilab bo'lmadi."
+			}
+		}
+	},
 		"markets": "Bozorlar",
 		"analysis": "Tahlil",
 		"currencies": "Valyutalar",
@@ -82,5 +200,61 @@
 		"social":{
 			"telegram":"Telegram",
 			"instagram":"Instagram"
+		}
+		,
+		"about":{
+			"heroTitle":"Tashabbuskor — Eshniyozov Shoxjahon Akmal ogli.",
+			"heroSubtitle":"Eshniyozov Shohjaxon Akmal Ogli, sohada “Opa” sifatida tanilgan ilhomlantiruvchi Forex treyderi, Forex bozorlarida eng yaxshi hayotiy hikoyalardan biriga ega. 'O‘zbekiston bo‘ri' laqabiga ega bo‘lgan treyder 2012 yilda ish boshlagan va tezda afsonaga aylangan.",
+			"storyHeading":"Asoschi haqida",
+			"story":{
+				"p1":"Eshniyozov Shohjaxon Akmal Ogli, sohada “Opa” sifatida tanilgan ilhomlantiruvchi Forex treyderi, Forex bozorlarida eng yaxshi hayotiy hikoyalardan biriga ega. 'O‘zbekiston bo‘ri' laqabiga ega bo‘lgan treyder 2012 yilda ish boshlagan va tezda afsonaga aylangan.",
+				"p2":"Shohjaxon o‘z mehnati bilan muvaffaqiyatga erishgan inson misolidir va moliyaviy bozorlarning imkoniyatlarini o‘z foydasiga aylantira oladigan chidamli ko‘nikmalarga ega. Bu uning hikoyasidir.",
+				"sub1":"Forex afsonasi, O‘zbekiston Bo‘riysi, tarix yaratmoqda",
+				"p3":"1995 yilda O‘zbekistonda tug‘ilgan Shohjaxon, o‘z sharoitlarini yengib o‘tib, qat’iyat, bilim va iroda orqali Forex sohasida tirik afsonaga aylangan inson namunasi hisoblanadi.",
+				"p4":"Bizning tekshiruvlarimizga ko‘ra, Eshniyozov Shohjaxon Akmal Ogli Forex bozoriga 12 yildan ortiq vaqt oldin kirgan. O‘sha paytda tajribasi kam va sohaning dinamikasini bilmasdan, O‘zbekiston Bo‘risi o‘z faoliyatini sinov va xatolar orqali boshladi. Ko‘plab odamlar kabi, Shohjaxon boshlang‘ichda daromaddan mahrum bo‘ldi. Ammo u taslim bo‘lish o‘rniga bozor o‘rgatgan saboqlarni qabul qildi. U xatolaridan strategiyalar, chidamlilik va qat’iyatni shakllantirdi va boshqalarni ilhomlantirdi.",
+				"p5":"Uch yildan so‘ng, 2015 yilda, Shohjaxon mehnatining mevasi hosil bo‘la boshladi. Treyder birinchi yilda noyob afzallik va uslub topdi. O‘zbekiston Bo‘ri matematik va texnik nazariyalarni fundamental tahlil bilan uyg‘unlashtirdi.",
+				"p6":"Ushbu strategiya katta daromad keltirdi va 2018 yilga kelib, treyder bir necha ming yevroni bir oy ichida 25 000 yevroga aylantirdi. Ushbu strategiya treyderga yo‘qotishlardan qochish imkonini berdi va ikki yil o‘tib, O‘zbekiston Bo‘ri 7 million yevro daromad-yo‘qotish nisbati bilan ajoyib natijaga erishdi. Uning hikoyasining eng ta’sirli jihatlaridan biri bilimlarni yutib olib, amaliy savdo strategiyalariga aylantirish qobiliyatidir. Bizning tekshiruvlarimiz Shohjaxonning murabbiylari bo‘lmaganini va o‘n yilga yetmay turib Forex bozoriga oid 320 dan ortiq kitobni o‘qigani haqida ma’lumot beradi.",
+				"sub2":"Treyderlar bu Forex afsonasi kabi daromad olishi mumkin — buning yo‘li quyida",
+				"p7":"Bugun Shohjaxon boshqalarni o‘zi yillar davomida o‘rgangan narsalarni qisqa vaqt ichida o‘rgatishga bag‘ishlagan. Uning tajribasi yangi boshlovchi treyderlarni qisqa muddatda g‘olibga aylantira oladi va buning uchun u maxfiy Telegram kanaliga qo‘shilishni taklif qiladi.",
+				"p8":"2021 yil oktabrida bu Forex afsonasi 49 600 dollarni 24 kun ichida hech qanday zarar qayd etmasdan 1 180 000 dollarga aylantirdi. Bu Shohjaxonga tarixdagi eng yirik treyderlardan biri sifatida jahonga tanilish imkonini bergan bo‘lishi mumkin.",
+				"p9":"2020 yildan 2022 yil 5 aprelgacha Shohjaxonning savdo hajmi yoki hisob balansi taxminan 19 million dollarni tashkil etdi. U ochiqligi va halolligi bilan tanilgan, foydalanuvchilari bilan foyda va zararini bo‘lishadi.",
+				"p10":"Hozirda, uning maxfiy Telegram kanali orqali o‘quvchilar uning savdodagi muvaffaqiyatini takrorlay olishadi. Maxfiy kanal haqida batafsil ma’lumot olish uchun savdogarlar quyidagi havoladan foydalanib qo‘shilishlari mumkin va bugun g‘alaba qozonishni boshlashlari mumkin."
+			}
+			,
+			"aboutPage":{
+				"missionTitle":"Bizning missiyamiz",
+				"missionText":"Moliyaviy bozorlar uchun ilg‘or vositalar, real vaqt ma’lumotlari va keng qamrovli tahlillarni taqdim etish orqali bozorlarning kirish imkoniyatini demokratlashtirish.",
+				"visionTitle":"Bizning ko‘rishimiz",
+				"visionText":"Murakkab bozor ma’lumotlari va amaliy tahlil o‘rtasidagi tafovutni bartaraf etib, dunyoning eng ishonchli va keng qamrovli moliyaviy axborot platformasiga aylanish.",
+				"valuesTitle":"Bizning qadriyatlarimiz",
+				"values":{
+					"trustTitle":"Ishonch va shaffoflik",
+					"trustText":"Biz barcha operatsiyalarimiz va ma’lumotlar hisobotida to‘liq shaffoflikka ishonamiz.",
+					"innovationTitle":"Innovatsiya",
+					"innovationText":"Oldingi texnologiyalar va tahlillar bilan chegaralarni kengaytirib boramiz.",
+					"integrityTitle":"Halollik",
+					"integrityText":"Aniqlik va axloqiy amaliyotlarda eng yuqori standartlarni saqlash.",
+					"globalTitle":"Global qamrov",
+					"globalText":"Foydalanuvchilarga keng qamrovli bozor yondashuvi bilan xizmat ko‘rsatish."
+				},
+				"stats":{
+					"activeUsers":"Faol foydalanuvchilar",
+					"marketsTracked":"Kuzatilayotgan bozorlar",
+					"countries":"Mamlakatlar",
+					"support":"Qo‘llab-quvvatlash"
+				},
+				"teamTitle":"Jamoamiz bilan tanishing",
+				"teamSubtitle":"ShoxEz ortidagi ajoyib fikrlar",
+				"timeline":{
+					"founded":"Tashkil etilgan",
+					"expansion":"Kengayish",
+					"ai":"AI integratsiyasi",
+					"global":"Global yetakchi"
+				},
+				"ctaTitle":"Boshlashga tayyormisiz?",
+				"ctaText":"Moliyaviy tahlil uchun ShoxEz ga ishonadigan millionlab foydalanuvchilarga qo‘shiling",
+				"ctaPrimary":"Bepul hisob ochish",
+				"ctaSecondary":"Biz bilan bog‘laning"
+			}
 		}
 }

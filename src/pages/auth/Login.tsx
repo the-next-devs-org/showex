@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-
+import { useNavigate } from 'react-router-dom';
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
-
+  const navigate = useNavigate();
 
   // const handleSubmit = (e: React.FormEvent) => {
   //   e.preventDefault();
@@ -42,7 +42,8 @@ function Login() {
       localStorage.setItem("user", JSON.stringify(data.user));
 
       // alert("Login successful!");
-      window.location.href = "/settings"; 
+      // window.location.href = "/dashboard"; 
+      navigate('/dashboard');
 
     } catch (err) {
       console.error(err);

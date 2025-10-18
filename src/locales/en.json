@@ -1,5 +1,136 @@
 {
 	"brand": "ShoxEZ",
+	"dashboard": {
+		"analytics": {
+			"title": "Analytics Overview",
+			"subtitle": "Monitor your performance metrics",
+			"cards": {
+				"dailyUsers": "Daily Active Users",
+				"revenue": "Revenue",
+				"conversionRate": "Conversion Rate",
+				"avgSession": "Average Session",
+				"vsLastWeek": "vs last week"
+			},
+			"charts": {
+				"userGrowth": "User Growth",
+				"revenueTrend": "Revenue Trend"
+			}
+		},
+		"transactions": {
+			"title": "Transactions",
+			"subtitle": "View and manage your transactions",
+			"filters": {
+				"allTypes": "All Types",
+				"sent": "Sent",
+				"received": "Received",
+				"allStatus": "All Status",
+				"completed": "Completed",
+				"pending": "Pending",
+				"failed": "Failed"
+			},
+			"table": {
+				"type": "Type",
+				"amount": "Amount",
+				"usdValue": "USD Value",
+				"from": "From",
+				"to": "To",
+				"time": "Time",
+				"status": "Status"
+			},
+			"buttons": {
+				"exportCsv": "Export CSV",
+				"previous": "Previous",
+				"next": "Next"
+			}
+		},
+		"indicators": {
+			"title": "Indicators",
+			"subtitle": "View and manage your dashboard indicators here",
+			"loading": "Loading...",
+			"loadingDetails": "Loading details...",
+			"noData": "No data found.",
+			"noIndicators": "No indicators found.",
+			"error": "Failed to load indicators",
+			"errorDetails": "Failed to load indicator details",
+			"table": {
+				"date": "Date",
+				"value": "Value",
+				"id": "ID"
+			}
+		},
+		"settings": {
+			"title": "Settings",
+			"subtitle": "Manage your account and preferences",
+			"profile": {
+				"title": "Profile Settings",
+				"firstName": "First Name",
+				"lastName": "Last Name",
+				"username": "Username",
+				"email": "Email Address",
+				"country": "Country",
+				"selectCountry": "Select Country",
+				"countries": {
+					"pakistan": "Pakistan",
+					"us": "United States",
+					"uk": "United Kingdom",
+					"canada": "Canada",
+					"india": "India"
+				}
+			},
+			"security": {
+				"title": "Security",
+				"currentPassword": "Current Password",
+				"newPassword": "New Password",
+				"confirmPassword": "Confirm New Password"
+			},
+			"buttons": {
+				"saving": "Saving...",
+				"saveChanges": "Save Changes",
+				"updating": "Updating...",
+				"updatePassword": "Update Password"
+			}
+		},
+		"notifications": {
+			"title": "Notifications",
+			"subtitle": "Manage your notifications",
+			"settings": {
+				"emailNotifications": {
+					"title": "Email Notifications",
+					"desc": "Receive important updates via email"
+				},
+				"currencies": {
+					"title": "Select Currencies",
+					"usd": "USD - US Dollar",
+					"eur": "EUR - Euro",
+					"gbp": "GBP - British Pound",
+					"jpy": "JPY - Japanese Yen",
+					"aud": "AUD - Australian Dollar"
+				}
+			},
+			"buttons": {
+				"saveChanges": "Save Changes",
+				"saving": "Saving...",
+				"saved": "Saved!"
+			},
+			"messages": {
+				"updateSuccess": "Notifications updated successfully!",
+				"updateError": "Failed to update notifications."
+			}
+		}
+	},
+	"currencies": {
+		"marketNews": "📈 Market News",
+		"loadMore": "Load More",
+		"loading": "Loading market news...",
+		"error": "Failed to load market news.",
+		"sentiment": {
+			"positive": "Positive",
+			"negative": "Negative",
+			"neutral": "Neutral",
+			"title": "sentiment on",
+			"details": "Positive: {{positive}} | Negative: {{negative}} | Neutral: {{neutral}} | Score: {{score}}"
+		}
+	},
 	"nav": {
 		"home": "Home",
 		"news": "News",
@@ -9,6 +140,144 @@
 		"calendar": "Calendar",
 		"events": "Events",
 		"analytics": "Analytics"
+	},
+	"events": {
+		"title": "Events News",
+		"loadMore": "Load More",
+		"loading": "Loading events..."
+	},
+	"newsDetail": {
+		"newsNotFound": "News not found",
+		"otherNews": "Other News",
+		"readMore": "Read More"
+	},
+	"analytics": {
+		"title": "MultiversX Blockchain analytics (Beta)",
+		"search": "Search for an address, @herotag, transaction/block hash, validator key or token id",
+		"keyMetrics": "Key Metrics",
+		"compare": "Compare",
+		"aiPredictions": {
+			"title": "AI-Powered Trend Forecasts",
+			"beta": "BETA",
+			"export": "Export",
+			"refresh": "Refresh Predictions",
+			"loading": "Generating AI predictions...",
+			"probability": "Probability of",
+			"confidence": "Confidence",
+			"disclaimer": "Note: AI predictions are based on sentiment analysis and economic indicators. These forecasts are for informational purposes only and should not be considered as financial advice."
+		},
+		"stats": {
+			"epoch": "Epoch",
+			"roundsLeft": "Rounds Left",
+			"currentPrice": "Current Price",
+			"activeAccounts": "Active Accounts Today",
+			"blockHeight": "Block Height",
+			"totalApps": "Total Applications Deployed",
+			"devRewards": "Total Developer Rewards",
+			"networkFees": "Total Network Fees"
+		},
+		"charts": {
+			"totalTransactions": "Total Transactions",
+			"applications": "Applications",
+			"standard": "Standard",
+			"tokenTx": "Token Transactions",
+			"nftTx": "NFT Transactions",
+			"totalAccounts": "Total Accounts",
+			"dailyActive": "Daily Active Users",
+			"newApps": "New Applications Deployed",
+			"mostUsedApps": "Most Used Applications (daily)",
+			"viewDashboard": "View Dashboard",
+			"mostTransactedNFTs": "Most Transacted NFTs (Daily)",
+			"mostTransactedTokens": "Most Transacted Tokens (Daily)",
+			"stakingMetrics": "Staking Metrics",
+			"usersStaking": "Users Staking",
+			"aprMetrics": "APR Metrics",
+			"feesMetrics": "Fees Metrics"
+		},
+		"table": {
+			"rank": "Rank",
+			"token": "Token",
+			"items": "Items",
+			"holders": "Holders",
+			"totalTxn": "Total Txn",
+			"transactions": "Transactions"
+		},
+		"buttons": {
+			"newESDTs": "+ New ESDTs",
+			"newNFTs": "+ New NFTs",
+			"newContracts": "+ New Smart Contracts"
+		},
+		"timeRanges": {
+			"last7Days": "7D",
+			"last30Days": "30D",
+			"last365Days": "1Y",
+			"allTime": "All"
+		}
+	},
+	"calendar": {
+		"title": "Economic Calendar",
+		"subtitle": "Track important economic indicators, forecasts, and actual results",
+		"exportButton": "Export Calendar",
+		"view": {
+			"day": "Day",
+			"week": "Week",
+			"previous": "Previous",
+			"next": "Next",
+			"weekOf": "Week of"
+		},
+		"filter": {
+			"view": "View",
+			"currency": "Currency",
+			"importance": "Importance",
+			"allCurrencies": "All Currencies",
+			"allLevels": "All Levels"
+		},
+		"event": {
+			"time": "Time",
+			"currency": "Currency",
+			"indicator": "Indicator",
+			"importance": "Importance",
+			"forecast": "Forecast",
+			"previous": "Previous",
+			"actual": "Actual",
+			"impact": "Impact",
+			"events": "events",
+			"noEventsTitle": "No Events Found",
+			"noEventsMessage": "Try adjusting your filters or selecting a different date range."
+		},
+		"stats": {
+			"total": "Total Events",
+			"highImportance": "High Importance",
+			"completed": "Completed",
+			"pending": "Pending"
+		},
+		"legend": {
+			"title": "Legend",
+			"importance": {
+				"title": "Importance Levels:",
+				"high": "High",
+				"medium": "Medium",
+				"low": "Low",
+				"highDesc": "Major market impact expected",
+				"mediumDesc": "Moderate market impact",
+				"lowDesc": "Minor market impact"
+			},
+			"impact": {
+				"title": "Impact Indicators:",
+				"positive": "Positive",
+				"negative": "Negative",
+				"neutral": "Neutral",
+				"pending": "Pending",
+				"positiveDesc": "Better than forecast",
+				"negativeDesc": "Worse than forecast",
+				"neutralDesc": "Matches forecast",
+				"pendingDesc": "Not yet released"
+			}
+		}
+	},
+	"markets": {
+		"marketNews": "📈 Market News",
+		"loadMore": "Load More"
 	},
 	"menu": {
 		"latestNews": "Latest News",
@@ -80,5 +349,69 @@
 	"social": {
 		"telegram": "Telegram",
 		"instagram": "Instagram"
+	}
+	,
+	"about": {
+		"heroTitle": "The founder is Eshniyozov Shoxjahon Akmal ogli.",
+		"heroSubtitle": "Eshniyozov Shohjaxon Akmal Ogli, the inspiring Forex trader known as “Brother” within the sector, has one of the best background stories across the Forex markets. The Trader, nicknamed The Wolf of Uzbekistan, has quickly become a legend whose career began in 2012.",
+		"storyHeading": "About the Founder",
+		"story": {
+			"p1": "Eshniyozov Shohjaxon Akmal Ogli, the inspiring Forex trader known as “Brother” within the sector, has one of the best background stories across the Forex markets. The Trader, nicknamed The Wolf of Uzbekistan, has quickly become a legend whose career began in 2012.",
+			"p2": "Shohjaxon is an example of a self-made man and one of the few with the self-tough skills to turn the financial markets’ opportunities to his advantage. This is his story.",
+			"sub1": "Forex Legend, The Wolf of Uzbekistan, Makes History",
+			"p3": "Born in 1995 in Uzbekistan, Shohjaxon is an example of someone who could take his circumstances and achieve success with a powerful will, knowledge, and determination to become a living legend in the Forex sector.",
+			"p4": "According to our investigation, Eshniyozov Shohjaxon Akmal Ogli first dived into the Forex market over 12 years ago. At that time, inexperienced and lacking insights into the dynamics of the sector, the Wolf of Uzbekistan began his career with a simple approach: trial and error. Like many in his situation, Shohjaxon faced initial disappointments as profits eluded him. However, instead of giving up, he embraced the lessons the market taught him. He forged his strategies, resilience, and determination from his mistakes, inspiring others with his unwavering commitment.",
+			"p5": "Three years later, in 2015, Shohjaxon began reaping the fruits of his effort. The Forex trader found a unique edge and style during his first year. The Wolf of Uzbekistan used mathematical and technical theories combined with a deep understanding of fundamental analysis.",
+			"p6": "This strategy led to massive profits, and by 2018, the Forex trader had turned thousands of euros into 25,000 euros in a little over a month. The Forex trading strategy allowed the trader to avoid losses, and just two years later, the Wolf of Uzbekistan recorded an impressive Profit and Loss ratio of 7 million euros, a testament to his unparalleled success in the Forex market. One of the most impressive aspects of his story is his capacity to absorb knowledge and turned into practical applications to trade currencies. Our investigation indicates that Shohjaxon had no mentors and, in less than a decade, read over 320 books on the Forex Market to develop his trading style and strategies.",
+			"sub2": "Traders Can Make As Much Profit As This Forex Legend, Here’s How",
+			"p7": "Today, Shohjaxon is dedicated to teaching others what he learned in multiple years in a shorter period. His expertise can turn inexperienced traders into winners in no time by joining his private Telegram channel.",
+			"p8": "In October 2021, the Forex Legend turned $49,600 into $1,180,000 in 24 days without recording a single loss. It could earn Shohjaxon, the Wolf of Uzbekistan, a world record as one of the most prominent traders in history.",
+			"p9": "From 2020 to 5 April 2022, Shohjaxon’s trading volume or account balance reached approximately $19 million. He is renowned for his transparency and honesty, sharing his gains and losses with his followers.",
+			"p10": "Right now, and via his private Telegram channel, readers can copy his trading success. For more information about the private channel, traders can use the following link to join and start winning today."
+		}
+	}
+	,
+	"aboutPage": {
+		"missionTitle": "Our Mission",
+		"missionText": "To democratize access to financial markets by providing cutting-edge tools, real-time data, and comprehensive analytics that empower every trader and investor to make informed decisions.",
+		"visionTitle": "Our Vision",
+		"visionText": "To become the world's most trusted and comprehensive financial information platform, bridging the gap between complex market data and actionable insights for users globally.",
+		"valuesTitle": "Our Values",
+		"values": {
+			"trustTitle": "Trust & Transparency",
+			"trustText": "We believe in complete transparency in all our operations and data reporting.",
+			"innovationTitle": "Innovation",
+			"innovationText": "Constantly pushing boundaries with cutting-edge technology and insights.",
+			"integrityTitle": "Integrity",
+			"integrityText": "Maintaining the highest standards of accuracy and ethical practices.",
+			"globalTitle": "Global Reach",
+			"globalText": "Serving users worldwide with comprehensive market coverage."
+		},
+		"stats": {
+			"activeUsers": "Active Users",
+			"marketsTracked": "Markets Tracked",
+			"countries": "Countries",
+			"support": "Support"
+		},
+		"teamTitle": "Meet Our Team",
+		"teamSubtitle": "The brilliant minds behind ShoxEz",
+		"timeline": {
+			"founded": "Founded",
+			"expansion": "Expansion",
+			"ai": "AI Integration",
+			"global": "Global Leader"
+		},
+		"timelineDesc": {
+			"founded": "ShoxEz launched with basic market tracking",
+			"expansion": "Added analytics and economic calendar",
+			"ai": "Introduced AI-powered predictions",
+			"global": "Serving 1M+ users worldwide"
+		},
+		"heroImageAlt": "Financial Analytics",
+		"imagePlaceholder": "Add your company image here",
+		"ctaTitle": "Ready to Get Started?",
+		"ctaText": "Join millions of users who trust ShoxEz for their financial insights",
+		"ctaPrimary": "Create Free Account",
+		"ctaSecondary": "Contact Us"
 	}
 }

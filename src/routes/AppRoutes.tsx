@@ -43,6 +43,8 @@ import DashboardAnalytics from "../pages/dashboard/analytics/DashboardAnalytics"
 import DashboardTransactions from "../pages/dashboard/transactions/DashboardTransactions";
 import DashboardUsers from "../pages/dashboard/users/DashboardUsers";
 import DashboardSettings from "../pages/dashboard/settings/DashboardSettings";
+import NotificationPage from "../pages/dashboard/notification/NotificationPage";
+import DashboardIndicators from "../pages/dashboard/indicators/DashboardIndicators";
 
 function AppRoutes() {
   return (
@@ -131,6 +133,24 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/dashboard/notification"
+        element={
+          <ProtectedRoute>
+            <NotificationPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/dashboard/indicators"
+        element={
+          <ProtectedRoute>
+            <DashboardIndicators />
+          </ProtectedRoute>
+        }
+      />
+
       <Route
         path="/dashboard/settings"
         element={

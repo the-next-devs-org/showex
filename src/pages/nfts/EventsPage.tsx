@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import MiniLoader from "../../components/MiniLoader";
 
 function Nftspage() {
+  const { t } = useTranslation();
   const [news, setNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(15);
@@ -43,7 +45,7 @@ function Nftspage() {
             color: "#00e8cc",
           }}
         >
-          Events News
+          {t('events.title')}
         </h2>
 
         {loading ? (
@@ -140,7 +142,7 @@ function Nftspage() {
                   onClick={() => setVisibleCount((prev) => prev + 15)}
                   className="load-more-btn"
                 >
-                  Load More
+                  {t('events.loadMore')}
                 </button>
               </div>
             )}
