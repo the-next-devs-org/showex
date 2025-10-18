@@ -88,7 +88,7 @@ function Register() {
         console.log("Registered:", data);
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
-        navigate("/profile");
+        navigate("/dashboard");
       }
     } catch (err) {
       setError("Network error. Please try again.");
