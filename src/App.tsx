@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import AppRoutes from "./routes/AppRoutes";
 import Footer from "./components/Footer";
 import StarfieldBackground from "./components/StarfieldBackground";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -49,21 +51,25 @@ function TitleUpdater() {
     document.title = `ShoxEz | ${currentTitle}`;
   }, [location]);
 
-
   return null;
 }
 
 function AppContent() {
   const location = useLocation();
-  const hideHeaderRoutes = ["/signin", "/register"];
-  const shouldHideHeader = hideHeaderRoutes.includes(location.pathname);
+
+  // Routes where header/footer should be hidden
+  const hideHeaderFooterRoutes = ["/signin", "/register"];
+  const isDashboardRoute = location.pathname.startsWith("/dashboard");
+
+  const shouldHideHeaderFooter =
+    hideHeaderFooterRoutes.includes(location.pathname) || isDashboardRoute;
 
   return (
     <>
       <TitleUpdater />
-      {!shouldHideHeader && <Header />}
+      {!shouldHideHeaderFooter && <Header />}
       <AppRoutes />
-      <Footer />
+      {!shouldHideHeaderFooter && <Footer />}
     </>
   );
 }

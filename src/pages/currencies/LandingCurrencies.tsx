@@ -21,6 +21,7 @@ function LandingCurrencies() {
 
   const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
+<<<<<<< Updated upstream
   useEffect(() => {
     fetch(`${API_BACKEND_URL}/sentimentAnalysis`)
       .then((res) => res.json())
@@ -57,6 +58,65 @@ function LandingCurrencies() {
         });
 
         setNews(mapped);
+=======
+
+  // useEffect(() => {
+  //   fetch(
+  //     `${API_BACKEND_URL}/sentimentAnalysis`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data?.data) {
+  //         setNews(data.data.data);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error("Error fetching news:", err);
+  //       setError("Failed to load market news.");
+  //     })
+  //     .finally(() => setLoading(false));
+  // }, []);
+
+  useEffect(() => {
+    fetch(`${API_BACKEND_URL}/sentimentAnalysis`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.data?.data) {
+          // Cast the object to a known type
+          const apiData = data.data.data as Record<
+            string,
+            Record<
+              string,
+              {
+                Positive: number;
+                Negative: number;
+                Neutral: number;
+                sentiment_score: number;
+              }
+            >
+          >;
+
+          const transformedNews: NewsItem[] = Object.entries(apiData).flatMap(([date, currencies]) =>
+            Object.entries(currencies).map(([currency, sentimentData]) => ({
+              news_url: "#", // replace with actual URL if available
+              image_url: "", // replace with image URL if any
+              title: `${currency} Sentiment on ${date}`,
+              text: `Positive: ${sentimentData.Positive}, Negative: ${sentimentData.Negative}, Neutral: ${sentimentData.Neutral}`,
+              source_name: "ShoXez API",
+              date,
+              sentiment:
+                sentimentData.sentiment_score > 0
+                  ? "Positive"
+                  : sentimentData.sentiment_score < 0
+                    ? "Negative"
+                    : "Neutral",
+              currency: [currency],
+            }))
+          );
+
+          setNews(transformedNews);
+        }
+>>>>>>> Stashed changes
       })
       .catch((err) => {
         console.error("Error fetching news:", err);
@@ -64,6 +124,7 @@ function LandingCurrencies() {
       })
       .finally(() => setLoading(false));
   }, []);
+
 
   const getSentimentColor = (sentiment: string) => {
     switch (sentiment) {

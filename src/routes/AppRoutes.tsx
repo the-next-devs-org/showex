@@ -28,11 +28,19 @@ import LandingCurrencies from "../pages/currencies/LandingCurrencies";
 import PageNotFound from "../pages/notFound/PageNotFound";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AnalysisCur from "../pages/analysis/AnalysisCur";
+<<<<<<< Updated upstream
 import ExportDemo from "../pages/ExportDemo";
 import CalendarPage from "../pages/calendar/CalendarPage";
 import AboutPage from "../pages/about/AboutPage";
 import PrivacyPage from "../pages/privacy/PrivacyPage";
 import TermsPage from "../pages/terms/TermsPage";
+=======
+import DashboardPage from "../pages/dashboard/DashboardPage";
+import DashboardAnalytics from "../pages/dashboard/analytics/DashboardAnalytics";
+import DashboardTransactions from "../pages/dashboard/transactions/DashboardTransactions";
+import DashboardUsers from "../pages/dashboard/users/DashboardUsers";
+import DashboardSettings from "../pages/dashboard/settings/DashboardSettings";
+>>>>>>> Stashed changes
 
 function AppRoutes() {
   return (
@@ -85,7 +93,19 @@ function AppRoutes() {
       />
       <Route path="/signin" element={<Login />} />
       <Route path="/register" element={<Register />} />
+<<<<<<< Updated upstream
       <Route path="*" element={<PageNotFound />} />
+=======
+      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/dashboard/analytics" element={<DashboardAnalytics />} />
+      <Route path="/dashboard/transactions" element={<DashboardTransactions />} />
+      <Route path="/dashboard/users" element={<DashboardUsers />} />
+      <Route path="/dashboard/settings" element={<DashboardSettings />} />
+      <Route
+        path="*"
+        element={<PageNotFound />}
+      />
+>>>>>>> Stashed changes
     </Routes>
   );
 }
