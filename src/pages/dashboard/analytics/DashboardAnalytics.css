@@ -1,86 +1,86 @@
-.dashboard-analytics {
+.da-root {
   padding: 24px;
 }
 
-.analytics-header {
+.da-header {
   margin-bottom: 24px;
 }
 
-.analytics-header h1 {
+.da-title {
   margin: 0;
   font-size: 24px;
   color: #1a1f37;
 }
 
-.analytics-header p {
+.da-subtitle {
   margin: 8px 0 0;
   color: #666;
 }
 
-.analytics-grid {
+.da-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
   margin-bottom: 24px;
 }
 
-.analytics-card {
+.da-card {
   background: #fff;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
-.analytics-card h3 {
+.da-card-label {
   margin: 0;
   font-size: 14px;
   color: #666;
 }
 
-.analytics-value {
+.da-value {
   font-size: 28px;
   font-weight: bold;
   color: #1a1f37;
   margin: 12px 0;
 }
 
-.analytics-trend {
+.da-trend {
   font-size: 14px;
   padding: 4px 8px;
   border-radius: 12px;
   display: inline-block;
 }
 
-.analytics-trend.positive {
+.da-positive {
   background: rgba(46, 204, 113, 0.1);
   color: #27ae60;
 }
 
-.analytics-trend.negative {
+.da-negative {
   background: rgba(231, 76, 60, 0.1);
   color: #e74c3c;
 }
 
-.analytics-charts {
+.da-charts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 24px;
 }
 
-.chart-container {
+.da-chart-card {
   background: #fff;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
-.chart-container h3 {
+.da-chart-title {
   margin: 0 0 20px;
   font-size: 16px;
   color: #1a1f37;
 }
 
-.chart-placeholder {
+.da-chart-placeholder {
   height: 300px;
   background: #f8f9fa;
   border-radius: 8px;
@@ -89,13 +89,13 @@
   justify-content: center;
 }
 
-.placeholder-text {
+.da-placeholder-text {
   color: #999;
   font-size: 14px;
 }
 
 @media (max-width: 768px) {
-  .analytics-charts {
+  .da-charts-grid {
     grid-template-columns: 1fr;
   }
 }

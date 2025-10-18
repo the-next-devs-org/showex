@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import LandingPage from "../pages/landing/LandingPage";
 import MarketsPage from "../pages/markets/MarketsPage";
 import ContactPage from "../pages/contact/ContactPage";
+
 // New placeholder pages
 import NewsDetail from "../components/newsMenu/NewsDetail";
 import NewsHistoryPage from "../pages/news/NewsHistoryPage";
@@ -27,20 +28,21 @@ import SunDownDetail from "../pages/sundown/SunDownDetail";
 import LandingCurrencies from "../pages/currencies/LandingCurrencies";
 import PageNotFound from "../pages/notFound/PageNotFound";
 import ProtectedRoute from "../components/ProtectedRoute";
+import AdminRoute from "../components/AdminRoute"
 import AnalysisCur from "../pages/analysis/AnalysisCur";
-<<<<<<< Updated upstream
+
+// Additional pages
 import ExportDemo from "../pages/ExportDemo";
 import CalendarPage from "../pages/calendar/CalendarPage";
 import AboutPage from "../pages/about/AboutPage";
 import PrivacyPage from "../pages/privacy/PrivacyPage";
 import TermsPage from "../pages/terms/TermsPage";
-=======
+
 import DashboardPage from "../pages/dashboard/DashboardPage";
 import DashboardAnalytics from "../pages/dashboard/analytics/DashboardAnalytics";
 import DashboardTransactions from "../pages/dashboard/transactions/DashboardTransactions";
 import DashboardUsers from "../pages/dashboard/users/DashboardUsers";
 import DashboardSettings from "../pages/dashboard/settings/DashboardSettings";
->>>>>>> Stashed changes
 
 function AppRoutes() {
   return (
@@ -93,19 +95,53 @@ function AppRoutes() {
       />
       <Route path="/signin" element={<Login />} />
       <Route path="/register" element={<Register />} />
-<<<<<<< Updated upstream
-      <Route path="*" element={<PageNotFound />} />
-=======
-      <Route path="/dashboard" element={<DashboardPage />} />
-      <Route path="/dashboard/analytics" element={<DashboardAnalytics />} />
-      <Route path="/dashboard/transactions" element={<DashboardTransactions />} />
-      <Route path="/dashboard/users" element={<DashboardUsers />} />
-      <Route path="/dashboard/settings" element={<DashboardSettings />} />
+
+      {/* Dashboard routes */}
       <Route
-        path="*"
-        element={<PageNotFound />}
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <DashboardPage />
+          </ProtectedRoute>
+        }
       />
->>>>>>> Stashed changes
+      <Route
+        path="/dashboard/analytics"
+        element={
+          <ProtectedRoute>
+            <DashboardAnalytics />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/dashboard/transactions"
+        element={
+          <ProtectedRoute>
+            <DashboardTransactions />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/dashboard/users"
+        element={
+          <ProtectedRoute>
+            <AdminRoute>
+            <DashboardUsers />
+            </AdminRoute>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/dashboard/settings"
+        element={
+          <ProtectedRoute>
+            <DashboardSettings />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Catch-all */}
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }

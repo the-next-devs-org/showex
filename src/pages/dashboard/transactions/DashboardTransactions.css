@@ -1,35 +1,35 @@
-.dashboard-transactions {
+.dt-root {
   padding: 24px;
 }
 
-.transactions-header {
+.dt-header {
   margin-bottom: 24px;
 }
 
-.transactions-header h1 {
+.dt-title {
   margin: 0;
   font-size: 24px;
   color: #1a1f37;
 }
 
-.transactions-header p {
+.dt-subtitle {
   margin: 8px 0 0;
   color: #666;
 }
 
-.transactions-filters {
+.dt-filters {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
 }
 
-.filter-group {
+.dt-filter-group {
   display: flex;
   gap: 16px;
 }
 
-.filter-select {
+.dt-select {
   padding: 8px 16px;
   border: 1px solid #e1e1e1;
   border-radius: 8px;
@@ -38,7 +38,7 @@
   outline: none;
 }
 
-.export-button {
+.dt-btn-export {
   padding: 8px 16px;
   background: #00e8cc;
   color: #fff;
@@ -49,24 +49,24 @@
   transition: background-color 0.3s ease;
 }
 
-.export-button:hover {
+.dt-btn-export:hover {
   background: #00d2b8;
 }
 
-.transactions-table {
+.dt-table-container {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  overflow-x: auto;
   margin-bottom: 24px;
 }
 
-table {
+.dt-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th {
+.dt-table th {
   background: #f8f9fa;
   padding: 16px;
   text-align: left;
@@ -75,67 +75,67 @@ th {
   font-weight: 500;
 }
 
-td {
+.dt-table td {
   padding: 16px;
   font-size: 14px;
   color: #1a1f37;
   border-top: 1px solid #f1f1f1;
 }
 
-.transaction-type {
+.dt-type {
   padding: 4px 8px;
   border-radius: 12px;
   font-size: 12px;
   text-transform: capitalize;
 }
 
-.transaction-type.sent {
+.dt-type.sent {
   background: rgba(231, 76, 60, 0.1);
   color: #e74c3c;
 }
 
-.transaction-type.received {
+.dt-type.received {
   background: rgba(46, 204, 113, 0.1);
   color: #27ae60;
 }
 
-.address {
+.dt-address {
   font-family: monospace;
   background: #f8f9fa;
   padding: 4px 8px;
   border-radius: 4px;
 }
 
-.status {
+.dt-status {
   padding: 4px 8px;
   border-radius: 12px;
   font-size: 12px;
   text-transform: capitalize;
 }
 
-.status.completed {
+.dt-status.completed {
   background: rgba(46, 204, 113, 0.1);
   color: #27ae60;
 }
 
-.status.pending {
+.dt-status.pending {
   background: rgba(241, 196, 15, 0.1);
   color: #f1c40f;
 }
 
-.status.failed {
+.dt-status.failed {
   background: rgba(231, 76, 60, 0.1);
   color: #e74c3c;
 }
 
-.transactions-pagination {
+.dt-pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
 }
 
-.pagination-button {
+.dt-btn-page {
   padding: 8px 16px;
   background: #fff;
   border: 1px solid #e1e1e1;
@@ -145,17 +145,17 @@ td {
   transition: all 0.3s ease;
 }
 
-.pagination-button:hover {
+.dt-btn-page:hover {
   background: #f8f9fa;
 }
 
-.pagination-numbers {
+.dt-page-numbers {
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-.pagination-numbers button {
+.dt-page-numbers button {
   width: 32px;
   height: 32px;
   border: 1px solid #e1e1e1;
@@ -165,39 +165,35 @@ td {
   transition: all 0.3s ease;
 }
 
-.pagination-numbers button:hover {
+.dt-page-numbers button:hover {
   background: #f8f9fa;
 }
 
-.pagination-numbers button.active {
+.dt-page-numbers button.active {
   background: #00e8cc;
   color: #fff;
   border-color: #00e8cc;
 }
 
-.pagination-numbers span {
+.dt-page-numbers span {
   color: #666;
 }
 
 @media (max-width: 768px) {
-  .transactions-filters {
+  .dt-filters {
     flex-direction: column;
     gap: 16px;
   }
 
-  .filter-group {
+  .dt-filter-group {
     width: 100%;
   }
 
-  .filter-select {
+  .dt-select {
     flex: 1;
   }
 
-  .export-button {
+  .dt-btn-export {
     width: 100%;
-  }
-
-  .transactions-table {
-    overflow-x: auto;
   }
 }

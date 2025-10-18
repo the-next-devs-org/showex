@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from "react";
 import './DashboardPage.css';
 import Sidebar from '../../components/dashboard/Sidebar';
 import DashboardHeader from '../../components/dashboard/DashboardHeader';
@@ -16,6 +17,28 @@ import {
 } from '../../components/dashboard/Icons';
 
 const DashboardPage: React.FC = () => {
+  const loggedInUser = JSON.parse(localStorage.getItem("user") || "{}");
+  const apiBase = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || '';
+  // console.log("API Base URL:", import.meta.env.VITE_SHOXEZ_API_BACKEND_URL);
+
+  const apigetalluserscount = "/totalusercount"
+  const [totalUsers, setTotalUsers] = useState(0);
+
+  useEffect(() => {
+    const fetchTotalUsers = async () => {
+      try {
+        const response = await fetch(`${apiBase}${apigetalluserscount}`, { 
+          method: "PUT" 
+        });
+        const data = await response.json();
+        setTotalUsers(data.totalUsers);
+      } catch (error) {
+        console.error("Error fetching total users:", error);
+      }
+    };
+
+    fetchTotalUsers();
+  }, []);
   return (
     <div className="dashboard-layout">
       <Sidebar />
@@ -24,42 +47,39 @@ const DashboardPage: React.FC = () => {
         <div className="dashboard-container">
           <div className="dashboard-content">
             <div className="dashboard-welcome">
-              <h1>Welcome back, John!</h1>
+              <h1>Welcome back, {loggedInUser.firstname}!</h1>
               <p>Here's what's happening with your projects today.</p>
             </div>
             
             <div className="dashboard-stats">
-              <div className="stat-card">
+              <div className="stat-card" style={{ display: "none", width: "25%" }}>
                 <div className="stat-icon transactions">
                   <TransactionIcon />
                 </div>
                 <div className="stat-info">
                   <h3>Total Transactions</h3>
                   <p>2,405</p>
-                  <span className="stat-trend positive">+12.5%</span>
                 </div>
               </div>
-              <div className="stat-card">
+              <div className="stat-card" style={{width: "25%" }}>
                 <div className="stat-icon users">
                   <UsersIcon />
                 </div>
                 <div className="stat-info">
-                  <h3>Active Users</h3>
-                  <p>1,245</p>
-                  <span className="stat-trend positive">+8.3%</span>
+                  <h3>Total Users</h3>
+                  <p>{totalUsers.toLocaleString()}</p>
                 </div>
               </div>
-              <div className="stat-card">
+              <div className="stat-card" style={{ display: "none", width: "25%" }}>
                 <div className="stat-icon revenue">
                   <RevenueIcon />
                 </div>
                 <div className="stat-info">
                   <h3>Total Revenue</h3>
                   <p>$12,345</p>
-                  <span className="stat-trend positive">+15.8%</span>
                 </div>
               </div>
-              <div className="stat-card">
+              <div className="stat-card" style={{ display: "none", width: "25%" }}>
                 <div className="stat-icon growth">
                   <GrowthIcon />
                 </div>

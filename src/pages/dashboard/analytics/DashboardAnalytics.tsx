@@ -5,55 +5,53 @@ import DashboardLayout from '../../../components/dashboard/DashboardLayout';
 const DashboardAnalytics: React.FC = () => {
   return (
     <DashboardLayout>
-      <div className="dashboard-analytics">
-      <div className="analytics-header">
-        <h1>Analytics Overview</h1>
-        <p>Monitor your performance metrics</p>
-      </div>
-
-      <div className="analytics-grid">
-        <div className="analytics-card">
-          <h3>Daily Active Users</h3>
-          <div className="analytics-value">2,345</div>
-          <div className="analytics-trend positive">+15% vs last week</div>
+      <div className="da-root">
+        <div className="da-header">
+          <h1 className="da-title">Analytics Overview</h1>
+          <p className="da-subtitle">Monitor your performance metrics</p>
         </div>
 
-        <div className="analytics-card">
-          <h3>Revenue</h3>
-          <div className="analytics-value">$12,456</div>
-          <div className="analytics-trend positive">+8% vs last week</div>
-        </div>
+        <div className="da-cards-grid">
+          <div className="da-card">
+            <h3 className="da-card-label">Daily Active Users</h3>
+            <div className="da-value">2,345</div>
+            <div className="da-trend da-positive">+15% vs last week</div>
+          </div>
 
-        <div className="analytics-card">
-          <h3>Conversion Rate</h3>
-          <div className="analytics-value">3.2%</div>
-          <div className="analytics-trend negative">-2% vs last week</div>
-        </div>
+          <div className="da-card">
+            <h3 className="da-card-label">Revenue</h3>
+            <div className="da-value">$12,456</div>
+            <div className="da-trend da-positive">+8% vs last week</div>
+          </div>
 
-        <div className="analytics-card">
-          <h3>Average Session</h3>
-          <div className="analytics-value">24m</div>
-          <div className="analytics-trend positive">+12% vs last week</div>
-        </div>
-      </div>
+          <div className="da-card">
+            <h3 className="da-card-label">Conversion Rate</h3>
+            <div className="da-value">3.2%</div>
+            <div className="da-trend da-negative">-2% vs last week</div>
+          </div>
 
-      <div className="analytics-charts">
-        <div className="chart-container">
-          <h3>User Growth</h3>
-          <div className="chart-placeholder">
-            {/* Chart component will go here */}
-            <div className="placeholder-text">User Growth Chart</div>
+          <div className="da-card">
+            <h3 className="da-card-label">Average Session</h3>
+            <div className="da-value">24m</div>
+            <div className="da-trend da-positive">+12% vs last week</div>
           </div>
         </div>
 
-        <div className="chart-container">
-          <h3>Revenue Trend</h3>
-          <div className="chart-placeholder">
-            {/* Chart component will go here */}
-            <div className="placeholder-text">Revenue Chart</div>
+        <div className="da-charts-grid">
+          <div className="da-chart-card">
+            <h3 className="da-chart-title">User Growth</h3>
+            <div className="da-chart-placeholder">
+              <div className="da-placeholder-text">User Growth Chart</div>
+            </div>
+          </div>
+
+          <div className="da-chart-card">
+            <h3 className="da-chart-title">Revenue Trend</h3>
+            <div className="da-chart-placeholder">
+              <div className="da-placeholder-text">Revenue Chart</div>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </DashboardLayout>
   );

@@ -33,7 +33,7 @@ function Login() {
       const data = await res.json();
 
       if (!res.ok) {
-        alert(data.error || data.message || "Login failed");
+        // alert(data.error || data.message || "Login failed");
         return;
       }
 
@@ -41,7 +41,7 @@ function Login() {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
-      alert("Login successful!");
+      // alert("Login successful!");
       window.location.href = "/settings"; 
 
     } catch (err) {

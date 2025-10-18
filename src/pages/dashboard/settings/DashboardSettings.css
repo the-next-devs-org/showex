@@ -1,60 +1,59 @@
-.dashboard-settings {
+.ds-root {
   padding: 24px;
 }
 
-.settings-header {
+.ds-header {
   margin-bottom: 24px;
 }
 
-.settings-header h1 {
+.ds-title {
   margin: 0;
   font-size: 24px;
   color: #1a1f37;
 }
 
-.settings-header p {
+.ds-subtitle {
   margin: 8px 0 0;
   color: #666;
 }
 
-.settings-grid {
+.ds-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 24px;
 }
 
-.settings-section {
+.ds-card {
   background: #fff;
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
-.settings-section h2 {
+.ds-card-title {
   margin: 0 0 20px;
   font-size: 18px;
   color: #1a1f37;
 }
 
-.settings-form {
+.ds-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.form-group {
+.ds-field {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.form-group label {
+.ds-label {
   font-size: 14px;
   color: #666;
 }
 
-.form-group input,
-.form-group textarea {
+.ds-input {
   padding: 10px 16px;
   border: 1px solid #e1e1e1;
   border-radius: 8px;
@@ -63,18 +62,12 @@
   transition: all 0.3s ease;
 }
 
-.form-group textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
+.ds-input:focus {
   border-color: #00e8cc;
   box-shadow: 0 0 0 3px rgba(0, 232, 204, 0.1);
 }
 
-.save-button {
+.ds-btn {
   padding: 10px 20px;
   background: #00e8cc;
   color: #fff;
@@ -86,154 +79,16 @@
   align-self: flex-start;
 }
 
-.save-button:hover {
+.ds-btn:hover {
   background: #00d2b8;
 }
 
-.settings-toggles {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.toggle-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  background: #f8f9fa;
-  border-radius: 8px;
-}
-
-.toggle-info h3 {
-  margin: 0;
-  font-size: 16px;
-  color: #1a1f37;
-}
-
-.toggle-info p {
-  margin: 4px 0 0;
-  font-size: 14px;
-  color: #666;
-}
-
-.toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 26px;
-}
-
-.toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.toggle-slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 34px;
-}
-
-.toggle-slider:before {
-  position: absolute;
-  content: "";
-  height: 20px;
-  width: 20px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-input:checked + .toggle-slider {
-  background-color: #00e8cc;
-}
-
-input:checked + .toggle-slider:before {
-  transform: translateX(24px);
-}
-
-.danger-zone {
-  border: 1px solid #ff4757;
-}
-
-.danger-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.danger-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  background: #fff5f5;
-  border-radius: 8px;
-}
-
-.danger-info h3 {
-  margin: 0;
-  font-size: 16px;
-  color: #1a1f37;
-}
-
-.danger-info p {
-  margin: 4px 0 0;
-  font-size: 14px;
-  color: #666;
-}
-
-.danger-button {
-  padding: 8px 16px;
-  background: #fff;
-  border: 1px solid #ff4757;
-  color: #ff4757;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.danger-button:hover {
-  background: #ff4757;
-  color: #fff;
-}
-
-.danger-button.delete {
-  background: #ff4757;
-  color: #fff;
-}
-
-.danger-button.delete:hover {
-  background: #ff3245;
-}
-
 @media (max-width: 768px) {
-  .settings-grid {
+  .ds-grid {
     grid-template-columns: 1fr;
   }
 
-  .save-button {
-    width: 100%;
-  }
-
-  .danger-item {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
-  }
-
-  .danger-button {
+  .ds-btn {
     width: 100%;
   }
 }

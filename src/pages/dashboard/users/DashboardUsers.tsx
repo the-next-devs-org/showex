@@ -199,28 +199,28 @@ const DashboardUsers: React.FC = () => {
           <div style={{ margin: '16px 0', padding: 16, background: '#fff', borderRadius: 8 }}>
             <form onSubmit={handleCreate}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-                <div className="form-group">
-                  <label>First Name</label>
-                  <input type="text" className="form-control" required value={newUser.firstname} onChange={e => setNewUser({ ...newUser, firstname: e.target.value })} />
+                <div className="ds-field">
+                  <label className='ds-label'>First Name</label>
+                  <input type="text" className="ds-input" required value={newUser.firstname} onChange={e => setNewUser({ ...newUser, firstname: e.target.value })} />
                 </div>
-                <div className="form-group">
-                  <label>Last Name</label>
-                  <input type="text" className="form-control" required value={newUser.lastname} onChange={e => setNewUser({ ...newUser, lastname: e.target.value })} />
+                <div className="ds-field">
+                  <label className='ds-label'>Last Name</label>
+                  <input type="text" className="ds-input" required value={newUser.lastname} onChange={e => setNewUser({ ...newUser, lastname: e.target.value })} />
                 </div>
-                <div className="form-group">
-                  <label>Username</label>
-                  <input type="text" className="form-control" required value={newUser.username} onChange={e => setNewUser({ ...newUser, username: e.target.value })} />
+                <div className="ds-field">
+                  <label className='ds-label'>Username</label>
+                  <input type="text" className="ds-input" required value={newUser.username} onChange={e => setNewUser({ ...newUser, username: e.target.value })} />
                 </div>
-                <div className="form-group">
-                  <label>Email</label>
-                  <input type="email" className="form-control" required value={newUser.emailaddress} onChange={e => setNewUser({ ...newUser, emailaddress: e.target.value })} />
+                <div className="ds-field">
+                  <label className='ds-label'>Email</label>
+                  <input type="email" className="ds-input" required value={newUser.emailaddress} onChange={e => setNewUser({ ...newUser, emailaddress: e.target.value })} />
                 </div>
-                <div className="form-group">
-                  <label>Password</label>
-                  <input type="password" className="form-control" required value={newUser.password} onChange={e => setNewUser({ ...newUser, password: e.target.value })} />
+                <div className="ds-field">
+                  <label className='ds-label'>Password</label>
+                  <input type="password" className="ds-input" required value={newUser.password} onChange={e => setNewUser({ ...newUser, password: e.target.value })} />
                 </div>
-                <div className="form-group">
-                  <label>Country</label>
+                <div className="ds-field">
+                  <label className='ds-label'>Country</label>
                   <select
                     name="country"
                     className="form-select mainLoginFntp"
@@ -269,52 +269,52 @@ const DashboardUsers: React.FC = () => {
               }}
             >
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-                <div className="form-group">
-                  <label>First Name</label>
+                <div className="ds-field">
+                  <label className='ds-label'>First Name</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="ds-input"
                     value={editingUser.firstname || ''}
                     onChange={(e) => setEditingUser({ ...editingUser, firstname: e.target.value })}
                   />
                 </div>
-                <div className="form-group">
-                  <label>Last Name</label>
+                <div className="ds-field">
+                  <label className='ds-label'>Last Name</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="ds-input"
                     value={editingUser.lastname || ''}
                     onChange={(e) => setEditingUser({ ...editingUser, lastname: e.target.value })}
                   />
                 </div>
-                <div className="form-group">
-                  <label>Username</label>
+                <div className="ds-field">
+                  <label className='ds-label'>Username</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="ds-input"
                     value={editingUser.username || ''}
                     onChange={(e) => setEditingUser({ ...editingUser, username: e.target.value })}
                   />
                 </div>
-                <div className="form-group">
-                  <label>Email</label>
+                <div className="ds-field">
+                  <label className='ds-label'>Email</label>
                   <input
                     type="email"
-                    className="form-control"
+                    className="ds-input"
                     value={editingUser.emailaddress || ''}
                     onChange={(e) => setEditingUser({ ...editingUser, emailaddress: e.target.value })}
                   />
                 </div>
-                <div className="form-group">
-                  <label>Password (leave blank to keep same)</label>
+                <div className="ds-field">
+                  <label className='ds-label'>Password (leave blank to keep same)</label>
                   <input
                     type="password"
-                    className="form-control"
+                    className="ds-input"
                     onChange={(e) => setEditingUser({ ...editingUser, password: e.target.value })}
                   />
                 </div>
-                <div className="form-group">
-                  <label>Country</label>
+                <div className="ds-field">
+                  <label className='ds-label'>Country</label>
                   <select
                     name="country"
                     className="form-select"

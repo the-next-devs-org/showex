@@ -1,11 +1,17 @@
 import React from 'react';
 import './DashboardHeader.css';
+import { useNavigate } from 'react-router-dom';
 
 const DashboardHeader: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const handleDropdown = () => setDropdownOpen((prev) => !prev);
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    alert('Logged out!');
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    navigate('/signin');
+    // alert('You have been logged out!');
   };
   return (
     <div className="dashboard-header">
