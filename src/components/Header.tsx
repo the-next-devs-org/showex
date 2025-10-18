@@ -1,6 +1,7 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useTranslation } from 'react-i18next';
 import NewsMenu from "./newsMenu/NewsMenu";
 
 function Header() {
@@ -9,47 +10,51 @@ function Header() {
   const [activeSubTab, setActiveSubTab] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [language, setLanguage] = useState("EN");
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    const stored = localStorage.getItem('i18nextLng');
+    const lng = stored || (i18n && i18n.language) || 'en';
+    setLanguage((lng || 'en').toUpperCase());
+  }, [i18n?.language]);
 
   const navItems = [
-    { label: "Home", to: "/" },
-    { label: "News", to: "/news" },
-    { label: "Markets", to: "/markets" },
-    { label: "Analysis", to: "/analysis" },
-    { label: "Currencies", to: "/currencies" },
+    { label: t('nav.home'), to: "/" },
+    { label: t('nav.news'), to: "/news" },
+    { label: t('nav.markets'), to: "/markets" },
+    { label: t('nav.analysis'), to: "/analysis" },
+    { label: t('nav.currencies'), to: "/currencies" },
     // { label: "Education", to: "/education" },
-    { label: "Calendar", to: "/calendar" },
-    { label: "Events", to: "/events" },
+    { label: t('nav.calendar'), to: "/calendar" },
+    { label: t('nav.events'), to: "/events" },
     // { label: "Validators", to: "/validators" },
-    { label: "Analytics", to: "/analytics" },
+    { label: t('nav.analytics'), to: "/analytics" },
   ];
 
   const menuContent: any = {
-    News: {
-      leftLinks: ["Latest News"],
+    [t('nav.news')]: {
+      leftLinks: [t('menu.latestNews')],
       rightContent: {
-        "Latest News": <NewsMenu />,
+        [t('menu.latestNews')]: <NewsMenu />,
       },
     },
-    Markets: {
-      leftLinks: ["Forex", "Commodities", "Indices", "Crypto"],
+    [t('nav.markets')]: {
+      leftLinks: [t('menu.forex'), t('menu.commodities'), t('menu.indices'), t('menu.crypto')],
       rightContent: {
-        Forex: <p>Track live forex & commodity prices</p>,
-        Commodities: <p>Commodity market insights</p>,
-        Indices: <p>Follow global indices trends</p>,
-        Crypto: <p>Crypto trends & charts</p>,
+        [t('menu.forex')]: <p>Track live forex & commodity prices</p>,
+        [t('menu.commodities')]: <p>Commodity market insights</p>,
+        [t('menu.indices')]: <p>Follow global indices trends</p>,
+        [t('menu.crypto')]: <p>Crypto trends & charts</p>,
       },
     },
-    Analysis: {
-      leftLinks: [
-        "Technical Analysis",
-        "Fundamental Analysis",
-        "Market Insights",
-      ],
+    [t('nav.analysis')]: {
+      leftLinks: [t('menu.technicalAnalysis'), t('menu.fundamentalAnalysis'), t('menu.marketInsights')],
       rightContent: {
-        "Technical Analysis": <p>Daily technical analysis reports.</p>,
-        "Fundamental Analysis": <p>Macro & fundamental breakdowns.</p>,
-        "Market Insights": <p>Market insights and forecasts.</p>,
+        [t('menu.technicalAnalysis')]: <p>Daily technical analysis reports.</p>,
+        [t('menu.fundamentalAnalysis')]: <p>Macro & fundamental breakdowns.</p>,
+        [t('menu.marketInsights')]: <p>Market insights and forecasts.</p>,
       },
     },
     Tools: {
@@ -95,6 +100,16 @@ function Header() {
     navigate("/signin");
   };
 
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    try {
+      localStorage.setItem('i18nextLng', lng);
+    } catch (e) {
+      /* ignore */
+    }
+    setLanguage(lng.toUpperCase());
+  };
+
   return (
     <>
       <Navbar
@@ -135,11 +150,12 @@ function Header() {
                   <div
                     key={item.to}
                     onMouseEnter={() => {
+                      // use route paths to decide which items show the mega menu
                       if (
-                        item.label !== "Home" &&
-                        item.label !== "Events" &&
-                        item.label !== "Markets" &&
-                        item.label !== "Currencies"
+                        item.to !== "/" &&
+                        item.to !== "/events" &&
+                        item.to !== "/markets" &&
+                        item.to !== "/currencies"
                       ) {
                         setHoverItem(item.label);
                         setActiveSubTab(
@@ -220,19 +236,48 @@ function Header() {
             </Nav>
 
             <div className="d-flex align-items-center gap-3">
+              {/* Language Dropdown */}
+              <Dropdown align="end">
+                <Dropdown.Toggle
+                  variant="dark"
+                  id="dropdown-basic"
+                  className="btn-sm rounded-pill"
+                  style={{
+                    background: "none",
+                    border: "1px solid #00e8cc",
+                    color: "#00e8cc",
+                    fontSize: "13px",
+                  }}
+                >
+                  {language}
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu align="end">
+                    <Dropdown.Item onClick={() => changeLanguage('en')}>
+                      🇬🇧 {t('language.english')}
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => changeLanguage('ru')}>
+                      🇷🇺 {t('language.russian')}
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => changeLanguage('uz')}>
+                      🇺🇿 {t('language.uzbek')}
+                    </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+
               {isAuthenticated ? (
                 <>
                   <Link
-                    to="/profile"
+                    to="/settings"
                     className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize mainSiteBgColor"
                   >
-                    Profile
+                    {t('auth.profile')}
                   </Link>
                   <button
                     onClick={handleLogout}
                     className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize btn-danger"
                   >
-                    Logout
+                    {t('auth.logout')}
                   </button>
                 </>
               ) : (
@@ -265,8 +310,8 @@ function Header() {
                       (e.currentTarget as HTMLAnchorElement).style.transform =
                         "scale(1)";
                     }}
-                  >
-                    Login
+                    >
+                    {t('auth.login')}
                   </Link>
 
                   <Link
@@ -300,8 +345,8 @@ function Header() {
                       (e.currentTarget as HTMLAnchorElement).style.transform =
                         "scale(1)";
                     }}
-                  >
-                    Register
+                    >
+                    {t('auth.register')}
                   </Link>
                 </>
               )}

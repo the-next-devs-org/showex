@@ -84,7 +84,7 @@ function AboutPage() {
         <div className="about-hero-content">
           <div className="hero-text">
             <h1 className="about-title">
-              About <span className="highlight">ShowEx</span>
+              About <span className="highlight">ShoxEz</span>
             </h1>
             <p className="about-subtitle">
               Empowering traders and investors with real-time data, advanced
@@ -193,7 +193,7 @@ function AboutPage() {
             <h2>Our Story</h2>
             <div className="story-text">
               <p>
-                Founded in 2020, ShowEx began with a simple vision: to make
+                Founded in 2020, ShoxEz began with a simple vision: to make
                 financial markets accessible to everyone. What started as a
                 small team of passionate developers and market analysts has
                 grown into a comprehensive platform serving millions of users
@@ -201,7 +201,7 @@ function AboutPage() {
               </p>
               <p>
                 We recognized that while financial data was abundant, making
-                sense of it was challenging. ShowEx was built to bridge this
+                sense of it was challenging. ShoxEz was built to bridge this
                 gap, combining advanced technology with intuitive design to
                 deliver insights that matter.
               </p>
@@ -219,7 +219,7 @@ function AboutPage() {
               <div className="timeline-year">2020</div>
               <div className="timeline-content">
                 <h4>Founded</h4>
-                <p>ShowEx launched with basic market tracking</p>
+                <p>ShoxEz launched with basic market tracking</p>
               </div>
             </div>
             <div className="timeline-item">
@@ -251,7 +251,7 @@ function AboutPage() {
       <section className="about-team">
         <div className="team-header">
           <h2>Meet Our Team</h2>
-          <p>The brilliant minds behind ShowEx</p>
+          <p>The brilliant minds behind ShoxEz</p>
         </div>
         <div className="team-grid">
           {team.map((member, index) => (
@@ -274,7 +274,7 @@ function AboutPage() {
         <div className="cta-content">
           <h2>Ready to Get Started?</h2>
           <p>
-            Join millions of users who trust ShowEx for their financial insights
+            Join millions of users who trust ShoxEz for their financial insights
           </p>
           <div className="cta-buttons">
             <a href="/register" className="cta-button primary">

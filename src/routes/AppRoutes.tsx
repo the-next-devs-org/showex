@@ -66,13 +66,20 @@ function AppRoutes() {
       <Route path="/events" element={<EventsPage />} />
       <Route path="/event/:id" element={<SingleEvents />} />
       <Route path="/validators" element={<ValidatorsPage />} />
-      <Route path="/settings" element={<SettingsPage />} />
       <Route path="/analysis-cur/:currency" element={<AnalysisCur />} />
       <Route
         path="/profile"
         element={
           <ProtectedRoute>
             <ProfilePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/settings"
+        element={
+          <ProtectedRoute>
+            <SettingsPage />
           </ProtectedRoute>
         }
       />

@@ -6,13 +6,50 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const API_BACKEND_URL = import.meta.env.SHOXEZ_API_BACKEND_URL;
+  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   console.log("Login with:", { email, password });
+  // };
+
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login with:", { email, password });
+
+    if (!email || !password) {
+      alert("Please enter both email and password");
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_BACKEND_URL}/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ emailaddress: email, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.error || data.message || "Login failed");
+        return;
+      }
+
+      // Save token and user info
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      alert("Login successful!");
+      window.location.href = "/settings"; 
+
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again later.");
+    }
   };
+
 
   const handleOneTimeLink = () => {
     if (email) {

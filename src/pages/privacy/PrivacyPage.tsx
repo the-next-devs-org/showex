@@ -87,14 +87,14 @@ function PrivacyPage() {
               </h2>
               <div className="section-content">
                 <p>
-                  Welcome to ShowEx ("we," "our," or "us"). We are committed to
+                  Welcome to ShoxEz ("we," "our," or "us"). We are committed to
                   protecting your personal information and your right to
                   privacy. This Privacy Policy explains how we collect, use,
                   disclose, and safeguard your information when you visit our
                   website and use our services.
                 </p>
                 <p>
-                  By accessing or using ShowEx, you agree to the collection and
+                  By accessing or using ShoxEz, you agree to the collection and
                   use of information in accordance with this Privacy Policy. If
                   you do not agree with the terms of this privacy policy, please
                   do not access the site.
@@ -172,7 +172,7 @@ function PrivacyPage() {
 
                 <h3>Automatically Collected Information</h3>
                 <p>
-                  When you access ShowEx, we may automatically collect certain
+                  When you access ShoxEz, we may automatically collect certain
                   information about your device, including your IP address,
                   browser type, operating system, referring URLs, and pages
                   visited. This information helps us improve our services and
@@ -431,7 +431,7 @@ function PrivacyPage() {
                   <strong>How to Exercise Your Rights:</strong>
                   <br />
                   To exercise any of these rights, please contact us at{" "}
-                  <a href="mailto:privacy@showex.com">privacy@showex.com</a>. We
+                  <a href="mailto:privacy@ShoxEz.com">privacy@ShoxEz.com</a>. We
                   will respond to your request within 30 days.
                 </div>
               </div>
@@ -450,12 +450,12 @@ function PrivacyPage() {
                 <div className="contact-details">
                   <div className="contact-method">
                     <h4>Email:</h4>
-                    <a href="mailto:privacy@showex.com">privacy@showex.com</a>
+                    <a href="mailto:privacy@ShoxEz.com">privacy@ShoxEz.com</a>
                   </div>
                   <div className="contact-method">
                     <h4>Address:</h4>
                     <p>
-                      ShowEx Privacy Team
+                      ShoxEz Privacy Team
                       <br />
                       Global Financial Hub
                       <br />

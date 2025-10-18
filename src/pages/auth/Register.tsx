@@ -243,7 +243,7 @@ function Register() {
               className="form-check-label text-white small mainLoginFntp"
               htmlFor="emailUpdates"
             >
-              I agree to receive email updates about Showex products, services,
+              I agree to receive email updates about ShoxEz products, services,
               surveys, and events.
             </label>
           </div>
@@ -283,7 +283,7 @@ function Register() {
         </button>
 
         <div className="text-center mt-3 small text-white">
-          <span>Already have a Showex account? </span>
+          <span>Already have a ShoxEz account? </span>
           <Link
             to="/signin"
             className="text-decoration-none mainSiteColor fw-medium"

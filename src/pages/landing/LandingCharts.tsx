@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type ChartPoint = {
   date: string;
@@ -39,6 +40,7 @@ type NewsItem = {
 };
 
 function LandingCharts() {
+  const { t } = useTranslation();
   const [selectedPeriod, setSelectedPeriod] = useState<'7d' | '30d' | '365d' | 'All'>('30d');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [tooltip, setTooltip] = useState<TooltipState>({
@@ -53,21 +55,25 @@ function LandingCharts() {
   // News state
   const [news, setNews] = useState<NewsItem[]>([]);
   const [newsLoading, setNewsLoading] = useState(true);
-  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+
+
 
   useEffect(() => {
-    async function fetchNews() {
+    const fetchNews = async () => {
       setNewsLoading(true);
       try {
-        const res = await fetch(`${API_BASE_URL}/category?section=allcurrencypairs&items=3&token=${API_KEY}`);
+        const res = await fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/category?section=allcurrencypairs&items=3&page=1`);
         const data = await res.json();
-        setNews(data.data || []);
-      } catch (err) {
-        setNews([]);
+
+        setNews(data.data?.data || []);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      } finally {
+        setNewsLoading(false);
       }
-      setNewsLoading(false);
-    }
+    };
+
     fetchNews();
   }, []);
 
@@ -144,9 +150,9 @@ function LandingCharts() {
       {/* Latest Forex News Section */}
       <div className="row mt-4">
         <div className="col-12">
-          <h3 style={{ color: "#fff", fontWeight: 700, marginBottom: 18 }}>🌐 Latest Forex News</h3>
+          <h3 style={{ color: "#fff", fontWeight: 700, marginBottom: 18 }}>{t('landing.latestForexNews')}</h3>
           {newsLoading ? (
-            <div style={{ color: "#aaa", fontSize: 18, textAlign: "center", padding: 32 }}>Loading news...</div>
+            <div style={{ color: "#aaa", fontSize: 18, textAlign: "center", padding: 32 }}>{t('landing.loadingNews')}</div>
           ) : (
             <div style={{ display: "flex", gap: 15, flexWrap: "wrap" }}>
               {news.map((item, idx) => (

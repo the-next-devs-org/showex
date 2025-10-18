@@ -1,19 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import MiniLoader from "../../components/MiniLoader";
+import { useTranslation } from 'react-i18next';
 
 function LandingCarousel() {
+  const { t } = useTranslation();
   const [stats, setStats] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+
 
   useEffect(() => {
     async function fetchStats() {
       setLoading(true);
       try {
         const res = await fetch(
-          `${API_BASE_URL}/stat?currencypair=EUR-USD&date=last30days&page=1&token=${API_KEY}`
+          `${VITE_SHOXEZ_API_BACKEND_URL}/sentimentAnalysis`
         );
         const data = await res.json();
         const arr = Object.entries(data.data || {})
@@ -131,7 +133,7 @@ function LandingCarousel() {
               letterSpacing: 0.1,
             }}
           >
-            EUR-USD Daily Sentiment{" "}
+            {t('landing.eurUsdDailySentiment')}
             <span
               style={{
                 color: "#aaa",
@@ -139,7 +141,7 @@ function LandingCarousel() {
                 fontWeight: 400,
               }}
             >
-              (last 30 days)
+              ({t('landing.last30Days')})
             </span>
           </div>
         </div>

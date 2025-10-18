@@ -9,27 +9,46 @@ function NewsDetail() {
   const [loading, setLoading] = useState(true);
   const [allNews, setAllNews] = useState<any[]>([]);
 
-  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+  // ✅ Your backend base URL (Node.js server)
+  const BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
   useEffect(() => {
-    async function fetchNews() {
+    async function fetchSingleNews() {
       setLoading(true);
       try {
-        const res = await fetch(
-          `${API_BASE_URL}/trending-headlines?&page=1&token=${API_KEY}`
-        );
+        // ✅ Calling backend route instead of direct Forex API
+        const res = await fetch(`${BACKEND_URL}/trending-headlines/${id}`);
         const data = await res.json();
-        setAllNews(data.data || []);
-        const newsItem = data.data.find((item: any) => item.id === Number(id));
-        setNews(newsItem || null);
+
+        if (data.success) {
+          setNews(data.data);
+        } else {
+          setNews(null);
+        }
       } catch (err) {
+        console.error("Error fetching single news:", err);
         setNews(null);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     }
-    fetchNews();
+
+    if (id) fetchSingleNews();
   }, [id]);
+
+  // ✅ Fetch all news for suggestions
+  useEffect(() => {
+    async function fetchAllNews() {
+      try {
+        const res = await fetch(`${BACKEND_URL}/trending-headlines?page=1`);
+        const data = await res.json();
+        setAllNews(data.data?.data || []);  
+      } catch (err) {
+        console.error("Error fetching all news:", err);
+      }
+    }
+    fetchAllNews();
+  }, []);
 
   if (loading)
     return (
@@ -37,18 +56,16 @@ function NewsDetail() {
         <MiniLoader />
       </div>
     );
+
   if (!news) return <div className="news-detail-error">News not found.</div>;
 
-  // Suggestions: 3 random news except current
+  // ✅ Filter other news for suggestions
   const suggestions = allNews
     .filter((item) => item.id !== Number(id))
     .slice(0, 4);
 
   return (
-    <div
-      className="container-fluid"
-      style={{ maxWidth: 1200, margin: "0 auto" }}
-    >
+    <div className="container-fluid" style={{ maxWidth: 1200, margin: "0 auto" }}>
       <div style={{ minHeight: "100vh", width: "100%", padding: "32px 0" }}>
         <div className="news-detail-main">
           <div className="news-detail-card news-page-style">
@@ -62,9 +79,11 @@ function NewsDetail() {
                 </span>
               )}
             </div>
+
             <div className="news-detail-meta">
               <span className="news-detail-date">{news.date}</span>
             </div>
+
             {news.image && (
               <div className="news-detail-image-wrapper">
                 <img
@@ -74,6 +93,7 @@ function NewsDetail() {
                 />
               </div>
             )}
+
             <div className="news-detail-content">
               <p className="news-detail-text">{news.text}</p>
               {news.content && (
@@ -82,7 +102,7 @@ function NewsDetail() {
             </div>
           </div>
 
-          {/* Suggestions Section */}
+          {/* ✅ Suggestions Section */}
           <div className="news-suggestions-section">
             <h2 className="suggestions-title">Other News</h2>
             <div className="suggestions-list">

@@ -15,8 +15,9 @@ const hotspots = [
 ];
 
 // Function to generate random neon stars
-function generateStars(count) {
-  const stars = [];
+type Star = { id: number; top: string; left: string; animationDelay: string };
+function generateStars(count: number): Star[] {
+  const stars: Star[] = [];
   for (let i = 0; i < count; i++) {
     stars.push({
       id: i,

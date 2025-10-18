@@ -2,7 +2,7 @@
 
 ## Overview
 
-Successfully created 5 comprehensive company/legal pages for ShowEx with beautiful, consistent design matching the existing UI. All pages are production-ready with responsive design, animations, and modern styling.
+Successfully created 5 comprehensive company/legal pages for ShoxEz with beautiful, consistent design matching the existing UI. All pages are production-ready with responsive design, animations, and modern styling.
 
 ## Completed Pages
 
@@ -114,7 +114,7 @@ Successfully created 5 comprehensive company/legal pages for ShowEx with beautif
 
 - 2-column layout (info + form)
 - Contact information cards:
-  - Email Us (support@showex.com)
+  - Email Us (support@ShoxEz.com)
   - Call Us (+1 234 567 890)
   - Visit Us (Global Financial Hub)
 - Additional info section:
@@ -279,7 +279,7 @@ Successfully created 5 comprehensive company/legal pages for ShowEx with beautif
 ## File Structure
 
 ```
-showex/src/pages/
+ShoxEz/src/pages/
 ├── about/
 │   ├── AboutPage.tsx       (~250 lines)
 │   └── AboutPage.css       (~600 lines)
@@ -296,11 +296,11 @@ showex/src/pages/
     ├── SettingsPage.tsx    (~550 lines) - UPDATED
     └── SettingsPage.css    (~600 lines) - UPDATED
 
-showex/src/components/
+ShoxEz/src/components/
 └── Footer.tsx              (~170 lines) - UPDATED
     └── Footer.css          (~500 lines) - UPDATED
 
-showex/src/routes/
+ShoxEz/src/routes/
 └── AppRoutes.tsx           - UPDATED (added 3 new routes)
 ```
 

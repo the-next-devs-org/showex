@@ -1,0 +1,84 @@
+{
+	"brand": "ShoxEZ",
+	"nav": {
+		"home": "Home",
+		"news": "News",
+		"markets": "Markets",
+		"analysis": "Analysis",
+		"currencies": "Currencies",
+		"calendar": "Calendar",
+		"events": "Events",
+		"analytics": "Analytics"
+	},
+	"menu": {
+		"latestNews": "Latest News",
+		"forex": "Forex",
+		"commodities": "Commodities",
+		"indices": "Indices",
+		"crypto": "Crypto",
+		"technicalAnalysis": "Technical Analysis",
+		"fundamentalAnalysis": "Fundamental Analysis",
+		"marketInsights": "Market Insights"
+	},
+	"auth": {
+		"login": "Login",
+		"register": "Register",
+		"profile": "Profile",
+		"logout": "Logout"
+	},
+	"language": {
+		"en": "EN",
+		"ru": "RU",
+		"uz": "UZ",
+		"english": "English",
+		"russian": "Russian",
+		"uzbek": "Uzbek"
+	},
+	"slider": {
+		"recentBlocks": "Recent Blocks",
+		"viewAll": "View All",
+		"headline": "Headline:",
+		"text": "Text:"
+	},
+	"landing": {
+		"latestForexNews": "🌐 Latest Forex News",
+		"loadingNews": "Loading news...",
+		"eurUsdDailySentiment": "EUR-USD Daily Sentiment",
+		"last30Days": "last 30 days",
+		"viewDashboard": "View Dashboard",
+		"recentTransactions": "Recent Transactions",
+		"transactions": "Transactions",
+		"hash": "Hash",
+		"to": "To",
+		"from": "From"
+	},
+	"news": {
+		"allForexNews": "All Forex News",
+		"headline": "Headline:",
+		"text": "Text:",
+		"loadMore": "Load More",
+		"newsNotFound": "News not found",
+		"backToAllNews": "← Back to All News"
+	},
+	"footer": {
+		"description": "Your comprehensive platform for financial markets analysis, real-time data, economic indicators, and blockchain insights. Stay ahead with ShoxEz.",
+		"quickLinks": "Quick Links",
+		"company": "Company",
+		"getInTouch": "Get in Touch",
+		"globalHub": "Global Financial Hub",
+		"rightsReserved": "All rights reserved.",
+		"disclaimer": "Market data and analysis are for informational purposes only."
+	},
+	"company": {
+		"about": "About Us",
+		"contact": "Contact",
+		"settings": "Settings",
+		"privacy": "Privacy Policy",
+		"terms": "Terms of Service",
+		"cookie": "Cookie Policy"
+	},
+	"social": {
+		"telegram": "Telegram",
+		"instagram": "Instagram"
+	}
+}

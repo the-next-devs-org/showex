@@ -78,8 +78,8 @@ function ContactPage() {
                 </div>
                 <h3>Email Us</h3>
                 <p>Send us an email anytime</p>
-                <a href="mailto:support@showex.com" className="contact-link">
-                  support@showex.com
+                <a href="mailto:support@ShoxEz.com" className="contact-link">
+                  support@ShoxEz.com
                 </a>
               </div>
 

@@ -18,16 +18,33 @@ function LandingPage() {
   const [loading, setLoading] = useState<boolean>(true);
   console.log(news);
 
-  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
+
+  // useEffect(() => {
+  //   const fetchNews = async () => {
+  //     try {
+  //       const res = await fetch(`${API_BASE_URL}/category?section=general&items=10&page=1&token=${API_KEY}`);
+  //       const data = await res.json();
+  //       setNews(data.data || []);
+  //     } catch (error) {
+  //       console.error("Error fetching news:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchNews();
+  // }, []);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/category?section=general&items=10&page=1&token=${API_KEY}`);
+        const res = await fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/category?section=general&items=10&page=1`);
         const data = await res.json();
-        setNews(data.data || []);
+
+        // Data structure ke hisaab se access karo
+        setNews(data.data?.data || []);
       } catch (error) {
         console.error("Error fetching news:", error);
       } finally {

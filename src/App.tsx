@@ -5,6 +5,8 @@ import AppRoutes from "./routes/AppRoutes";
 import Footer from "./components/Footer";
 import StarfieldBackground from "./components/StarfieldBackground";
 
+
+
 function TitleUpdater() {
   const location = useLocation();
 
@@ -44,7 +46,7 @@ function TitleUpdater() {
       currentTitle = "Sundown Detail";
     }
 
-    document.title = `ShowEX | ${currentTitle}`;
+    document.title = `ShoxEz | ${currentTitle}`;
   }, [location]);
 
 

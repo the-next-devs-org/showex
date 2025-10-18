@@ -1,0 +1,86 @@
+{
+	"brand": "ShoxEZ",
+	"nav": {
+		"home": "Bosh sahifa",
+		"news": "Yangiliklar",
+		"markets": "Bozorlar",
+		"analysis": "Tahlil",
+		"currencies": "Valyutalar",
+		"calendar": "Taqvim",
+		"events": "Tadbirlar",
+		"analytics": "Tahlillar"
+	},
+	"menu": {
+		"latestNews": "So'nggi yangiliklar",
+		"forex": "Valyuta bozori",
+		"commodities": "Xomashyo",
+		"indices": "Indekslar",
+		"crypto": "Kripto",
+		"technicalAnalysis": "Texnik tahlil",
+		"fundamentalAnalysis": "Fundamental tahlil",
+		"marketInsights": "Bozor haqida ma'lumot"
+	},
+	"auth": {
+		"login": "Kirish",
+		"register": "Ro'yxatdan o'tish",
+		"profile": "Profil",
+		"logout": "Chiqish"
+	},
+	"language": {
+		"en": "EN",
+		"ru": "RU",
+		"uz": "UZ",
+		"english": "Inglizcha",
+		"russian": "Ruscha",
+		"uzbek": "O'zbekcha"
+	}
+
+		,"slider":{
+			"recentBlocks":"So'nggi bloklar",
+			"viewAll":"Hammasini ko'rish",
+			"headline":"Sarlavha:",
+			"text":"Matn:"
+		},
+		"landing":{
+			"latestForexNews":"🌐 So'nggi Forex Yangiliklari",
+			"loadingNews":"Yangiliklar yuklanmoqda...",
+			"eurUsdDailySentiment":"EUR-USD Kunlik Kayfiyat",
+			"last30Days":"so'nggi 30 kun",
+			"viewDashboard":"Boshqaruv panelini ko'rish",
+			"recentTransactions":"So'nggi tranzaksiyalar",
+			"transactions":"Tranzaksiyalar",
+			"hash":"Hash",
+			"to":"Kimga",
+			"from":"Kimdan"
+		}
+		,"news":{
+			"allForexNews":"Barcha Forex yangiliklari",
+			"headline":"Sarlavha:",
+			"text":"Matn:",
+			"loadMore":"Yana yuklash",
+			"newsNotFound":"Yangilik topilmadi",
+			"backToAllNews":"← Barcha yangiliklarga qaytish"
+		}
+		,
+		"footer":{
+			"description":"Moliya bozorlarini tahlil qilish, real vaqtda ma'lumotlar, iqtisodiy ko'rsatkichlar va blokcheyn ma'lumotlari uchun to'liq platformangiz. ShoxEz bilan oldinda bo'ling.",
+			"quickLinks":"Tezkor havolalar",
+			"company":"Kompaniya",
+			"getInTouch":"Bog'lanish",
+			"globalHub":"Global Moliyaviy Markaz",
+			"rightsReserved":"Barcha huquqlar himoyalangan.",
+			"disclaimer":"Bozor ma'lumotlari va tahlil faqat ma'lumot olish maqsadida taqdim etiladi."
+		},
+		"company":{
+			"about":"Biz haqimizda",
+			"contact":"Bog'lanish",
+			"settings":"Sozlamalar",
+			"privacy":"Maxfiylik siyosati",
+			"terms":"Xizmat ko'rsatish shartlari",
+			"cookie":"Cookie siyosati"
+		},
+		"social":{
+			"telegram":"Telegram",
+			"instagram":"Instagram"
+		}
+}

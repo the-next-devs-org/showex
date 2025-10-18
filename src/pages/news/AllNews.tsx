@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MiniLoader from "../../components/MiniLoader";
+import { useTranslation } from 'react-i18next';
 
 interface ApiData {
     id: number;
@@ -10,14 +11,14 @@ interface ApiData {
 }
 
 const AllNews: React.FC = () => {
+    const { t } = useTranslation();
     const [news, setNews] = useState<ApiData[]>([]);
     const [loading, setLoading] = useState(true);
     const [visibleCount, setVisibleCount] = useState(12);
-    const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-    const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+    const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
     useEffect(() => {
-        fetch(`${API_BASE_URL}/sundown-digest?page=1&token=${API_KEY}`)
+        fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/sundownDigest`) 
             .then((res) => res.json())
             .then((data) => {
                 if (data?.data) {
@@ -45,7 +46,7 @@ const AllNews: React.FC = () => {
             }}
         >
             <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-                <h1 style={{ color: "#fff", marginBottom: "24px" }}>All Forex News</h1>
+                <h1 style={{ color: "#fff", marginBottom: "24px" }}>{t('news.allForexNews')}</h1>
 
                 {/* GRID layout for 3 cards per row */}
                 <div
@@ -107,7 +108,7 @@ const AllNews: React.FC = () => {
                                 {/* Headline */}
                                 <div style={{ borderTop: "1px solid #374151", paddingTop: "16px" }}>
                                     <div style={{ color: "#9ca3af", fontSize: "12px", marginBottom: "4px" }}>
-                                        Headline:
+                                        {t('news.headline')}
                                     </div>
                                     <div
                                         style={{
@@ -124,7 +125,7 @@ const AllNews: React.FC = () => {
                                 {/* Text */}
                                 <div style={{ borderTop: "1px solid #374151", paddingTop: "16px" }}>
                                     <div style={{ color: "#9ca3af", fontSize: "12px", marginBottom: "4px" }}>
-                                        Text:
+                                        {t('news.text')}
                                     </div>
                                     <div
                                         style={{
@@ -149,7 +150,7 @@ const AllNews: React.FC = () => {
 
                 {visibleCount < news.length && (
                     <div style={{ textAlign: "center", marginTop: "32px" }}>
-                        <button
+                            <button
                             onClick={() => setVisibleCount((prev) => prev + 12)}
                             style={{
                                 backgroundColor: "#00e8cc",
@@ -162,7 +163,7 @@ const AllNews: React.FC = () => {
                                 fontWeight: "bold",
                             }}
                         >
-                            Load More
+                                {t('news.loadMore')}
                         </button>
                     </div>
                 )}

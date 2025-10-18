@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import TransactedTable from '../../components/TransactedTable';
+import { useTranslation } from 'react-i18next';
 
 function LandingTransactedNFTS() {
+  const { t } = useTranslation();
   const [tableData, setTableData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+
 
   useEffect(() => {
     async function fetchStats() {
       setLoading(true);
       try {
         const res = await fetch(
-          `${API_BASE_URL}/stat?currencypair=EUR-USD&date=last30days&page=1&token=${API_KEY}`
+          `${VITE_SHOXEZ_API_BACKEND_URL}/sentimentAnalysis`
         );
         const data = await res.json();
         // Convert data.data object to array for table
@@ -47,9 +49,9 @@ function LandingTransactedNFTS() {
         }}
       >
         <TransactedTable
-          title="EUR-USD Daily Sentiment"
-          subtitle="Last 30 Days"
-          buttonLabel="View Dashboard"
+          title={t('landing.eurUsdDailySentiment')}
+          subtitle={t('landing.last30Days')}
+          buttonLabel={t('landing.viewDashboard')}
           minHeight={480}
           columns={[
             { label: "Rank", key: "rank", width: 60 },

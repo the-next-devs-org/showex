@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 
 interface ApiData {
@@ -18,11 +19,11 @@ const BlockchainSlider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [blocks, setBlocks] = useState<ApiData[]>([]);
   const navigate = useNavigate();
-  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+  const { t } = useTranslation();
+  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/sundown-digest?page=1&token=${API_KEY}`) 
+    fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/sundownDigest`) 
       .then((res) => res.json())
       .then((data) => {
         if (data?.data) {
@@ -192,7 +193,7 @@ const BlockchainSlider: React.FC = () => {
         {/* Header */}
         <div style={headerStyle}>
           <div style={titleContainer}>
-            <h1 style={titleStyle}>Recent Blocks</h1>
+            <h1 style={titleStyle}>{t('slider.recentBlocks')}</h1>
             <div style={dotStyle}></div>
           </div>
           <button
@@ -201,7 +202,7 @@ const BlockchainSlider: React.FC = () => {
             onMouseLeave={handleMouseLeave}
             onClick={() => navigate("/all-news")}
           >
-            View All
+            {t('slider.viewAll')}
           </button>
         </div>
 
@@ -228,14 +229,14 @@ const BlockchainSlider: React.FC = () => {
 
                 {/* Headline */}
                 <div style={hashContainerStyle}>
-                  <div style={hashLabelStyle}>Headline:</div>
+                  <div style={hashLabelStyle}>{t('slider.headline')}</div>
                   <div style={hashValueStyle}>{block.headline}</div>
                 </div>
 
                 {/* Text */}
                 <div style={hashContainerStyle}>
-                  <div style={hashLabelStyle}>Text:</div>
-                  <div style={hashValueStyle}>{block.text.slice(0, 150)}...</div>
+                  <div style={hashLabelStyle}>{t('slider.text')}</div>
+                  <div style={hashValueStyle}>{block.text ? block.text.slice(0, 150) : ""}...</div>
                 </div>
               </div>
               </Link>

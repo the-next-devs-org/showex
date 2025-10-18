@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Footer** component is a comprehensive, feature-rich footer that appears at the bottom of every page across the ShowEx website. It provides navigation links, company information, social media connections, and contact details with a modern, animated design that matches the site's cyan/turquoise color scheme.
+The **Footer** component is a comprehensive, feature-rich footer that appears at the bottom of every page across the ShoxEz website. It provides navigation links, company information, social media connections, and contact details with a modern, animated design that matches the site's cyan/turquoise color scheme.
 
 ---
 
@@ -12,7 +12,7 @@ The **Footer** component is a comprehensive, feature-rich footer that appears at
 
 1. **Brand Section**
 
-   - ShowEx logo (Shox + EZ with gradient)
+   - ShoxEz logo (Shox + EZ with gradient)
    - Company description
    - Social media links (Twitter, LinkedIn, GitHub, Telegram, Discord)
 
@@ -189,7 +189,7 @@ The **Footer** component is a comprehensive, feature-rich footer that appears at
 
 Current placeholders (update in `Footer.tsx`):
 
-- **Email**: info@showex.com
+- **Email**: info@ShoxEz.com
 - **Phone**: +1 (234) 567-890
 - **Location**: Global Financial Hub
 
@@ -591,7 +591,7 @@ function AppContent() {
 3. **Accessible**: WCAG compliant with focus states
 4. **Animated**: Subtle, professional animations
 5. **Customizable**: Easy to modify links and content
-6. **On-Brand**: Matches ShowEx design system
+6. **On-Brand**: Matches ShoxEz design system
 7. **SEO-Friendly**: Proper semantic structure
 
 ---
@@ -619,4 +619,4 @@ For questions or customization help:
 
 ## 🎉 Enjoy Your New Footer!
 
-The footer is now live across all pages of your ShowEx website. It provides a professional, polished look and helps users navigate your site easily. Feel free to customize the links, colors, and content to match your specific needs!
+The footer is now live across all pages of your ShoxEz website. It provides a professional, polished look and helps users navigate your site easily. Feel free to customize the links, colors, and content to match your specific needs!

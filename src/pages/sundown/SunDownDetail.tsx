@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import MiniLoader from "../../components/MiniLoader";
+import { useTranslation } from 'react-i18next';
 
 interface ApiData {
   id: number;
@@ -13,11 +14,11 @@ const SunDownDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [news, setNews] = useState<ApiData | null>(null);
   const [loading, setLoading] = useState(true);
-  const API_BASE_URL = import.meta.env.VITE_FOREX_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_FOREX_API_KEY;
+  const { t } = useTranslation();
+  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/sundown-digest?page=1&token=${API_KEY}`)
+    fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/sundownDigest`) 
       .then((res) => res.json())
       .then((data) => {
         if (data?.data) {
@@ -40,7 +41,7 @@ const SunDownDetail: React.FC = () => {
   if (!news) {
     return (
       <div style={{ color: "#fff", textAlign: "center", marginTop: "50px" }}>
-        News not found
+        {t('news.newsNotFound')}
       </div>
     );
   }
@@ -57,7 +58,7 @@ const SunDownDetail: React.FC = () => {
     >
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
         <Link to="/all-news" style={{ color: "#00e8cc", textDecoration: "none" }}>
-          ← Back to All News
+          {t('news.backToAllNews')}
         </Link>
 
         <h1 style={{ marginTop: "16px" }}>{news.headline}</h1>

@@ -51,7 +51,7 @@ function TermsPage() {
           </div>
           <h1>Terms of Service</h1>
           <p className="terms-subtitle">
-            Please read these terms carefully before using ShowEx. By accessing
+            Please read these terms carefully before using ShoxEz. By accessing
             or using our services, you agree to be bound by these terms.
           </p>
           <div className="last-updated">
@@ -89,7 +89,7 @@ function TermsPage() {
               </h2>
               <div className="section-content">
                 <p>
-                  Welcome to ShowEx ("Company," "we," "our," or "us"). These
+                  Welcome to ShoxEz ("Company," "we," "our," or "us"). These
                   Terms of Service ("Terms") govern your access to and use of
                   our website, services, and applications (collectively, the
                   "Services").
@@ -104,7 +104,7 @@ function TermsPage() {
                   <ul>
                     <li>
                       These Terms constitute a legally binding agreement between
-                      you and ShowEx
+                      you and ShoxEz
                     </li>
                     <li>
                       You must be at least 18 years old to use our Services
@@ -126,7 +126,7 @@ function TermsPage() {
               </h2>
               <div className="section-content">
                 <p>
-                  ShowEx provides a comprehensive financial information platform
+                  ShoxEz provides a comprehensive financial information platform
                   that includes:
                 </p>
                 <div className="services-grid">
@@ -191,7 +191,7 @@ function TermsPage() {
                   <FaExclamationCircle />
                   <div>
                     <strong>Security Notice:</strong> Never share your password
-                    with anyone. ShowEx will never ask for your password via
+                    with anyone. ShoxEz will never ask for your password via
                     email or phone.
                   </div>
                 </div>
@@ -263,7 +263,7 @@ function TermsPage() {
                   All content, features, and functionality of the Services,
                   including but not limited to text, graphics, logos, icons,
                   images, audio clips, data compilations, and software, are the
-                  exclusive property of ShowEx or its licensors and are
+                  exclusive property of ShoxEz or its licensors and are
                   protected by international copyright, trademark, and other
                   intellectual property laws.
                 </p>
@@ -305,9 +305,9 @@ function TermsPage() {
                   <div>
                     <strong>Investment Disclaimer:</strong>
                     <p>
-                      The information provided on ShowEx is for informational
+                      The information provided on ShoxEz is for informational
                       purposes only and should not be construed as financial,
-                      investment, or legal advice. ShowEx does not provide
+                      investment, or legal advice. ShoxEz does not provide
                       personalized investment recommendations.
                     </p>
                   </div>
@@ -347,7 +347,7 @@ function TermsPage() {
               </h2>
               <div className="section-content">
                 <p>
-                  TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, SHOWEX AND
+                  TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, ShoxEz AND
                   ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AND AFFILIATES
                   SHALL NOT BE LIABLE FOR:
                 </p>
@@ -397,7 +397,7 @@ function TermsPage() {
                 <h3>By You</h3>
                 <p>
                   You may terminate your account at any time by contacting us at
-                  support@showex.com or through your account settings. Upon
+                  support@ShoxEz.com or through your account settings. Upon
                   termination, your right to access and use the Services will
                   immediately cease.
                 </p>
@@ -410,7 +410,7 @@ function TermsPage() {
                 </p>
                 <ul className="styled-list">
                   <li>Violates these Terms or applicable laws</li>
-                  <li>Causes harm to other users or ShowEx</li>
+                  <li>Causes harm to other users or ShoxEz</li>
                   <li>Exposes us to potential liability</li>
                   <li>Is fraudulent or inappropriate</li>
                 </ul>
@@ -481,12 +481,12 @@ function TermsPage() {
                 <div className="contact-details">
                   <div className="contact-method">
                     <h4>Email:</h4>
-                    <a href="mailto:legal@showex.com">legal@showex.com</a>
+                    <a href="mailto:legal@ShoxEz.com">legal@ShoxEz.com</a>
                   </div>
                   <div className="contact-method">
                     <h4>Address:</h4>
                     <p>
-                      ShowEx Legal Department
+                      ShoxEz Legal Department
                       <br />
                       Global Financial Hub
                     </p>
@@ -510,7 +510,7 @@ function TermsPage() {
             <div className="terms-footer">
               <p>
                 These Terms of Service constitute the entire agreement between
-                you and ShowEx regarding your use of the Services and supersede
+                you and ShoxEz regarding your use of the Services and supersede
                 all prior agreements and understandings.
               </p>
               <p>

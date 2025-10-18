@@ -1,6 +1,9 @@
 "use client"
 
+import { useTranslation } from 'react-i18next';
+
 export default function LandingBlockchain() {
+  const { t } = useTranslation();
   const recentBlocks = [
     {
       id: "26898723",
@@ -82,10 +85,10 @@ export default function LandingBlockchain() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <h2 className="text-xl font-medium">Recent Blocks</h2>
+              <h2 className="text-xl font-medium">{t('slider.recentBlocks')}</h2>
               <div className="w-2 h-2 bg-green-400 rounded-full"></div>
             </div>
-            <button className="text-sm text-gray-400 hover:text-white">View All</button>
+            <button className="text-sm text-gray-400 hover:text-white">{t('slider.viewAll')}</button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -98,7 +101,7 @@ export default function LandingBlockchain() {
                 <div className="text-sm text-gray-400 mb-3">{block.time}</div>
                 <div className="space-y-1 text-sm">
                   <div>
-                    <span className="text-gray-400">Transactions: </span>
+                    <span className="text-gray-400">{t('landing.transactions')}: </span>
                     <span className="text-white">{block.transactions}</span>
                     {block.shard !== "" && (
                       <>
@@ -108,7 +111,7 @@ export default function LandingBlockchain() {
                     )}
                   </div>
                   <div>
-                    <span className="text-gray-400">Hash: </span>
+                    <span className="text-gray-400">{t('landing.hash')}: </span>
                     <span className="text-white font-mono">{block.hash}</span>
                   </div>
                 </div>
@@ -121,10 +124,10 @@ export default function LandingBlockchain() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <h2 className="text-xl font-medium">Recent Transactions</h2>
+              <h2 className="text-xl font-medium">{t('landing.recentTransactions')}</h2>
               <div className="w-2 h-2 bg-green-400 rounded-full"></div>
             </div>
-            <button className="text-sm text-gray-400 hover:text-white">View All</button>
+            <button className="text-sm text-gray-400 hover:text-white">{t('slider.viewAll')}</button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -138,7 +141,7 @@ export default function LandingBlockchain() {
                   <div className="text-sm text-gray-400 mb-3">{tx.time}</div>
                   <div className="space-y-1 text-sm">
                     <div>
-                      <span className="text-gray-400">To: </span>
+                      <span className="text-gray-400">{t('landing.to')}: </span>
                       <span className="text-white font-mono">{tx.to}</span>
                       {tx.shard !== "" && (
                         <>
@@ -148,7 +151,7 @@ export default function LandingBlockchain() {
                       )}
                     </div>
                     <div>
-                      <span className="text-gray-400">From: </span>
+                      <span className="text-gray-400">{t('landing.from')}: </span>
                       <span className="text-white font-mono">{tx.from}</span>
                       {tx.shard2 !== "" && (
                         <>
@@ -158,7 +161,7 @@ export default function LandingBlockchain() {
                       )}
                     </div>
                     <div>
-                      <span className="text-gray-400">Hash: </span>
+                      <span className="text-gray-400">{t('landing.hash')}: </span>
                       <span className="text-white font-mono">{tx.hash}</span>
                     </div>
                   </div>
