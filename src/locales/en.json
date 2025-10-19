@@ -293,7 +293,8 @@
 		"login": "Login",
 		"register": "Register",
 		"profile": "Profile",
-		"logout": "Logout"
+		"logout": "Logout",
+		"founder": "The Founder Of This Website Is"
 	},
 	"language": {
 		"en": "EN",

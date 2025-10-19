@@ -293,7 +293,8 @@
         "login": "Kirish",
         "register": "Roʻyxatdan oʻtish",
         "profile": "Profil",
-        "logout": "Chiqish"
+        "logout": "Chiqish",
+        "founder": "Ushbu veb-saytning asoschisi"
     },
     "language": {
         "en": "EN",

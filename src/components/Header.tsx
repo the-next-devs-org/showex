@@ -427,7 +427,7 @@ function Header() {
         <Container className="px-4 subheader-inner">
           <div style={{ flex: 1, minWidth: 0 }}>
             <span className="neon-text">
-              <span className="neon-highlight">The Founder Of This Website Is Eshniyozov Shoxjahon Akmal ogli.</span>
+              <span className="neon-highlight">{t('auth.founder')} Eshniyozov Shoxjahon Akmal ogli.</span>
             </span>
           </div>
 
