@@ -4,19 +4,18 @@ import { useTranslation } from "react-i18next";
 import MiniLoader from "../../components/MiniLoader";
 
 function Nftspage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [news, setNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(15);
   const navigate = useNavigate();
   const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
-
-
+  const lang = i18n.language || "en"; // 👈 add lang param
 
   useEffect(() => {
     async function fetchNews() {
       try {
-        const res = await fetch(`${API_BACKEND_URL}/allEvents`);
+        const res = await fetch(`${API_BACKEND_URL}/allEvents?lang=${lang}`);
         const data = await res.json();
         setNews(Array.isArray(data.data?.data) ? data.data.data : []);
       } catch (error) {
@@ -26,7 +25,7 @@ function Nftspage() {
       }
     }
     fetchNews();
-  }, []);
+  }, [lang]); // 👈 refetch when language changes
 
   return (
     <div
@@ -45,7 +44,7 @@ function Nftspage() {
             color: "#00e8cc",
           }}
         >
-          {t('events.title')}
+          {t("events.title")}
         </h2>
 
         {loading ? (
@@ -142,7 +141,7 @@ function Nftspage() {
                   onClick={() => setVisibleCount((prev) => prev + 15)}
                   className="load-more-btn"
                 >
-                  {t('events.loadMore')}
+                  {t("events.loadMore")}
                 </button>
               </div>
             )}

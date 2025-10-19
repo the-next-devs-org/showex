@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './LandingChartsLanding.css';
 import { useTranslation } from 'react-i18next';
 
+
 type ChartPoint = {
   date: string;
   applications: number;
@@ -41,7 +42,7 @@ type NewsItem = {
 };
 
 function LandingCharts() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [selectedPeriod, setSelectedPeriod] = useState<'7d' | '30d' | '365d' | 'All'>('30d');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [tooltip, setTooltip] = useState<TooltipState>({
@@ -65,22 +66,25 @@ function LandingCharts() {
     const fetchNews = async () => {
       setNewsLoading(true);
       try {
-        const res = await fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/category?section=allcurrencypairs`);
+        const lang = i18n.language || "en"; 
+        const res = await fetch(
+          `${VITE_SHOXEZ_API_BACKEND_URL}/category?section=allcurrencypairs&lang=${lang}`
+        );
         const data = await res.json();
-        const newsData = data.data?.data || [];
+        console.log('------------------------------------------')
+        console.log("Fetched news data:", data);
+        console.log('------------------------------------------')
+        const newsData = Array.isArray(data.data) ? data.data : [];
+
         setNews(newsData.slice(0, 3));
 
-        // Calculate currency statistics
         const stats: Record<string, { positive: number; negative: number; neutral: number }> = {};
         
-        // Process each news item
         newsData.forEach((item: NewsItem) => {
           if (item.currency) {
-            // Split currency pairs and count for both currencies
             item.currency.forEach(curr => {
               const [currency1, currency2] = curr.split('-');
               
-              // Initialize if not exists
               if (!stats[currency1]) {
                 stats[currency1] = { positive: 0, negative: 0, neutral: 0 };
               }
@@ -88,7 +92,6 @@ function LandingCharts() {
                 stats[currency2] = { positive: 0, negative: 0, neutral: 0 };
               }
               
-              // Update sentiment count for both currencies
               if (item.sentiment === 'Positive') {
                 stats[currency1].positive++;
                 if (currency2) stats[currency2].positive++;
@@ -111,7 +114,7 @@ function LandingCharts() {
     };
 
     fetchNews();
-  }, []);
+  }, [i18n.language]);
 
   // Mock data for different time periods
   const mockData: MockData = {

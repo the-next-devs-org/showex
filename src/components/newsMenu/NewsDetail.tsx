@@ -5,21 +5,20 @@ import "./NewsDetail.css";
 import MiniLoader from "../MiniLoader";
 
 function NewsDetail() {
-  const { t } = useTranslation();
-  const { id } = useParams(); // id from route
+  const { t, i18n } = useTranslation(); // ✅ get current language
+  const { id } = useParams();
   const [news, setNews] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [allNews, setAllNews] = useState<any[]>([]);
 
-  // ✅ Your backend base URL (Node.js server)
   const BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
   useEffect(() => {
     async function fetchSingleNews() {
       setLoading(true);
       try {
-        // ✅ Calling backend route instead of direct Forex API
-        const res = await fetch(`${BACKEND_URL}/trending-headlines/${id}`);
+        const lang = i18n.language || "en"; // ✅ get selected language
+        const res = await fetch(`${BACKEND_URL}/trending-headlines/${id}?lang=${lang}`);
         const data = await res.json();
 
         if (data.success) {
@@ -36,21 +35,22 @@ function NewsDetail() {
     }
 
     if (id) fetchSingleNews();
-  }, [id]);
+  }, [id, i18n.language]); // ✅ re-fetch if language changes
 
-  // ✅ Fetch all news for suggestions
+  // ✅ Fetch all news (with language)
   useEffect(() => {
     async function fetchAllNews() {
       try {
-        const res = await fetch(`${BACKEND_URL}/trending-headlines?page=1`);
+        const lang = i18n.language || "en";
+        const res = await fetch(`${BACKEND_URL}/trending-headlines?page=1&lang=${lang}`);
         const data = await res.json();
-        setAllNews(data.data?.data || []);  
+        setAllNews(data.data?.data || []);
       } catch (err) {
         console.error("Error fetching all news:", err);
       }
     }
     fetchAllNews();
-  }, []);
+  }, [i18n.language]);
 
   if (loading)
     return (
@@ -61,7 +61,6 @@ function NewsDetail() {
 
   if (!news) return <div className="news-detail-error">{t('newsDetail.newsNotFound')}</div>;
 
-  // ✅ Filter other news for suggestions
   const suggestions = allNews
     .filter((item) => item.id !== Number(id))
     .slice(0, 4);
@@ -74,9 +73,7 @@ function NewsDetail() {
             <div className="news-detail-header">
               <h1 className="news-detail-title">{news.headline}</h1>
               {news.sentiment && (
-                <span
-                  className={`news-detail-sentiment ${news.sentiment?.toLowerCase()}`}
-                >
+                <span className={`news-detail-sentiment ${news.sentiment?.toLowerCase()}`}>
                   {news.sentiment}
                 </span>
               )}
@@ -98,9 +95,7 @@ function NewsDetail() {
 
             <div className="news-detail-content">
               <p className="news-detail-text">{news.text}</p>
-              {news.content && (
-                <div className="news-detail-body">{news.content}</div>
-              )}
+              {news.content && <div className="news-detail-body">{news.content}</div>}
             </div>
           </div>
 

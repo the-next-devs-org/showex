@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MiniLoader from "../../components/MiniLoader";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
- 
+
 interface NewsItem {
   news_url: string;
   image_url: string;
@@ -13,26 +13,31 @@ interface NewsItem {
   sentiment: string;
   currency: string[];
 }
- 
+
 function LandingCurrencies() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(9);
- 
+
   const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
- 
+  const lang = i18n.language || "en";
+
   useEffect(() => {
-    fetch(`${API_BACKEND_URL}/sentimentAnalysis`)
+    fetch(`${API_BACKEND_URL}/sentimentAnalysis?lang=${lang}`)
       .then((res) => res.json())
       .then((payload) => {
         console.log("Market news data:", payload);
         const rows: any[] = Array.isArray(payload?.data) ? payload.data : [];
- 
+
         const toLabel = (score: number) =>
-          score > 0.05 ? t('currencies.sentiment.positive') : score < -0.05 ? t('currencies.sentiment.negative') : t('currencies.sentiment.neutral');
- 
+          score > 0.05
+            ? t("currencies.sentiment.positive")
+            : score < -0.05
+            ? t("currencies.sentiment.negative")
+            : t("currencies.sentiment.neutral");
+
         const mapped: NewsItem[] = rows.map((row) => {
           const sentiment = toLabel(Number(row?.sentiment_score ?? 0));
           const pair = String(row?.pair ?? "");
@@ -41,46 +46,49 @@ function LandingCurrencies() {
           const negative = Number(row?.Negative ?? 0);
           const neutral = Number(row?.Neutral ?? 0);
           const score = Number(row?.sentiment_score ?? 0);
- 
+
           return {
-            // No real article link available → use "#" (so <Link> is happy)
             news_url: "#",
             image_url: "",
- 
-            // Build a readable title and text from the counts
-            title: `${pair} ${t('currencies.sentiment.title')} ${date}`,
-            text: t('currencies.sentiment.details', { positive, negative, neutral, score }),
- 
+            title: `${pair} ${t("currencies.sentiment.title")} ${date}`,
+            text: t("currencies.sentiment.details", {
+              positive,
+              negative,
+              neutral,
+              score,
+            }),
             source_name: "Forex Sentiment API",
             date,
             sentiment,
             currency: [pair],
           };
         });
- 
+
         setNews(mapped);
       })
       .catch((err) => {
         console.error("Error fetching news:", err);
-        setError(t('currencies.error'));
+        setError(t("currencies.error"));
       })
       .finally(() => setLoading(false));
-  }, [t]);
+  }, [t, lang]); // 👈 language change hone par refetch
 
   const getSentimentColor = (sentiment: string) => {
     switch (sentiment) {
-      case t('currencies.sentiment.positive'):
+      case t("currencies.sentiment.positive"):
         return "#28a745";
-      case t('currencies.sentiment.negative'):
+      case t("currencies.sentiment.negative"):
         return "#dc3545";
       default:
         return "#ffc107";
     }
-  };  if (loading) {
+  };
+
+  if (loading) {
     return (
       <div className="text-center text-white py-5">
         <MiniLoader />
-        <p>{t('currencies.loading')}</p>
+        <p>{t("currencies.loading")}</p>
       </div>
     );
   }
@@ -96,8 +104,8 @@ function LandingCurrencies() {
   return (
     <div style={{ minHeight: "100vh", color: "white" }}>
       <div className="container py-5">
-        <h2 className="mb-4">{t('currencies.marketNews')}</h2>
- 
+        <h2 className="mb-4">{t("currencies.marketNews")}</h2>
+
         <div className="row">
           {news.map((item, index) => (
             <div className="col-md-4 mb-4" key={index}>
@@ -116,7 +124,6 @@ function LandingCurrencies() {
                     overflow: "hidden",
                   }}
                 >
-                  {/* Image */}
                   {item.image_url && (
                     <img
                       src={item.image_url}
@@ -125,13 +132,11 @@ function LandingCurrencies() {
                       style={{ height: "180px", objectFit: "cover" }}
                     />
                   )}
- 
-                  {/* Body */}
+
                   <div className="card-body d-flex flex-column">
                     <h6 className="card-title mainSiteColor">{item.title}</h6>
                     <p className="small text-white-cstm">{item.text}</p>
- 
-                    {/* Sentiment Tag */}
+
                     <span
                       className="badge mt-auto"
                       style={{
@@ -142,8 +147,7 @@ function LandingCurrencies() {
                       {item.sentiment}
                     </span>
                   </div>
- 
-                  {/* Footer */}
+
                   <div
                     className="card-footer d-flex justify-content-between small"
                     style={{ borderTop: "1px solid #333", color: "#aaa" }}
@@ -156,15 +160,14 @@ function LandingCurrencies() {
             </div>
           ))}
         </div>
- 
-        {/* Load More (future pagination ke liye) */}
+
         {news.length > visibleCount && (
           <div className="text-center mt-4">
             <button
               className="load-more-btn"
               onClick={() => setVisibleCount((prev) => prev + 9)}
             >
-              {t('currencies.loadMore')}
+              {t("currencies.loadMore")}
             </button>
           </div>
         )}
@@ -172,5 +175,5 @@ function LandingCurrencies() {
     </div>
   );
 }
- 
+
 export default LandingCurrencies;

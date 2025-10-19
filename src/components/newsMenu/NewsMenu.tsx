@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MiniLoader from "../MiniLoader";
+import { useTranslation } from "react-i18next";
+
 
 const NewsMenu = () => {
+  const { i18n } = useTranslation();
+  
   const [news, setNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const lang = i18n.language || "en";
 
 
   useEffect(() => {
     setLoading(true);
     fetch(
-      `${API_BACKEND_URL}/trendingHeadlines`)
+      `${API_BACKEND_URL}/trendingHeadlines?lang=${lang}`)
       .then((res) => res.json())
       .then((data) => {
         setNews(data.data || []);

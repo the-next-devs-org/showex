@@ -62,7 +62,7 @@ const generateTokensData = () => {
 };
 
 function AnalyticsPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   // State for dropdown and chart range
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const [selectedRange, setSelectedRange] = React.useState("30d");
@@ -77,13 +77,14 @@ function AnalyticsPage() {
   // Load AI predictions on component mount
   React.useEffect(() => {
     loadPredictions();
-  }, []);
+  }, [i18n.language]);
 
   const loadPredictions = async () => {
     try {
       setLoadingPredictions(true);
       setPredictionError(null);
-      const response = await predictionService.getDefaultPredictions();
+      const lang = i18n.language || "en";
+      const response = await predictionService.getDefaultPredictions(lang);
       if (response.success && response.data) {
         setPredictions(response.data);
       }
@@ -358,10 +359,7 @@ function AnalyticsPage() {
 
           <div className="ai-analytics-footer">
             <p className="ai-disclaimer">
-              <strong>Note:</strong> AI predictions are based on sentiment
-              analysis and economic indicators. These forecasts are for
-              informational purposes only and should not be considered as
-              financial advice.
+              <strong>Note:</strong> {t('analytics.aiPredictions.disclaimer')}
             </p>
           </div>
         </div>

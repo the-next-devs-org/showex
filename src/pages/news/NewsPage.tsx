@@ -15,7 +15,7 @@ function getRandomItems<T>(
 }
 
 function NewsPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [newsList, setNewsList] = useState<any[]>([]);
   const [allNews, setAllNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -26,15 +26,16 @@ function NewsPage() {
     async function fetchNews() {
       setLoading(true);
       try {
-        const res = await fetch(`${API_BACKEND_URL}/trendingHeadlines`);
-        const data = await res.json();
-        console.log("Trending headlines:", data);
+        const lang = i18n.language || "en";
 
-        const newsArray = Array.isArray(data?.data?.data) ? data.data.data : [];
+        const res = await fetch(
+          `${API_BACKEND_URL}/trendingHeadlines?lang=${lang}`
+        );
+        const data = await res.json();
+        const newsArray = Array.isArray(data?.data) ? data.data : [];
 
         setAllNews(newsArray);
 
-        // Initial random 15
         const initial = getRandomItems(newsArray, 15, new Set());
         setNewsList(initial);
         setLoadedIds(new Set(initial.map((item: any) => item.id)));
@@ -46,7 +47,7 @@ function NewsPage() {
       setLoading(false);
     }
     fetchNews();
-  }, []);
+  }, [i18n.language]); // 🔹 language change par refetch karega
 
   const handleLoadMore = () => {
     const next = getRandomItems(allNews, 15, loadedIds);
@@ -62,7 +63,7 @@ function NewsPage() {
 
   return (
     <div className="news-page-main">
-      <h2 className="news-page-title">📰 {t('news.allForexNews')}</h2>
+      <h2 className="news-page-title">📰 {t("news.allForexNews")}</h2>
       {loading ? (
         <div className="news-page-loading">
           <MiniLoader />
@@ -100,14 +101,9 @@ function NewsPage() {
           {!allLoaded && (
             <div style={{ textAlign: "center", margin: "32px 0" }}>
               <button className="load-more-btn" onClick={handleLoadMore}>
-                {t('news.loadMore')}
+                {t("news.loadMore")}
               </button>
             </div>
-          )}
-          {allLoaded && (
-            <div
-              style={{ textAlign: "center", margin: "32px 0", color: "#888" }}
-            ></div>
           )}
         </>
       )}

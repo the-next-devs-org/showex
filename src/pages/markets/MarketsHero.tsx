@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import MiniLoader from "../../components/MiniLoader";
 import { Link } from "react-router-dom";
 
+
 interface NewsItem {
   news_url: string;
   image_url: string;
@@ -15,7 +16,7 @@ interface NewsItem {
 }
 
 function MarketsHero() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -23,10 +24,12 @@ function MarketsHero() {
 
   const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
+  const lang = i18n.language || "en"; 
+
 
   useEffect(() => {
     fetch(
-      `${API_BACKEND_URL}/currencyPairNewsInclude`
+      `${API_BACKEND_URL}/currencyPairNewsInclude?lang=${lang}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -39,7 +42,7 @@ function MarketsHero() {
         setError("Failed to load market news.");
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [lang]);
 
   const getSentimentColor = (sentiment: string) => {
     switch (sentiment) {

@@ -13,8 +13,8 @@ const api = axios.create({
 // AI Prediction Services
 export const predictionService = {
   // Get default predictions for common currencies
-  getDefaultPredictions: async () => {
-    const response = await api.get("/predictions/default");
+  getDefaultPredictions: async (lang = "en") => {
+    const response = await api.get(`/predictions/default?lang=${lang}`);
     return response.data;
   },
 

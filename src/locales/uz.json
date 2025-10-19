@@ -1,260 +1,417 @@
 {
-	"brand": "ShoxEZ",
-	"nav": {
-		"home": "Bosh sahifa",
-		"news": "Yangiliklar",
-	"dashboard": {
-		"analytics": {
-			"title": "Tahlil ko'rsatkichlari",
-			"subtitle": "Samaradorlik ko'rsatkichlarini kuzatish",
-			"cards": {
-				"dailyUsers": "Kunlik faol foydalanuvchilar",
-				"revenue": "Daromad",
-				"conversionRate": "Konversiya darajasi",
-				"avgSession": "O'rtacha sessiya",
-				"vsLastWeek": "o'tgan haftaga nisbatan"
-			},
-			"charts": {
-				"userGrowth": "Foydalanuvchilar o'sishi",
-				"revenueTrend": "Daromad tendensiyasi"
-			}
-		},
-		"transactions": {
-			"title": "Tranzaksiyalar",
-			"subtitle": "Tranzaksiyalarni ko'rish va boshqarish",
-			"filters": {
-				"allTypes": "Barcha turlar",
-				"sent": "Yuborilgan",
-				"received": "Qabul qilingan",
-				"allStatus": "Barcha holatlar",
-				"completed": "Yakunlangan",
-				"pending": "Kutilmoqda",
-				"failed": "Amalga oshmadi"
-			},
-			"table": {
-				"type": "Turi",
-				"amount": "Miqdori",
-				"usdValue": "USD qiymati",
-				"from": "Kimdan",
-				"to": "Kimga",
-				"time": "Vaqt",
-				"status": "Holat"
-			},
-			"buttons": {
-				"exportCsv": "CSV eksport",
-				"previous": "Oldingi",
-				"next": "Keyingi"
-			}
-		},
-		"indicators": {
-			"title": "Indikatorlar",
-			"subtitle": "Panel indikatorlarini ko'rish va boshqarish",
-			"loading": "Yuklanmoqda...",
-			"loadingDetails": "Tafsilotlar yuklanmoqda...",
-			"noData": "Ma'lumot topilmadi.",
-			"noIndicators": "Indikatorlar topilmadi.",
-			"error": "Indikatorlarni yuklab bo'lmadi",
-			"errorDetails": "Indikator tafsilotlarini yuklab bo'lmadi",
-			"table": {
-				"date": "Sana",
-				"value": "Qiymat",
-				"id": "ID"
-			}
-		},
-		"settings": {
-			"title": "Sozlamalar",
-			"subtitle": "Hisobni va parametrlarni boshqarish",
-			"profile": {
-				"title": "Profil sozlamalari",
-				"firstName": "Ism",
-				"lastName": "Familiya",
-				"username": "Foydalanuvchi nomi",
-				"email": "Email manzil",
-				"country": "Mamlakat",
-				"selectCountry": "Mamlakatni tanlang",
-				"countries": {
-					"pakistan": "Pokiston",
-					"us": "AQSh",
-					"uk": "Buyuk Britaniya",
-					"canada": "Kanada",
-					"india": "Hindiston"
-				}
-			},
-			"security": {
-				"title": "Xavfsizlik",
-				"currentPassword": "Joriy parol",
-				"newPassword": "Yangi parol",
-				"confirmPassword": "Yangi parolni tasdiqlang"
-			},
-			"buttons": {
-				"saving": "Saqlanmoqda...",
-				"saveChanges": "O'zgarishlarni saqlash",
-				"updating": "Yangilanmoqda...",
-				"updatePassword": "Parolni yangilash"
-			}
-		},
-		"notifications": {
-			"title": "Bildirishnomalar",
-			"subtitle": "Bildirishnomalarni boshqarish",
-			"settings": {
-				"emailNotifications": {
-					"title": "Email bildirishnomalari",
-					"desc": "Muhim yangilanishlarni email orqali qabul qiling"
-				},
-				"currencies": {
-					"title": "Valyutalarni tanlang",
-					"usd": "USD - AQSh dollari",
-					"eur": "EUR - Yevro",
-					"gbp": "GBP - Britaniya funti",
-					"jpy": "JPY - Yaponiya iyenasi",
-					"aud": "AUD - Avstraliya dollari"
-				}
-			},
-			"buttons": {
-				"saveChanges": "O'zgarishlarni saqlash",
-				"saving": "Saqlanmoqda...",
-				"saved": "Saqlandi!"
-			},
-			"messages": {
-				"updateSuccess": "Bildirishnomalar muvaffaqiyatli yangilandi!",
-				"updateError": "Bildirishnomalarni yangilab bo'lmadi."
-			}
-		}
-	},
-		"markets": "Bozorlar",
-		"analysis": "Tahlil",
-		"currencies": "Valyutalar",
-		"calendar": "Taqvim",
-		"events": "Tadbirlar",
-		"analytics": "Tahlillar"
-	},
-	"menu": {
-		"latestNews": "So'nggi yangiliklar",
-		"forex": "Valyuta bozori",
-		"commodities": "Xomashyo",
-		"indices": "Indekslar",
-		"crypto": "Kripto",
-		"technicalAnalysis": "Texnik tahlil",
-		"fundamentalAnalysis": "Fundamental tahlil",
-		"marketInsights": "Bozor haqida ma'lumot"
-	},
-	"auth": {
-		"login": "Kirish",
-		"register": "Ro'yxatdan o'tish",
-		"profile": "Profil",
-		"logout": "Chiqish"
-	},
-	"language": {
-		"en": "EN",
-		"ru": "RU",
-		"uz": "UZ",
-		"english": "Inglizcha",
-		"russian": "Ruscha",
-		"uzbek": "O'zbekcha"
-	}
-
-		,"slider":{
-			"recentBlocks":"So'nggi bloklar",
-			"viewAll":"Hammasini ko'rish",
-			"headline":"Sarlavha:",
-			"text":"Matn:"
-		},
-		"landing":{
-			"latestForexNews":"🌐 So'nggi Forex Yangiliklari",
-			"loadingNews":"Yangiliklar yuklanmoqda...",
-			"eurUsdDailySentiment":"EUR-USD Kunlik Kayfiyat",
-			"last30Days":"so'nggi 30 kun",
-			"viewDashboard":"Boshqaruv panelini ko'rish",
-			"recentTransactions":"So'nggi tranzaksiyalar",
-			"transactions":"Tranzaksiyalar",
-			"hash":"Hash",
-			"to":"Kimga",
-			"from":"Kimdan"
-		}
-		,"news":{
-			"allForexNews":"So'nggi moliyaviy yangiliklar",
-			"headline":"Sarlavha:",
-			"text":"Matn:",
-			"loadMore":"Yana yuklash",
-			"newsNotFound":"Yangilik topilmadi",
-			"backToAllNews":"← Barcha yangiliklarga qaytish"
-		}
-		,
-		"footer":{
-			"description":"Moliya bozorlarini tahlil qilish, real vaqtda ma'lumotlar, iqtisodiy ko'rsatkichlar va blokcheyn ma'lumotlari uchun to'liq platformangiz. ShoxEz bilan oldinda bo'ling.",
-			"quickLinks":"Tezkor havolalar",
-			"company":"Kompaniya",
-			"getInTouch":"Bog'lanish",
-			"globalHub":"Global Moliyaviy Markaz",
-			"rightsReserved":"Barcha huquqlar himoyalangan.",
-			"disclaimer":"Bozor ma'lumotlari va tahlil faqat ma'lumot olish maqsadida taqdim etiladi."
-		},
-		"company":{
-			"about":"Biz haqimizda",
-			"contact":"Bog'lanish",
-			"settings":"Sozlamalar",
-			"privacy":"Maxfiylik siyosati",
-			"terms":"Xizmat ko'rsatish shartlari",
-			"cookie":"Cookie siyosati"
-		},
-		"social":{
-			"telegram":"Telegram",
-			"instagram":"Instagram"
-		}
-		,
-		"about":{
-			"heroTitle":"Ushbu veb-saytning asoschisi Eshniyozov Shoxjahon Akmal o‘g‘li.",
-			"heroSubtitle":"Eshniyozov Shohjaxon Akmal Ogli, sohada “OKA” sifatida tanilgan ilhomlantiruvchi Forex treyderi, Forex bozorlarida eng yaxshi hayotiy hikoyalardan biriga ega. 'O‘zbekiston bo‘ri' laqabiga ega bo‘lgan treyder 2012 yilda ish boshlagan va tezda afsonaga aylangan.",
-			"storyHeading":"Asoschi haqida",
-			"story":{
-				"p1":"Eshniyozov Shohjaxon Akmal Ogli, sohada “OKA” sifatida tanilgan ilhomlantiruvchi Forex treyderi, Forex bozorlarida eng yaxshi hayotiy hikoyalardan biriga ega. 'O‘zbekiston bo‘ri' laqabiga ega bo‘lgan treyder 2012 yilda ish boshlagan va tezda afsonaga aylangan.",
-				"p2":"Shohjaxon o‘z mehnati bilan muvaffaqiyatga erishgan inson misolidir va moliyaviy bozorlarning imkoniyatlarini o‘z foydasiga aylantira oladigan chidamli ko‘nikmalarga ega. Bu uning hikoyasidir.",
-				"sub1":"Forex afsonasi, O‘zbekiston Bo‘riysi, tarix yaratmoqda",
-				"p3":"1995 yilda O‘zbekistonda tug‘ilgan Shohjaxon, o‘z sharoitlarini yengib o‘tib, qat’iyat, bilim va iroda orqali Forex sohasida tirik afsonaga aylangan inson namunasi hisoblanadi.",
-				"p4":"Bizning tekshiruvlarimizga ko‘ra, Eshniyozov Shohjaxon Akmal Ogli Forex bozoriga 12 yildan ortiq vaqt oldin kirgan. O‘sha paytda tajribasi kam va sohaning dinamikasini bilmasdan, O‘zbekiston Bo‘risi o‘z faoliyatini sinov va xatolar orqali boshladi. Ko‘plab odamlar kabi, Shohjaxon boshlang‘ichda daromaddan mahrum bo‘ldi. Ammo u taslim bo‘lish o‘rniga bozor o‘rgatgan saboqlarni qabul qildi. U xatolaridan strategiyalar, chidamlilik va qat’iyatni shakllantirdi va boshqalarni ilhomlantirdi.",
-				"p5":"Uch yildan so‘ng, 2015 yilda, Shohjaxon mehnatining mevasi hosil bo‘la boshladi. Treyder birinchi yilda noyob afzallik va uslub topdi. O‘zbekiston Bo‘ri matematik va texnik nazariyalarni fundamental tahlil bilan uyg‘unlashtirdi.",
-				"p6":"Ushbu strategiya katta daromad keltirdi va 2018 yilga kelib, treyder bir necha ming yevroni bir oy ichida 25 000 yevroga aylantirdi. Ushbu strategiya treyderga yo‘qotishlardan qochish imkonini berdi va ikki yil o‘tib, O‘zbekiston Bo‘ri 7 million yevro daromad-yo‘qotish nisbati bilan ajoyib natijaga erishdi. Uning hikoyasining eng ta’sirli jihatlaridan biri bilimlarni yutib olib, amaliy savdo strategiyalariga aylantirish qobiliyatidir. Bizning tekshiruvlarimiz Shohjaxonning murabbiylari bo‘lmaganini va o‘n yilga yetmay turib Forex bozoriga oid 320 dan ortiq kitobni o‘qigani haqida ma’lumot beradi.",
-				"sub2":"Treyderlar bu Forex afsonasi kabi daromad olishi mumkin — buning yo‘li quyida",
-				"p7":"Bugun Shohjaxon boshqalarni o‘zi yillar davomida o‘rgangan narsalarni qisqa vaqt ichida o‘rgatishga bag‘ishlagan. Uning tajribasi yangi boshlovchi treyderlarni qisqa muddatda g‘olibga aylantira oladi va buning uchun u maxfiy Telegram kanaliga qo‘shilishni taklif qiladi.",
-				"p8":"2021 yil oktabrida bu Forex afsonasi 49 600 dollarni 24 kun ichida hech qanday zarar qayd etmasdan 1 180 000 dollarga aylantirdi. Bu Shohjaxonga tarixdagi eng yirik treyderlardan biri sifatida jahonga tanilish imkonini bergan bo‘lishi mumkin.",
-				"p9":"2020 yildan 2022 yil 5 aprelgacha Shohjaxonning savdo hajmi yoki hisob balansi taxminan 19 million dollarni tashkil etdi. U ochiqligi va halolligi bilan tanilgan, foydalanuvchilari bilan foyda va zararini bo‘lishadi.",
-				"p10":"Hozirda, uning maxfiy Telegram kanali orqali o‘quvchilar uning savdodagi muvaffaqiyatini takrorlay olishadi. Maxfiy kanal haqida batafsil ma’lumot olish uchun savdogarlar quyidagi havoladan foydalanib qo‘shilishlari mumkin va bugun g‘alaba qozonishni boshlashlari mumkin."
-			}
-			,
-			"aboutPage":{
-				"missionTitle":"Bizning missiyamiz",
-				"missionText":"Moliyaviy bozorlar uchun ilg‘or vositalar, real vaqt ma’lumotlari va keng qamrovli tahlillarni taqdim etish orqali bozorlarning kirish imkoniyatini demokratlashtirish.",
-				"visionTitle":"Bizning ko‘rishimiz",
-				"visionText":"Murakkab bozor ma’lumotlari va amaliy tahlil o‘rtasidagi tafovutni bartaraf etib, dunyoning eng ishonchli va keng qamrovli moliyaviy axborot platformasiga aylanish.",
-				"valuesTitle":"Bizning qadriyatlarimiz",
-				"values":{
-					"trustTitle":"Ishonch va shaffoflik",
-					"trustText":"Biz barcha operatsiyalarimiz va ma’lumotlar hisobotida to‘liq shaffoflikka ishonamiz.",
-					"innovationTitle":"Innovatsiya",
-					"innovationText":"Oldingi texnologiyalar va tahlillar bilan chegaralarni kengaytirib boramiz.",
-					"integrityTitle":"Halollik",
-					"integrityText":"Aniqlik va axloqiy amaliyotlarda eng yuqori standartlarni saqlash.",
-					"globalTitle":"Global qamrov",
-					"globalText":"Foydalanuvchilarga keng qamrovli bozor yondashuvi bilan xizmat ko‘rsatish."
-				},
-				"stats":{
-					"activeUsers":"Faol foydalanuvchilar",
-					"marketsTracked":"Kuzatilayotgan bozorlar",
-					"countries":"Mamlakatlar",
-					"support":"Qo‘llab-quvvatlash"
-				},
-				"teamTitle":"Jamoamiz bilan tanishing",
-				"teamSubtitle":"ShoxEz ortidagi ajoyib fikrlar",
-				"timeline":{
-					"founded":"Tashkil etilgan",
-					"expansion":"Kengayish",
-					"ai":"AI integratsiyasi",
-					"global":"Global yetakchi"
-				},
-				"ctaTitle":"Boshlashga tayyormisiz?",
-				"ctaText":"Moliyaviy tahlil uchun ShoxEz ga ishonadigan millionlab foydalanuvchilarga qo‘shiling",
-				"ctaPrimary":"Bepul hisob ochish",
-				"ctaSecondary":"Biz bilan bog‘laning"
-			}
-		}
+    "brand": "ShoxEZ",
+    "dashboard": {
+        "analytics": {
+            "title": "Tahlilga umumiy nazar",
+            "subtitle": "Ishlash koʻrsatkichlaringizni kuzatib boring",
+            "cards": {
+                "dailyUsers": "Kunlik faol foydalanuvchilar",
+                "revenue": "Daromad",
+                "conversionRate": "Konversiya darajasi",
+                "avgSession": "O'rtacha seans",
+                "vsLastWeek": "o'tgan haftaga nisbatan"
+            },
+            "charts": {
+                "userGrowth": "Foydalanuvchilar oʻsishi",
+                "revenueTrend": "Daromad tendensiyasi"
+            }
+        },
+        "transactions": {
+            "title": "Tranzaksiyalar",
+            "subtitle": "Tranzaksiyalaringizni ko'rish va boshqarish",
+            "filters": {
+                "allTypes": "Barcha turlar",
+                "sent": "Yuborilgan",
+                "received": "Qabul qilingan",
+                "allStatus": "Barcha holatlar",
+                "completed": "Tugallangan",
+                "pending": "Kutilmoqda",
+                "failed": "Muvaffaqiyatsiz"
+            },
+            "table": {
+                "type": "Turi",
+                "amount": "Miqdor",
+                "usdValue": "USD qiymati",
+                "from": "Kimdan",
+                "to": "Kimga",
+                "time": "Vaqt",
+                "status": "Holat"
+            },
+            "buttons": {
+                "exportCsv": "CSVga eksport qilish",
+                "previous": "Oldingi",
+                "next": "Keyingi"
+            }
+        },
+        "indicators": {
+            "title": "Koʻrsatkichlar",
+            "subtitle": "Boshqaruv paneli koʻrsatkichlarini shu yerda koʻring va boshqaring",
+            "loading": "Yuklanmoqda...",
+            "loadingDetails": "Tafsilotlar yuklanmoqda...",
+            "noData": "Maʼlumot topilmadi.",
+            "noIndicators": "Koʻrsatkichlar topilmadi.",
+            "error": "Koʻrsatkichlarni yuklashda xatolik",
+            "errorDetails": "Koʻrsatkich tafsilotlarini yuklashda xatolik",
+            "table": {
+                "date": "Sana",
+                "value": "Qiymat",
+                "id": "ID"
+            }
+        },
+        "settings": {
+            "title": "Sozlamalar",
+            "subtitle": "Hisobingiz va afzalliklaringizni boshqaring",
+            "profile": {
+                "title": "Profil sozlamalari",
+                "firstName": "Ism",
+                "lastName": "Familiya",
+                "username": "Foydalanuvchi nomi",
+                "email": "Elektron pochta manzili",
+                "country": "Mamlakat",
+                "selectCountry": "Mamlakatni tanlang",
+                "countries": {
+                    "pakistan": "Pokiston",
+                    "us": "Amerika Qoʻshma Shtatlari",
+                    "uk": "Birlashgan Qirollik",
+                    "canada": "Kanada",
+                    "india": "Hindiston"
+                }
+            },
+            "security": {
+                "title": "Xavfsizlik",
+                "currentPassword": "Joriy parol",
+                "newPassword": "Yangi parol",
+                "confirmPassword": "Yangi parolni tasdiqlang"
+            },
+            "buttons": {
+                "saving": "Saqlanmoqda...",
+                "saveChanges": "Oʻzgarishlarni saqlash",
+                "updating": "Yangilanmoqda...",
+                "updatePassword": "Parolni yangilash"
+            }
+        },
+        "notifications": {
+            "title": "Bildirishnomalar",
+            "subtitle": "Bildirishnomalaringizni boshqaring",
+            "settings": {
+                "emailNotifications": {
+                    "title": "Elektron pochta orqali bildirishnomalar",
+                    "desc": "Muhim yangilanishlarni elektron pochta orqali oling"
+                },
+                "currencies": {
+                    "title": "Valyutalarni tanlang",
+                    "usd": "USD - AQSh dollari",
+                    "eur": "EUR - Yevro",
+                    "gbp": "GBP - Britaniya funti",
+                    "jpy": "JPY - Yaponiya iyenasi",
+                    "aud": "AUD - Avstraliya dollari"
+                }
+            },
+            "buttons": {
+                "saveChanges": "Oʻzgarishlarni saqlash",
+                "saving": "Saqlanmoqda...",
+                "saved": "Saqlandi!"
+            },
+            "messages": {
+                "updateSuccess": "Bildirishnomalar muvaffaqiyatli yangilandi!",
+                "updateError": "Bildirishnomalarni yangilashda xatolik yuz berdi."
+            }
+        }
+    },
+    "currencies": {
+        "marketNews": "📈 Bozor yangiliklari",
+        "loadMore": "Koʻproq yuklash",
+        "loading": "Bozor yangiliklari yuklanmoqda...",
+        "error": "Bozor yangiliklarini yuklashda xatolik yuz berdi.",
+        "sentiment": {
+            "positive": "Ijobiy",
+            "negative": "Salbiy",
+            "neutral": "Neytral",
+            "title": "hissiyot",
+            "details": "Ijobiy: {{positive}} | Salbiy: {{negative}} | Neytral: {{neutral}} | Ball: {{score}}"
+        }
+    },
+    "nav": {
+        "home": "Bosh sahifa",
+        "news": "Yangiliklar",
+        "markets": "Bozorlar",
+        "analysis": "Tahlil",
+        "currencies": "Valyutalar",
+        "calendar": "Kalendar",
+        "events": "Voqealar",
+        "analytics": "Tahlil"
+    },
+    "events": {
+        "title": "Voqealar yangiliklari",
+        "loadMore": "Koʻproq yuklash",
+        "loading": "Voqealar yuklanmoqda..."
+    },
+    "newsDetail": {
+        "newsNotFound": "Yangilik topilmadi",
+        "otherNews": "Boshqa yangiliklar",
+        "readMore": "Koʻproq oʻqish"
+    },
+    "analytics": {
+        "title": "MultiversX Blokcheyn tahlili (Beta)",
+        "search": "Manzil, @herotag, tranzaksiya/blok xeshi, validator kaliti yoki token identifikatori boʻyicha qidiruv",
+        "keyMetrics": "Asosiy koʻrsatkichlar",
+        "compare": "Taqqoslash",
+        "aiPredictions": {
+            "title": "AI tomonidan quvvatlanadigan trend prognozlari",
+            "beta": "BETA",
+            "export": "Eksport",
+            "refresh": "Prognozlarni yangilash",
+            "loading": "AI prognozlari yaratilmoqda...",
+            "probability": "Ehtimolligi",
+            "confidence": "Ishonch",
+            "disclaimer": "Eslatma: AI prognozlari hissiy tahlil va iqtisodiy koʻrsatkichlarga asoslangan. Ushbu prognozlar faqat maʼlumot uchun moʻljallangan va moliyaviy maslahat deb hisoblanmasligi kerak."
+        },
+        "stats": {
+            "epoch": "Davr",
+            "roundsLeft": "Qolgan raundlar",
+            "currentPrice": "Joriy narx",
+            "activeAccounts": "Bugungi faol hisoblar",
+            "blockHeight": "Blok balandligi",
+            "totalApps": "Joylashtirilgan umumiy ilovalar",
+            "devRewards": "Jami dasturchilar mukofotlari",
+            "networkFees": "Jami tarmoq toʻlovlari"
+        },
+        "charts": {
+            "totalTransactions": "Jami tranzaksiyalar",
+            "applications": "Ilovalar",
+            "standard": "Standart",
+            "tokenTx": "Token tranzaksiyalari",
+            "nftTx": "NFT tranzaksiyalari",
+            "totalAccounts": "Jami hisoblar",
+            "dailyActive": "Kunlik faol foydalanuvchilar",
+            "newApps": "Joylashtirilgan yangi ilovalar",
+            "mostUsedApps": "Eng koʻp ishlatiladigan ilovalar (kunlik)",
+            "viewDashboard": "Boshqaruv panelini koʻrish",
+            "mostTransactedNFTs": "Eng koʻp tranzaksiya qilingan NFTlar (kunlik)",
+            "mostTransactedTokens": "Eng koʻp tranzaksiya qilingan tokenlar (kunlik)",
+            "stakingMetrics": "Staking koʻrsatkichlari",
+            "usersStaking": "Staking qiluvchi foydalanuvchilar",
+            "aprMetrics": "APR koʻrsatkichlari",
+            "feesMetrics": "Toʻlovlar koʻrsatkichlari"
+        },
+        "table": {
+            "rank": "Daraja",
+            "token": "Token",
+            "items": "Elementlar",
+            "holders": "Egalari",
+            "totalTxn": "Jami tranzaktsiya",
+            "transactions": "Tranzaksiyalar"
+        },
+        "buttons": {
+            "newESDTs": "+ Yangi ESDTlar",
+            "newNFTs": "+ Yangi NFTlar",
+            "newContracts": "+ Yangi Smart Contractlar"
+        },
+        "timeRanges": {
+            "last7Days": "7K",
+            "last30Days": "30K",
+            "last365Days": "1Y",
+            "allTime": "Barcha"
+        }
+    },
+    "calendar": {
+        "title": "Iqtisodiy kalendar",
+        "subtitle": "Muhim iqtisodiy koʻrsatkichlarni, prognozlarni va haqiqiy natijalarni kuzatib boring",
+        "exportButton": "Kalendarni eksport qilish",
+        "view": {
+            "day": "Kun",
+            "week": "Hafta",
+            "previous": "Oldingi",
+            "next": "Keyingi",
+            "weekOf": "Hafta"
+        },
+        "filter": {
+            "view": "Koʻrinish",
+            "currency": "Valyuta",
+            "importance": "Muhimlik",
+            "allCurrencies": "Barcha valyutalar",
+            "allLevels": "Barcha darajalar"
+        },
+        "event": {
+            "time": "Vaqt",
+            "currency": "Valyuta",
+            "indicator": "Koʻrsatkich",
+            "importance": "Muhimlik",
+            "forecast": "Prognoz",
+            "previous": "Oldingi",
+            "actual": "Haqiqiy",
+            "impact": "Taʼsir",
+            "events": "voqealar",
+            "noEventsTitle": "Voqealar topilmadi",
+            "noEventsMessage": "Filtrlaringizni oʻzgartirishga yoki boshqa sana oraligʻini tanlashga harakat qiling."
+        },
+        "stats": {
+            "total": "Jami voqealar",
+            "highImportance": "Yuqori muhimlik",
+            "completed": "Tugallangan",
+            "pending": "Kutilmoqda"
+        },
+        "legend": {
+            "title": "Afsona",
+            "importance": {
+                "title": "Muhimlik darajalari:",
+                "high": "Yuqori",
+                "medium": "Oʻrta",
+                "low": "Past",
+                "highDesc": "Katta bozor taʼsiri kutilmoqda",
+                "mediumDesc": "Oʻrtacha bozor taʼsiri",
+                "lowDesc": "Kichik bozor taʼsiri"
+            },
+            "impact": {
+                "title": "Taʼsir koʻrsatkichlari:",
+                "positive": "Ijobiy",
+                "negative": "Salbiy",
+                "neutral": "Neytral",
+                "pending": "Kutilmoqda",
+                "positiveDesc": "Prognozdan yaxshiroq",
+                "negativeDesc": "Prognozdan yomonroq",
+                "neutralDesc": "Prognozga mos keladi",
+                "pendingDesc": "Hali eʼlon qilinmagan"
+            }
+        }
+    },
+    "markets": {
+        "marketNews": "📈 Bozor yangiliklari",
+        "loadMore": "Koʻproq yuklash"
+    },
+    "menu": {
+        "latestNews": "Soʻnggi yangiliklar",
+        "forex": "Foreks",
+        "commodities": "Tovarlar",
+        "indices": "Indekslar",
+        "crypto": "Kripto",
+        "technicalAnalysis": "Texnik tahlil",
+        "fundamentalAnalysis": "Fundamental tahlil",
+        "marketInsights": "Bozor tushunchalari"
+    },
+    "auth": {
+        "login": "Kirish",
+        "register": "Roʻyxatdan oʻtish",
+        "profile": "Profil",
+        "logout": "Chiqish"
+    },
+    "language": {
+        "en": "EN",
+        "ru": "RU",
+        "uz": "UZ",
+        "english": "Ingliz",
+        "russian": "Rus",
+        "uzbek": "Oʻzbek"
+    },
+    "slider": {
+        "recentBlocks": "Yaqin bloklar",
+        "viewAll": "Barchasini koʻrish",
+        "headline": "Sarlavha:",
+        "text": "Matn:"
+    },
+    "landing": {
+        "latestForexNews": "🌐 Soʻnggi moliyaviy yangiliklar",
+        "loadingNews": "Yangiliklar yuklanmoqda...",
+        "eurUsdDailySentiment": "EUR-USD kunlik hissiyot",
+        "last30Days": "oxirgi 30 kun",
+        "viewDashboard": "Boshqaruv panelini koʻrish",
+        "recentTransactions": "Yaqin tranzaksiyalar",
+        "transactions": "Tranzaksiyalar",
+        "hash": "Xesh",
+        "to": "Kimga",
+        "from": "Kimdan"
+    },
+    "news": {
+        "allForexNews": "Soʻnggi moliyaviy yangiliklar",
+        "headline": "Sarlavha:",
+        "text": "Matn:",
+        "loadMore": "Koʻproq yuklash",
+        "newsNotFound": "Yangilik topilmadi",
+        "backToAllNews": "← Barcha yangiliklarga qaytish"
+    },
+    "footer": {
+        "description": "Moliyaviy bozorlar tahlili, real vaqt maʼlumotlari, iqtisodiy koʻrsatkichlar va blokcheyn tushunchalari uchun sizning keng qamrovli platformangiz. ShoxEz bilan oldinda boʻling.",
+        "quickLinks": "Tezkor havolalar",
+        "company": "Kompaniya",
+        "getInTouch": "Biz bilan bogʻlaning",
+        "globalHub": "Global moliyaviy markaz",
+        "rightsReserved": "Barcha huquqlar himoyalangan.",
+        "disclaimer": "Bozor maʼlumotlari va tahlillari faqat maʼlumot uchun moʻljallangan."
+    },
+    "company": {
+        "about": "Biz haqimizda",
+        "contact": "Aloqa",
+        "settings": "Sozlamalar",
+        "privacy": "Maxfiylik siyosati",
+        "terms": "Xizmat shartlari",
+        "cookie": "Kukilar siyosati"
+    },
+    "social": {
+        "telegram": "Telegram",
+        "instagram": "Instagram"
+    }
+    ,
+    "about": {
+        "heroTitle": "Ushbu veb-sayt asoschisi Eshniyozov Shohjahon Akmal oʻgʻli.",
+        "heroSubtitle": "Eshniyozov Shohjahon Akmal oʻgʻli, sohasi ichida “Aka” nomi bilan tanilgan ilhomlantiruvchi Foreks treyderi, Foreks bozorlarida eng yaxshi tarjimai holga ega. “Oʻzbek boʻrisi” laqabli treyder 2012-yilda boshlagan faoliyati bilan tezda afsonaga aylandi.",
+        "storyHeading": "Asoschi haqida",
+        "story": {
+            "p1": "Eshniyozov Shohjahon Akmal oʻgʻli, sohasi ichida “Aka” nomi bilan tanilgan ilhomlantiruvchi Foreks treyderi, Foreks bozorlarida eng yaxshi tarjimai holga ega. “Oʻzbek boʻrisi” laqabli treyder 2012-yilda boshlagan faoliyati bilan tezda afsonaga aylandi.",
+            "p2": "Shohjahon oʻzini oʻzi yaratgan odamning namunasidir va moliyaviy bozorlarning imkoniyatlarini oʻz foydasiga aylantirish uchun oʻz-oʻzini oʻrgangan koʻnikmalarga ega kam sonli kishilardan biri. Bu uning hikoyasi.",
+            "sub1": "Foreks afsonasi, Oʻzbek boʻrisi, tarix yaratadi",
+            "p3": "1995-yilda Oʻzbekistonda tugʻilgan Shohjahon oʻz sharoitini Foreks sohasida tirik afsonaga aylanish uchun kuchli iroda, bilim va qatʼiyat bilan muvaffaqiyatga erisha olgan kishining namunasidir.",
+            "p4": "Bizning tekshiruvimizga koʻra, Eshniyozov Shohjahon Akmal oʻgʻli birinchi marta 12 yildan koʻproq vaqt oldin Foreks bozoriga shoʻngʻigan. Oʻsha paytda tajribasiz boʻlgan va soha dinamikasi haqida tushunchaga ega boʻlmagan Oʻzbek boʻrisi oʻz faoliyatini oddiy yondashuv bilan boshlagan: sinov va xato. Uning ahvolidagilar kabi, Shohjahon dastlabki umidsizliklarga duch keldi, chunki foyda undan uzoqlashdi. Biroq, taslim boʻlish oʻrniga, u bozor bergan saboqlarni qabul qildi. U oʻz xatolaridan oʻz strategiyalari, chidamliligi va qatʼiyatini shakllantirdi, oʻzining qatʼiy sadoqati bilan boshqalarni ilhomlantirdi.",
+            "p5": "Uch yil oʻtgach, 2015-yilda Shohjahon oʻz mehnatining mevasini yigʻa boshladi. Foreks treyderi birinchi yili noyob ustunlik va uslubni topdi. Oʻzbek boʻrisi fundamental tahlilni chuqur tushunish bilan birlashtirilgan matematik va texnik nazariyalardan foydalangan.",
+            "p6": "Ushbu strategiya katta foyda keltirdi va 2018-yilga kelib Foreks treyderi bir oydan koʻproq vaqt ichida minglab yevroni 25 000 yevroga aylantirdi. Foreks savdo strategiyasi treyderga yoʻqotishlardan qochishga imkon berdi va atigi ikki yil oʻtgach, Oʻzbek boʻrisi 7 million yevrolik taʼsirchan foyda va zarar nisbatini qayd etdi, bu uning Foreks bozoridagi mislsiz muvaffaqiyatining isbotidir. Uning hikoyasining eng taʼsirli jihatlaridan biri uning bilimlarni oʻzlashtirish va valyutalar savdosi uchun amaliy dasturlarga aylantirish qobiliyatidir. Bizning tekshiruvimiz shuni koʻrsatadiki, Shohjahonning hech qanday ustozlari boʻlmagan va oʻn yildan kamroq vaqt ichida oʻzining savdo uslubi va strategiyalarini ishlab chiqish uchun Foreks bozori boʻyicha 320 dan ortiq kitobni oʻqigan.",
+            "sub2": "Treyderlar ham bu Foreks afsonasi kabi koʻp foyda olishlari mumkin, buning yoʻli:",
+            "p7": "Bugungi kunda Shohjahon oʻzining shaxsiy Telegram kanaliga qoʻshilib, koʻp yillar davomida oʻrganganlarini qisqa vaqt ichida boshqalarga oʻrgatishga bagʻishlangan. Uning tajribasi tajribasiz treyderlarni tezda gʻolibga aylantirishi mumkin.",
+            "p8": "2021-yil oktabr oyida Foreks afsonasi birorta ham yoʻqotishsiz 24 kun ichida $49,600 ni $1,180,000 ga aylantirdi. Bu Shohjahonni, Oʻzbek boʻrisini, tarixdagi eng mashhur treyderlardan biri sifatida jahon rekordini qoʻlga kiritishi mumkin.",
+            "p9": "2020-yildan 2022-yil 5-aprelgacha Shohjahonning savdo hajmi yoki hisob balansi taxminan $19 millionga yetdi. U oʻzining shaffofligi va halolligi bilan mashhur, oʻzining yutuqlari va yoʻqotishlarini oʻz izdoshlari bilan boʻlishadi.",
+            "p10": "Ayni paytda va uning shaxsiy Telegram kanali orqali oʻquvchilar uning savdo muvaffaqiyatini nusxalashlari mumkin. Shaxsiy kanal haqida qoʻshimcha maʼlumot olish uchun treyderlar quyidagi havoladan foydalanishlari va bugunoq gʻalaba qozonishni boshlashlari mumkin."
+        }
+    }
+    ,
+    "aboutPage": {
+        "missionTitle": "Bizning missiyamiz",
+        "missionText": "Har bir treyder va investorga ongli qarorlar qabul qilish imkonini beruvchi eng zamonaviy vositalar, real vaqt maʼlumotlari va keng qamrovli tahlillarni taqdim etish orqali moliyaviy bozorlarga kirishni demokratlashtirish.",
+        "visionTitle": "Bizning qarashimiz",
+        "visionText": "Dunyodagi eng ishonchli va keng qamrovli moliyaviy maʼlumot platformasiga aylanish, murakkab bozor maʼlumotlari va butun dunyo foydalanuvchilari uchun amaliy tushunchalar oʻrtasidagi boʻshliqni bartaraf etish.",
+        "valuesTitle": "Bizning qadriyatlarimiz",
+        "values": {
+            "trustTitle": "Ishonch va shaffoflik",
+            "trustText": "Biz barcha operatsiyalarimiz va maʼlumotlarni hisobot qilishda toʻliq shaffoflikka ishonamiz.",
+            "innovationTitle": "Innovatsiya",
+            "innovationText": "Eng zamonaviy texnologiya va tushunchalar bilan doimiy ravishda chegaralarni kengaytirish.",
+            "integrityTitle": "Yaxlitlik",
+            "integrityText": "Aniq va axloqiy amaliyotlarning eng yuqori standartlarini saqlash.",
+            "globalTitle": "Global qamrov",
+            "globalText": "Keng qamrovli bozor qamrovi bilan butun dunyo boʻylab foydalanuvchilarga xizmat koʻrsatish."
+        },
+        "stats": {
+            "activeUsers": "Faol foydalanuvchilar",
+            "marketsTracked": "Kuzatilgan bozorlar",
+            "countries": "Mamlakatlar",
+            "support": "Qoʻllab-quvvatlash"
+        },
+        "teamTitle": "Bizning jamoamiz bilan tanishing",
+        "teamSubtitle": "ShoxEz ortidagi yorqin aqllar",
+        "timeline": {
+            "founded": "Asos solingan",
+            "expansion": "Kengayish",
+            "ai": "AI Integratsiyasi",
+            "global": "Global yetakchi"
+        },
+        "timelineDesc": {
+            "founded": "ShoxEz asosiy bozor kuzatuvi bilan ishga tushirildi",
+            "expansion": "Tahlil va iqtisodiy kalendar qoʻshildi",
+            "ai": "AI tomonidan quvvatlanadigan prognozlar joriy etildi",
+            "global": "Butun dunyo boʻylab 1 milliondan ortiq foydalanuvchilarga xizmat koʻrsatmoqda"
+        },
+        "heroImageAlt": "Moliyaviy tahlil",
+        "imagePlaceholder": "Kompaniyangiz rasmini shu yerga qoʻshing",
+        "ctaTitle": "Boshlashga tayyormisiz?",
+        "ctaText": "Moliyaviy tushunchalari uchun ShoxEzga ishongan millionlab foydalanuvchilarga qoʻshiling",
+        "ctaPrimary": "Bepul hisob yaratish",
+        "ctaSecondary": "Biz bilan bogʻlanish"
+    }
 }
