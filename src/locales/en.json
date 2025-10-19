@@ -310,7 +310,7 @@
 		"text": "Text:"
 	},
 	"landing": {
-		"latestForexNews": "🌐 Latest Forex News",
+		"latestForexNews": "🌐 Latest Financial News",
 		"loadingNews": "Loading news...",
 		"eurUsdDailySentiment": "EUR-USD Daily Sentiment",
 		"last30Days": "last 30 days",
@@ -322,7 +322,7 @@
 		"from": "From"
 	},
 	"news": {
-		"allForexNews": "All Forex News",
+		"allForexNews": "Latest Financial News",
 		"headline": "Headline:",
 		"text": "Text:",
 		"loadMore": "Load More",

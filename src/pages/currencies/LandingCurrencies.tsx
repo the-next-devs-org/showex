@@ -161,7 +161,7 @@ function LandingCurrencies() {
         {news.length > visibleCount && (
           <div className="text-center mt-4">
             <button
-              className="load-more-btn btn btn-outline-light"
+              className="load-more-btn"
               onClick={() => setVisibleCount((prev) => prev + 9)}
             >
               {t('currencies.loadMore')}

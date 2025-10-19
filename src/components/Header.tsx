@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 function Header() {
   const location = useLocation();
+  const [expanded, setExpanded] = useState(false);
   const [hoverItem, setHoverItem] = useState<string | null>(null);
   const [activeSubTab, setActiveSubTab] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -121,6 +122,18 @@ function Header() {
     navigate("/signin");
   };
 
+  // Close navbar when a link is clicked on small screens
+  const handleLinkClick = () => {
+    try {
+      // bootstrap lg breakpoint is 992px; collapse only on small screens
+      if (window.innerWidth <= 992) {
+        setExpanded(false);
+      }
+    } catch (e) {
+      setExpanded(false);
+    }
+  };
+
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     try {
@@ -135,6 +148,8 @@ function Header() {
     <>
       <Navbar
         expand="lg"
+        expanded={expanded}
+        onToggle={(val: boolean) => setExpanded(val)}
         className={`py-2 header-navbar ${scrolled ? "custmhederbg shadow-sm" : "bg-transparent"
           }`}
         style={{
@@ -192,6 +207,7 @@ function Header() {
                     <Nav.Link
                       as={Link}
                       to={item.to}
+                      onClick={handleLinkClick}
                       className="fw-semibold px-3"
                       style={{
                         fontSize: "13px",
@@ -273,13 +289,13 @@ function Header() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu align="end">
-                  <Dropdown.Item onClick={() => changeLanguage('en')}>
+                  <Dropdown.Item onClick={() => { changeLanguage('en'); handleLinkClick(); }}>
                     🇬🇧 {t('language.english')}
                   </Dropdown.Item>
-                  <Dropdown.Item onClick={() => changeLanguage('ru')}>
+                  <Dropdown.Item onClick={() => { changeLanguage('ru'); handleLinkClick(); }}>
                     🇷🇺 {t('language.russian')}
                   </Dropdown.Item>
-                  <Dropdown.Item onClick={() => changeLanguage('uz')}>
+                  <Dropdown.Item onClick={() => { changeLanguage('uz'); handleLinkClick(); }}>
                     🇺🇿 {t('language.uzbek')}
                   </Dropdown.Item>
                 </Dropdown.Menu>
@@ -289,12 +305,13 @@ function Header() {
                 <>
                   <Link
                     to="/dashboard"
+                    onClick={handleLinkClick}
                     className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize mainSiteBgColor"
                   >
                     {t('auth.profile')}
                   </Link>
                   <button
-                    onClick={handleLogout}
+                    onClick={() => { handleLogout(); handleLinkClick(); }}
                     className="btn btn-sm px-3 py-1 rounded-pill fw-bold text-white twelveFontSize btn-danger"
                   >
                     {t('auth.logout')}
@@ -304,6 +321,7 @@ function Header() {
                 <>
                   <Link
                     to="/signin"
+                    onClick={handleLinkClick}
                     className="btn btn-dark btn-sm px-3 py-1 rounded-pill twelveFontSize"
                     style={{
                       fontSize: "13px !important",
@@ -336,6 +354,7 @@ function Header() {
 
                   <Link
                     to="/register"
+                    onClick={handleLinkClick}
                     style={{
                       color: "#8e8e8e",
                       padding: "2px 13px",

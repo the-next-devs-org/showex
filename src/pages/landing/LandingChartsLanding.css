@@ -1,0 +1,141 @@
+.landingcharts-tooltip-flex {
+  padding: 8px 12px 8px 12px;
+}
+
+.landingcharts-tooltip-flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+}
+.landingcharts-tooltip-small {
+  font-size: 0.93rem;
+  line-height: 1.35;
+  padding: 10px 14px 8px 14px;
+}
+.landingcharts-currency-item-tooltip {
+  position: relative;
+}
+
+.landingcharts-tooltip {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 110%;
+  transform: translateX(-50%);
+  min-width: 170px;
+  background: #181A20;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px #0008;
+  padding: 14px 18px 12px 18px;
+  z-index: 100;
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+
+.landingcharts-currency-item-tooltip:hover .landingcharts-tooltip {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(8px) scale(1.04);
+}
+
+.LandingChartsLanding.lamzi.landingcharts-currency-row {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.LandingChartsLanding.lamzi.landingcharts-title {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 18px;
+  font-size: 1.7rem;
+  letter-spacing: 0.5px;
+}
+
+
+.LandingChartsLanding.lamzi.landingcharts-currency-list-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 150px;
+  padding-top: 20px;
+}
+
+.LandingChartsLanding.lamzi.landingcharts-currency-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: landingcharts-infinite-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.landingcharts-currency-list-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+@keyframes landingcharts-infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.LandingChartsLanding.lamzi.landingcharts-currency-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(90deg, #181A20 60%, #23262F 100%);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px #0004;
+  padding: 18px 32px;
+  min-width: 220px;
+  min-height: 60px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-right: 24px;
+}
+
+.LandingChartsLanding.lamzi.landingcharts-currency-item:hover {
+  box-shadow: 0 4px 18px #00fff055;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.LandingChartsLanding.lamzi.landingcharts-currency-name {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-right: 10px;
+  color: #00fff0;
+}
+
+.LandingChartsLanding.lamzi.landingcharts-currency-positive {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.LandingChartsLanding.lamzi.landingcharts-currency-negative {
+  color: #c62828;
+  font-weight: 600;
+}
+
+.LandingChartsLanding.lamzi.landingcharts-currency-neutral {
+  color: #757575;
+  font-weight: 600;
+}

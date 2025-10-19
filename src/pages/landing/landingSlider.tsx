@@ -220,6 +220,7 @@ const BlockchainSlider: React.FC = () => {
                   style={{ textDecoration: "none" }}
                 >
               <div
+                className="cardblocksstyleflex"
                 key={`${block.id}-${block.animationKey}`}
                 style={getCardStyle(index)}
               >

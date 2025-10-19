@@ -29,14 +29,14 @@ const Footer = () => {
     { label: "nav.news", path: "/news", icon: <FaNewspaper /> },
     { label: "nav.analytics", path: "/analytics", icon: <FaChartLine /> },
     { label: "nav.calendar", path: "/calendar", icon: <FaCalendarAlt /> },
-    { label: "nav.analysis", path: "/analysis", icon: <FaChartLine /> },
+    // { label: "nav.analysis", path: "/analysis", icon: <FaChartLine /> },
   ];
 
   // ✅ Conditionally add “settings” only if logged in
   const company = [
     { label: "company.about", path: "/about" },
     { label: "company.contact", path: "/contact" },
-    ...(isAuthenticated ? [{ label: "company.settings", path: "/settings" }] : []),
+    // ...(isAuthenticated ? [{ label: "company.settings", path: "/settings" }] : []),
     { label: "company.privacy", path: "/privacy" },
     { label: "company.terms", path: "/terms" },
   ];
@@ -143,12 +143,35 @@ const Footer = () => {
         <div className="footer-divider"></div>
 
         {/* Bottom Section */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            width: '100%',
+          }}
+        >
+          <span className="neon-text" style={{ flex: 1, textAlign: 'left' }}>
+            <span className="neon-highlight">
+              The Founder Of This Website Is Eshniyozov Shoxjahon Akmal ogli.
+            </span>
+          </span>
+
+          <p
+            className="copyright"
+            style={{
+              flex: 1,
+              textAlign: 'right',
+              margin: 0,
+            }}
+          >
+            © {currentYear} <span className="brand-name">ShoxEz</span>. {t('footer.rightsReserved')}
+          </p>
+        </div>
         <div className="footer-bottom">
           <div className="footer-bottom-left">
-            <p className="copyright">
-              © {currentYear} <span className="brand-name">ShoxEz</span>. {t('footer.rightsReserved')}
-            </p>
-            <p className="disclaimer">{t('footer.disclaimer')}</p>
+            {/* <p className="disclaimer">{t('footer.disclaimer')}</p> */}
           </div>
           <div className="footer-bottom-right">
             <Link to="/privacy" className="footer-bottom-link">

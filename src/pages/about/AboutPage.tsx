@@ -53,33 +53,6 @@ function AboutPage() {
     { icon: <FaAward />, value: "24/7", label: "Support" },
   ];
 
-  const team = [
-    {
-      name: "John Doe",
-      role: "CEO & Founder",
-      image:
-        "https://ui-avatars.com/api/?name=John+Doe&size=200&background=23f7dd&color=0a0a0f&bold=true",
-    },
-    {
-      name: "Jane Smith",
-      role: "CTO",
-      image:
-        "https://ui-avatars.com/api/?name=Jane+Smith&size=200&background=00e8cc&color=0a0a0f&bold=true",
-    },
-    {
-      name: "Mike Johnson",
-      role: "Head of Analytics",
-      image:
-        "https://ui-avatars.com/api/?name=Mike+Johnson&size=200&background=23f7dd&color=0a0a0f&bold=true",
-    },
-    {
-      name: "Sarah Williams",
-      role: "Product Manager",
-      image:
-        "https://ui-avatars.com/api/?name=Sarah+Williams&size=200&background=00e8cc&color=0a0a0f&bold=true",
-    },
-  ];
-
   return (
     <div className="about-page">
       {/* Hero Section */}
@@ -195,7 +168,7 @@ function AboutPage() {
               <p>{t('about.story.p10')}</p>
             </div>
           </div>
-          <div className="story-timeline">
+          {/* <div className="story-timeline">
             <div className="timeline-item">
               <div className="timeline-year">2020</div>
               <div className="timeline-content">
@@ -224,45 +197,21 @@ function AboutPage() {
                 <p>{t('aboutPage.timelineDesc.global')}</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="about-team">
-        <div className="team-header">
-         <h2>{t('aboutPage.teamTitle')}</h2>
-         <p>{t('aboutPage.teamSubtitle')}</p>
-        </div>
-        <div className="team-grid">
-          {team.map((member, index) => (
-            <div key={index} className="team-card">
-              <div className="team-image">
-                <img src={member.image} alt={member.name} />
-                <div className="team-overlay">
-                  <p>Connect on LinkedIn</p>
-                </div>
-              </div>
-              <h3>{member.name}</h3>
-              <p>{member.role}</p>
-            </div>
-          ))}
+          </div> */}
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="about-cta">
         <div className="cta-content">
-          <h2>Ready to Get Started?</h2>
-          <p>
-            Join millions of users who trust ShoxEz for their financial insights
-          </p>
+          <h2>{t('aboutPage.ctaTitle')}</h2>
+          <p>{t('aboutPage.ctaText')}</p>
           <div className="cta-buttons">
             <a href="/register" className="cta-button primary">
-              Create Free Account
+              {t('aboutPage.ctaPrimary')}
             </a>
             <a href="/contact" className="cta-button secondary">
-              Contact Us
+              {t('aboutPage.ctaSecondary')}
             </a>
           </div>
         </div>

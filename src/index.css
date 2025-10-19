@@ -97,7 +97,7 @@ nav.py-2.header-navbar.navbar.navbar-expand-lg.navbar-light {
 
 	.header-navbar .d-flex.gap-3 {
 		flex-direction: column !important;
-		align-items: flex-start !important;
+		align-items: flex-start;
 		gap: 8px !important;
 		width: 100%;
 		margin-top: 8px;

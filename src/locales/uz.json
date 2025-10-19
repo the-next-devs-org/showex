@@ -172,7 +172,7 @@
 			"from":"Kimdan"
 		}
 		,"news":{
-			"allForexNews":"Barcha Forex yangiliklari",
+			"allForexNews":"So'nggi moliyaviy yangiliklar",
 			"headline":"Sarlavha:",
 			"text":"Matn:",
 			"loadMore":"Yana yuklash",
@@ -204,10 +204,10 @@
 		,
 		"about":{
 			"heroTitle":"Ushbu veb-saytning asoschisi Eshniyozov Shoxjahon Akmal o‘g‘li.",
-			"heroSubtitle":"Eshniyozov Shohjaxon Akmal Ogli, sohada “Opa” sifatida tanilgan ilhomlantiruvchi Forex treyderi, Forex bozorlarida eng yaxshi hayotiy hikoyalardan biriga ega. 'O‘zbekiston bo‘ri' laqabiga ega bo‘lgan treyder 2012 yilda ish boshlagan va tezda afsonaga aylangan.",
+			"heroSubtitle":"Eshniyozov Shohjaxon Akmal Ogli, sohada “OKA” sifatida tanilgan ilhomlantiruvchi Forex treyderi, Forex bozorlarida eng yaxshi hayotiy hikoyalardan biriga ega. 'O‘zbekiston bo‘ri' laqabiga ega bo‘lgan treyder 2012 yilda ish boshlagan va tezda afsonaga aylangan.",
 			"storyHeading":"Asoschi haqida",
 			"story":{
-				"p1":"Eshniyozov Shohjaxon Akmal Ogli, sohada “Opa” sifatida tanilgan ilhomlantiruvchi Forex treyderi, Forex bozorlarida eng yaxshi hayotiy hikoyalardan biriga ega. 'O‘zbekiston bo‘ri' laqabiga ega bo‘lgan treyder 2012 yilda ish boshlagan va tezda afsonaga aylangan.",
+				"p1":"Eshniyozov Shohjaxon Akmal Ogli, sohada “OKA” sifatida tanilgan ilhomlantiruvchi Forex treyderi, Forex bozorlarida eng yaxshi hayotiy hikoyalardan biriga ega. 'O‘zbekiston bo‘ri' laqabiga ega bo‘lgan treyder 2012 yilda ish boshlagan va tezda afsonaga aylangan.",
 				"p2":"Shohjaxon o‘z mehnati bilan muvaffaqiyatga erishgan inson misolidir va moliyaviy bozorlarning imkoniyatlarini o‘z foydasiga aylantira oladigan chidamli ko‘nikmalarga ega. Bu uning hikoyasidir.",
 				"sub1":"Forex afsonasi, O‘zbekiston Bo‘riysi, tarix yaratmoqda",
 				"p3":"1995 yilda O‘zbekistonda tug‘ilgan Shohjaxon, o‘z sharoitlarini yengib o‘tib, qat’iyat, bilim va iroda orqali Forex sohasida tirik afsonaga aylangan inson namunasi hisoblanadi.",

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './LandingChartsLanding.css';
 import { useTranslation } from 'react-i18next';
 
 type ChartPoint = {
@@ -56,7 +55,6 @@ function LandingCharts() {
   // News state
   const [news, setNews] = useState<NewsItem[]>([]);
   const [newsLoading, setNewsLoading] = useState(true);
-  const [currencyStats, setCurrencyStats] = useState<Record<string, { positive: number; negative: number; neutral: number }>>({});
   const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
 
@@ -65,44 +63,10 @@ function LandingCharts() {
     const fetchNews = async () => {
       setNewsLoading(true);
       try {
-        const res = await fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/category?section=allcurrencypairs`);
+        const res = await fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/category?section=allcurrencypairs&items=3&page=1`);
         const data = await res.json();
-        const newsData = data.data?.data || [];
-        setNews(newsData.slice(0, 3));
 
-        // Calculate currency statistics
-        const stats: Record<string, { positive: number; negative: number; neutral: number }> = {};
-        
-        // Process each news item
-        newsData.forEach((item: NewsItem) => {
-          if (item.currency) {
-            // Split currency pairs and count for both currencies
-            item.currency.forEach(curr => {
-              const [currency1, currency2] = curr.split('-');
-              
-              // Initialize if not exists
-              if (!stats[currency1]) {
-                stats[currency1] = { positive: 0, negative: 0, neutral: 0 };
-              }
-              if (currency2 && !stats[currency2]) {
-                stats[currency2] = { positive: 0, negative: 0, neutral: 0 };
-              }
-              
-              // Update sentiment count for both currencies
-              if (item.sentiment === 'Positive') {
-                stats[currency1].positive++;
-                if (currency2) stats[currency2].positive++;
-              } else if (item.sentiment === 'Negative') {
-                stats[currency1].negative++;
-                if (currency2) stats[currency2].negative++;
-              } else {
-                stats[currency1].neutral++;
-                if (currency2) stats[currency2].neutral++;
-              }
-            });
-          }
-        });
-        setCurrencyStats(stats);
+        setNews(data.data?.data || []);
       } catch (error) {
         console.error("Error fetching news:", error);
       } finally {
@@ -181,37 +145,7 @@ function LandingCharts() {
 
   return (
     <div className="container-fluid">
-      {/* Currency Statistics Section */}
-      <div className="LandingChartsLanding lamzi landingcharts-currency-row">
-        <h3 className="LandingChartsLanding lamzi landingcharts-title">Currency Sentiment Overview</h3>
-        <div className="LandingChartsLanding lamzi landingcharts-currency-list-wrapper">
-          <div className="LandingChartsLanding lamzi landingcharts-currency-list landingcharts-infinite-scroll">
-            {/* Duplicate the list for seamless infinite scroll */}
-            {[...Array(2)].map((_, idx) => (
-              <div className="landingcharts-currency-list-inner" key={idx}>
-                {Object.entries(currencyStats).map(([currency, stats]) => (
-                  <div
-                    key={currency + idx}
-                    className="LandingChartsLanding lamzi landingcharts-currency-item landingcharts-currency-item-tooltip"
-                  >
-                    <span className="LandingChartsLanding lamzi landingcharts-currency-name">{currency}</span>
-                    <span className="LandingChartsLanding lamzi landingcharts-currency-positive">🟢 {stats.positive}</span>
-                    <span className="LandingChartsLanding lamzi landingcharts-currency-negative">🔴 {stats.negative}</span>
-                    <span className="LandingChartsLanding lamzi landingcharts-currency-neutral">⚪ {stats.neutral}</span>
-                    <div className="landingcharts-tooltip landingcharts-tooltip-small landingcharts-tooltip-flex">
-                      <div className="landingcharts-tooltip-flex-row">
-                        <span style={{color:'#2e7d32',fontWeight:600, fontSize:'0.75em', marginRight:10}}>Postive: {stats.positive}</span>
-                        <span style={{color:'#c62828',fontWeight:600, fontSize:'0.75em', marginRight:10}}>Negative: {stats.negative}</span>
-                        <span style={{color:'#757575',fontWeight:600, fontSize:'0.75em'}}>Neutral: {stats.neutral}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+
 
       {/* Latest Forex News Section */}
       <div className="row mt-4">

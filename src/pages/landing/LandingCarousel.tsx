@@ -106,6 +106,7 @@ function LandingCarousel() {
   return (
     <div className="container-fluid">
       <div
+      className="eurusedailydiv"
         style={{
           margin: "10px auto 0 auto",
           background: "#000",

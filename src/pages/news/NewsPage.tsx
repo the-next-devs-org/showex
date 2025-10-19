@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "./NewsPage.css";
 import MiniLoader from "../../components/MiniLoader";
@@ -14,6 +15,7 @@ function getRandomItems<T>(
 }
 
 function NewsPage() {
+  const { t } = useTranslation();
   const [newsList, setNewsList] = useState<any[]>([]);
   const [allNews, setAllNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -60,7 +62,7 @@ function NewsPage() {
 
   return (
     <div className="news-page-main">
-      <h2 className="news-page-title">📰 Latest Financial News</h2>
+      <h2 className="news-page-title">📰 {t('news.allForexNews')}</h2>
       {loading ? (
         <div className="news-page-loading">
           <MiniLoader />
@@ -98,7 +100,7 @@ function NewsPage() {
           {!allLoaded && (
             <div style={{ textAlign: "center", margin: "32px 0" }}>
               <button className="load-more-btn" onClick={handleLoadMore}>
-                Load More
+                {t('news.loadMore')}
               </button>
             </div>
           )}

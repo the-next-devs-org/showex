@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import Header from "./components/Header";
 import AppRoutes from "./routes/AppRoutes";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 import StarfieldBackground from "./components/StarfieldBackground";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -76,7 +78,9 @@ function AppContent() {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <StarfieldBackground />
+      <ScrollToTopButton />
       <AppContent />
     </Router>
   );
