@@ -186,7 +186,7 @@ function LandingCharts() {
     <div className="container-fluid">
       {/* Currency Statistics Section */}
       <div className="LandingChartsLanding lamzi landingcharts-currency-row">
-        <h3 className="LandingChartsLanding lamzi landingcharts-title">Currency Sentiment Overview</h3>
+        <h3 className="LandingChartsLanding lamzi landingcharts-title">{t('auth.overview')}</h3>
         <div className="LandingChartsLanding lamzi landingcharts-currency-list-wrapper">
           <div className="LandingChartsLanding lamzi landingcharts-currency-list landingcharts-infinite-scroll">
             {/* Duplicate the list for seamless infinite scroll */}

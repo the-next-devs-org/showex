@@ -294,7 +294,8 @@
 		"register": "Register",
 		"profile": "Profile",
 		"logout": "Logout",
-		"founder": "The Founder Of This Website Is"
+		"founder": "The Founder Of This Website Is",
+		"overview": "Currency Sentiment Overview"
 	},
 	"language": {
 		"en": "EN",
