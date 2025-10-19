@@ -16,12 +16,13 @@ import { useEffect, useState } from "react"; // ✅ add this
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useTranslation();
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // ✅ add this
+  // TODO: Re-enable when implementing authenticated menu items
+  const [, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     setIsAuthenticated(!!token);
-  }, []); // ✅ runs once when Footer mounts
+  }, []); // Set authentication state on mount
 
   const quickLinks = [
     { label: "nav.home", path: "/", icon: <FaChartLine /> },
@@ -122,19 +123,24 @@ const Footer = () => {
             <div className="footer-contact">
               <div className="contact-item">
                 <FaEnvelope className="contact-icon" />
-                <a href="mailto:info@ShoxEz.com" className="contact-link">
-                  info@ShoxEz.com
+                <a href="mailto:admin@shoxez.com" className="contact-link">
+                  admin@shoxez.com
                 </a>
               </div>
               <div className="contact-item">
                 <FaPhone className="contact-icon" />
-                <a href="tel:+1234567890" className="contact-link">
-                  +1 (234) 567-890
+                <a href="tel:+212722239961" className="contact-link">
+                  {/* +1 (234) 567-890 */}
+                  +212722239961
                 </a>
               </div>
               <div className="contact-item">
                 <FaMapMarkerAlt className="contact-icon" />
-                <span className="contact-text">{t('footer.globalHub')}</span>
+                <span className="contact-text">Uzbekistan, Tashkent</span>
+              </div>
+              <div className="contact-item">
+                <FaMapMarkerAlt className="contact-icon" />
+                <span className="contact-text">United States of Amerika, New york</span>
               </div>
             </div>
           </div>
@@ -154,7 +160,7 @@ const Footer = () => {
         >
           <span className="neon-text" style={{ flex: 1, textAlign: 'left' }}>
             <span className="neon-highlight">
-              The Founder Of This Website Is Eshniyozov Shoxjahon Akmal ogli.
+              {t('auth.founder')} Eshniyozov Shoxjahon Akmal ogli.
             </span>
           </span>
 

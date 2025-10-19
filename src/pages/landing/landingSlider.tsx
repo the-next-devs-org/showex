@@ -22,21 +22,23 @@ const BlockchainSlider: React.FC = () => {
   const { t, i18n } = useTranslation();
   const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
 
-  useEffect(() => {
-    const lang = i18n.language || "en"; // add this line
+const lang = i18n.language || "en";
 
-    fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/sundownDigest?lang=${lang}&page=1`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("API response:", data);
-        if (Array.isArray(data?.data?.data)) {
-          setBlocks(data.data.data);
-        } else {
-          setBlocks([]);
-        }
-      })
-      .catch((err) => console.error("Error fetching data:", err));
-  }, [i18n.language]); // refetch on language change
+useEffect(() => {
+  fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/sundownDigest?lang=${lang}&page=1`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("API response:", data);
+      if (Array.isArray(data?.data)) {
+        setBlocks(data.data);
+      } else {
+        setBlocks([]);
+      }
+    })
+    .catch((err) => console.error("Error fetching data:", err));
+}, [lang]);
+
+
 
 
   useEffect(() => {

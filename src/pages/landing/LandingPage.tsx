@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import LandingHero from "./LandingHero";
 import LandingCharts from "./LandingCharts";
-import LandingCarousel from "./LandingCarousel";
-import LandingTransactedNFTS from "./LandingTransactedNFTS";
+// LandingCarousel import removed because the component is currently unused
 import BlockchainSlider from "./landingSlider";
 import Loading from "../../components/Loading";
 
@@ -67,10 +66,9 @@ function LandingPage() {
         <LandingCharts />
 
         {/* Most Used Applications (daily) Section - Carousel */}
-        <LandingCarousel />
+        {/* <LandingCarousel /> */}
 
-        {/* Most Transacted NFTs & Tokens Section */}
-        <LandingTransactedNFTS />
+  {/* Most Transacted NFTs & Tokens Section (component currently unused) */}
 
         <BlockchainSlider />
 

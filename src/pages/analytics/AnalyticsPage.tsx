@@ -1,72 +1,15 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-} from "recharts";
-import { FaArrowRight, FaRobot, FaArrowUp, FaArrowDown } from "react-icons/fa";
 import "./AnalyticsPage.css";
 import { predictionService } from "../../services/api";
 import ExportButton from "../../components/ExportButton";
-
-// Placeholder data for charts
-const lineData = Array.from({ length: 30 }, (_, i) => ({
-  date: `Aug ${i + 1}`,
-  value: Math.floor(Math.random() * 10000 + 10000),
-}));
+import { FaRobot, FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 // Demo chart data for different ranges (copied from TransactionsPage)
-const chartDataAll = Array.from({ length: 730 }, (_, i) => ({
-  name: `Day ${i + 1}`,
-  total:
-    700000000 +
-    Math.round(Math.sin(i / 18) * 2000000 + Math.random() * 1000000) +
-    i * 500000,
-  applications:
-    500000000 +
-    Math.round(Math.cos(i / 22) * 1500000 + Math.random() * 800000) +
-    i * 400000,
-  standard:
-    400000000 +
-    Math.round(Math.sin(i / 30) * 1000000 + Math.random() * 400000) +
-    i * 200000,
-}));
-const chartData365d = chartDataAll.slice(-365); // last 365 days
-const chartData30d = chartDataAll.slice(-30); // last 30 days
-const chartData7d = chartDataAll.slice(-7); // last 7 days
 
-// Generate mock data for NFTs table
-const generateNFTsData = () => {
-  return Array.from({ length: 10 }, (_, i) => ({
-    Rank: i + 1,
-    Token: `NFT Collection ${i + 1}`,
-    Items: Math.floor(Math.random() * 10000),
-    Holders: Math.floor(Math.random() * 5000),
-    "Total Txn": Math.floor(Math.random() * 1000),
-  }));
-};
-
-// Generate mock data for Tokens table
-const generateTokensData = () => {
-  return Array.from({ length: 10 }, (_, i) => ({
-    Rank: i + 1,
-    Token: `Token ${i + 1}`,
-    "Total Txn": Math.floor(Math.random() * 10000),
-  }));
-};
 
 function AnalyticsPage() {
   const { t, i18n } = useTranslation();
-  // State for dropdown and chart range
-  const [dropdownOpen, setDropdownOpen] = React.useState(false);
-  const [selectedRange, setSelectedRange] = React.useState("30d");
-
   // State for AI predictions
   const [predictions, setPredictions] = React.useState<any[]>([]);
   const [loadingPredictions, setLoadingPredictions] = React.useState(true);
@@ -114,17 +57,7 @@ function AnalyticsPage() {
     return labels[confidence] || confidence;
   };
 
-  let chartData = chartData30d;
-  if (selectedRange === "7d") chartData = chartData7d;
-  else if (selectedRange === "365d") chartData = chartData365d;
-  else if (selectedRange === "All") chartData = chartDataAll;
 
-  // Get the latest stats from the last entry in the current chart data
-  const last = chartData[chartData.length - 1] || {
-    total: 0,
-    applications: 0,
-    standard: 0,
-  };
 
   return (
     <div className=" container">
