@@ -17,7 +17,7 @@ function LandingPage() {
   const [loading, setLoading] = useState<boolean>(true);
   console.log(news);
 
-  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
 
 
   // useEffect(() => {

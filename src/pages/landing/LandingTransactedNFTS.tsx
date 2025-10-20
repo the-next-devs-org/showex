@@ -6,7 +6,7 @@ function LandingTransactedNFTS() {
   const { t } = useTranslation();
   const [tableData, setTableData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
 
 
   useEffect(() => {

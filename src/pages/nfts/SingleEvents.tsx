@@ -8,7 +8,7 @@ function SingleEventPage() {
   const { i18n } = useTranslation(); // ✅ to get current language
   const [event, setEvent] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
 
   useEffect(() => {
     async function fetchEvent() {

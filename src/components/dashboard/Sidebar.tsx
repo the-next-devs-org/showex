@@ -6,7 +6,7 @@ import {
   AnalyticsIcon,
   UserGroupIcon,
   SettingsIcon,
-  NotificationIcon,
+  // NotificationIcon,
 } from './Icons';
 
 const Sidebar: React.FC = () => {
@@ -21,7 +21,7 @@ const Sidebar: React.FC = () => {
     // { path: '/dashboard/transactions', icon: TransactionIcon, label: 'Transactions' },
     // Users link sirf admin ke liye
     ...(loggedInUser.role === 1 ? [{ path: '/dashboard/users', icon: UserGroupIcon, label: 'Users' }] : []),
-    { path: '/dashboard/notification', icon: NotificationIcon, label: 'Notifications' },
+    // { path: '/dashboard/notification', icon: NotificationIcon, label: 'Notifications' },
     { path: '/dashboard/settings', icon: SettingsIcon, label: 'Settings' },
   ];
 

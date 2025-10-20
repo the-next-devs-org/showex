@@ -397,7 +397,7 @@ function Header() {
       {/* Sub-header row: left lorem ipsum, right social icons (neon style) */}
       <div className="subheader-container">
         <style>{`
-          .subheader-container{ background:#071015; color:#cfd8dc; border-bottom:1px solid rgba(255,255,255,0.04); font-size:13px; }
+          .subheader-container{color:#cfd8dc; font-size:13px; }
           .subheader-inner{ max-width:1200px; display:flex; align-items:center; justify-content:space-between; padding:10px 0; }
           .neon-text{ color:#9aa7ab; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-weight:500; }
           /* animated gradient highlight */

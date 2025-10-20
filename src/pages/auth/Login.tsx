@@ -6,7 +6,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
   const navigate = useNavigate();
 
   // const handleSubmit = (e: React.FormEvent) => {

@@ -14,7 +14,7 @@ const Profile: React.FC = () => {
 
   const [countries, setCountries] = useState<string[]>([]); 
   const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved">("idle");
-  const BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
 
   useEffect(() => {
     // ✅ load all country names

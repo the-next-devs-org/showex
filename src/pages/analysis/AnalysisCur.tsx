@@ -43,7 +43,7 @@ function AnalysisCur() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-    const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+    const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
 
     useEffect(() => {
         fetch(`${API_BACKEND_URL}/sentimentAnalysis`)

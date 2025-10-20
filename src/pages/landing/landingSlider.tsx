@@ -20,7 +20,7 @@ const BlockchainSlider: React.FC = () => {
   const [blocks, setBlocks] = useState<ApiData[]>([]);
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
 
 const lang = i18n.language || "en";
 

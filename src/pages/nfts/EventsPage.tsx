@@ -9,7 +9,7 @@ function Nftspage() {
   const [loading, setLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(15);
   const navigate = useNavigate();
-  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
   const lang = i18n.language || "en"; // 👈 add lang param
 
   useEffect(() => {

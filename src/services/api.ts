@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_BASE_URL =
-  import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,

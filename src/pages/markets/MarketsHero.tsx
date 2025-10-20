@@ -22,7 +22,7 @@ function MarketsHero() {
   const [error, setError] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(9)
 
-  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
 
   const lang = i18n.language || "en"; 
 

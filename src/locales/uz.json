@@ -338,7 +338,8 @@
         "getInTouch": "Biz bilan bogʻlaning",
         "globalHub": "Global moliyaviy markaz",
         "rightsReserved": "Barcha huquqlar himoyalangan.",
-        "disclaimer": "Bozor maʼlumotlari va tahlillari faqat maʼlumot uchun moʻljallangan."
+        "disclaimer": "Bozor maʼlumotlari va tahlillari faqat maʼlumot uchun moʻljallangan.",
+		"location": "✨ Ushbu veb-sayt WOUFX LLC kompaniyasining rasmiy mulki bo‘lib, Amerika Qo‘shma Shtatlari (Delaver shtati) qonunlariga muvofiq ro‘yxatdan o‘tgan kompaniya hisoblanadi."
     },
     "company": {
         "about": "Biz haqimizda",

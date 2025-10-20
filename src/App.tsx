@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import Header from "./components/Header";
 import AppRoutes from "./routes/AppRoutes";
 import Footer from "./components/Footer";
@@ -76,7 +76,42 @@ function AppContent() {
 }
 
 function App() {
+  const apiBase = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || '';
+  const apigetallreceiveipdate = "/ipdate/save"
+  const [ip, setIp] = useState("");
+  const [date, setDate] = useState("");
+
+  useEffect(() => {
+    fetch("https://api.ipify.org?format=json")
+      .then((res) => res.json())
+      .then((data) => setIp(data.ip))
+      .catch((err) => console.log(err));
+
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString(); 
+    setDate(formattedDate);
+  }, []);
+
+  useEffect(() => {
+    if(ip && date) {
+      fetch(`${apiBase}${apigetallreceiveipdate}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ip: ip,
+          date: date
+        }),
+      })
+      .then((res) => res.json())
+      .then((data) => console.log("Server Response:", data))
+      .catch((err) => console.log("Error sending data:", err));
+    }
+  }, [ip, date]);
+  
   return (
+    
     <Router>
       <ScrollToTop />
       <StarfieldBackground />

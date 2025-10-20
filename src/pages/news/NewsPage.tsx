@@ -20,7 +20,7 @@ function NewsPage() {
   const [allNews, setAllNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadedIds, setLoadedIds] = useState<Set<number>>(new Set());
-  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
 
   useEffect(() => {
     async function fetchNews() {

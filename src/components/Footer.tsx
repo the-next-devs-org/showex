@@ -14,7 +14,7 @@ import {
 import { useEffect, useState } from "react"; // ✅ add this
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  // const currentYear = new Date().getFullYear();
   const { t } = useTranslation();
   // TODO: Re-enable when implementing authenticated menu items
   const [, setIsAuthenticated] = useState(false);
@@ -134,14 +134,39 @@ const Footer = () => {
                   +212722239961
                 </a>
               </div>
-              <div className="contact-item">
+              <div className="contact-item" style={{ alignItems: 'baseline' }}>
                 <FaMapMarkerAlt className="contact-icon" />
-                <span className="contact-text">Uzbekistan, Tashkent</span>
+                <span className="contact-text">{t('footer.location')}<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 7410 3900"
+                >
+                  <path d="M0,0h7410v3900H0" fill="#B31942" />
+                  <path
+                    d="M0,450h7410m0,600H0m0,600h7410m0,600H0m0,600h7410m0,600H0"
+                    stroke="#FFF"
+                    strokeWidth="300"
+                  />
+                  <path d="M0,0h2964v2100H0" fill="#0A3161" />
+                  <rect width="7410" height="3900" fill="#B31942" />
+                  <path
+                    d="M0,450h7410m0,600H0m0,600h7410m0,600H0m0,600h7410m0,600H0"
+                    stroke="#FFF"
+                    strokeWidth="300"
+                  />
+                  <rect width="2964" height="2100" fill="#0A3161" />
+                  <path
+                    fill="#FFF"
+                    d="M247 900l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm494 0l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm-247 300l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm494 0l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm-247 300l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm494 0l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm-247 300l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm494 0l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm-247 300l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm494 0l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm-247 300l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm494 0l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm-247 300l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542zm494 0l-123.559 90.06h-154.542l123.559 90.06-123.559 90.06h154.542l123.559 90.06 123.559-90.06h154.542l-123.559-90.06 123.559-90.06h-154.542z"
+                  />
+                </svg></span>
               </div>
-              <div className="contact-item">
+              {/* <div className="contact-item">
                 <FaMapMarkerAlt className="contact-icon" />
-                <span className="contact-text">United States of Amerika, New york</span>
-              </div>
+                <span className="contact-text">United States of America, New york</span>
+              </div> */}
             </div>
           </div>
         </div>
@@ -172,7 +197,8 @@ const Footer = () => {
               margin: 0,
             }}
           >
-            © {currentYear} <span className="brand-name">ShoxEz</span>. {t('footer.rightsReserved')}
+            {/* © {currentYear} <span className="brand-name">ShoxEz</span>. {t('footer.rightsReserved')} */}
+            📜 All rights reserved. WOUFX LLC © Delaware, USA
           </p>
         </div>
         <div className="footer-bottom">

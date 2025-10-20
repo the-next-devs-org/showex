@@ -15,7 +15,7 @@ const SunDownDetail: React.FC = () => {
   const [news, setNews] = useState<ApiData | null>(null);
   const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
-  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const VITE_SHOXEZ_API_BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
 
   useEffect(() => {
     fetch(`${VITE_SHOXEZ_API_BACKEND_URL}/sundownDigest`) 

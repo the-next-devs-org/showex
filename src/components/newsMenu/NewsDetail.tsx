@@ -11,7 +11,7 @@ function NewsDetail() {
   const [loading, setLoading] = useState(true);
   const [allNews, setAllNews] = useState<any[]>([]);
 
-  const BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL;
+  const BACKEND_URL = import.meta.env.VITE_SHOXEZ_API_BACKEND_URL || 'https://shoxez.com/api';
 
   useEffect(() => {
     async function fetchSingleNews() {
